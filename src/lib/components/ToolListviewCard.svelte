@@ -97,9 +97,7 @@
 	.card-wrapper:hover,
 	.card-wrapper:focus {
 		transform: scale(1.05);
-		box-shadow:
-			rgba(0, 0, 0, 0.2) 0px 25px 30px -5px,
-			rgba(0, 0, 0, 0.15) 0px 10px 12px -6px;
+		box-shadow: rgba(0, 0, 0, 0.2) 0px 25px 30px -5px, rgba(0, 0, 0, 0.15) 0px 10px 12px -6px;
 		border-color: rgb(90, 92, 106);
 	}
 </style>
