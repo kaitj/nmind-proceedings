@@ -5,7 +5,6 @@ import { join } from 'path';
 const PATH_DIR_ENTRIES_INPUT = 'src/lib/data/entries';
 const PATH_DIR_ENTRIES_OUTPUT = 'src/lib/data/evaluatedTools';
 
-
 const OUTPUT_SKELETON = {
 	"name": null,
 	"description": null,
@@ -23,8 +22,7 @@ const EVALUATION_SKELETON = {
 	"date": null,
 	"evaluatorEmail": "nmind@nmind.mock",
 	"checklist": {}
-}
-
+};
 
 /**
  * Read all json files from the input directory
@@ -83,6 +81,7 @@ function backMigrate(entry) {
 	entry_backmigrated.description = `This tool was migrated from the old format. Please update it.`;
 	entry_backmigrated.urls = entry.urls.map(x => ({ "text": x.url_type, href: x.url }));
 	entry_backmigrated.slug = makeUrlSafeName(entry.name);
+	entry_backmigrated.evaluations = entry.evaluations ? entry.evaluations : [];
 
 	const evaluation = { ...EVALUATION_SKELETON };
 	// set date as today in the format YYYY-MM-DD

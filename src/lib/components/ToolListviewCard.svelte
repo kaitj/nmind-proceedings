@@ -24,7 +24,7 @@
 			>
 				<div class="aspect-square object-cover h-32 p-4">
 					{#if docsUrl}
-						<a href={`https://www.${docsUrl.href}/`} target="_blank" rel="noopener noreferrer">
+						<a href={`https://www.${docsUrl.href}`} target="_blank" rel="noopener noreferrer">
 							<img
 								src={`${base}/tool_icons/${tool.image}`}
 								alt={`The icon of the ${tool.name} neuroimaging tool`}
@@ -46,7 +46,7 @@
 					{#if tool?.urls?.length > 0}
 						<div class="truncate pb-2">
 							<a
-								href={`https://${tool.urls[0].href}/`}
+								href={`${tool.urls[0].href}/`}
 								target="_blank"
 								rel="noopener noreferrer"
 								class="underline text-sky-500 hover:text-sky-700 decoration-sky-500 hover:decoration-sky-700"

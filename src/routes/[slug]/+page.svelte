@@ -43,7 +43,7 @@
 			{#each data?.urls as url (url)}
 				<li class="mb-2">
 					<a
-						href={`https://${url.href}/`}
+						href={`${url.href}`}
 						target="_blank"
 						rel="noopener noreferrer"
 						class="underline decoration-transparent transition duration-300 ease-in-out hover:decoration-inherit"
