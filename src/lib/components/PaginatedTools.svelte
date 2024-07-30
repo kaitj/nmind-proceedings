@@ -71,6 +71,18 @@
 <div
 	class="flex grow flex-wrap flex-col items-center md:flex-row md:items-stretch md:justify-around lg:justify-center mb-4 lg:gap-8 xl:gap-12"
 >
+	<div id="checklistButton">
+		<label for="checklist" class="label">
+			<span class="label-text text-lg">Checklist:</span>
+		</label>
+		<button
+			type="button"
+			class="btn btn-primary btn-md"
+			style="color: #fff;"
+			on:click={() => window.open('https://www.nmind.org/standards-checklist/', '_blank')}
+			id="checklist">Add a tool
+		</button>
+	</div>
 	<div id="textSearch">
 		<label for="tool-name" class="label">
 			<span class="label-text text-lg">Search by text:</span>
@@ -161,7 +173,7 @@
 				</label>
 			</div>
 		</div>
-	</div>
+	</div>		
 </div>
 
 <hr class="mt-12" />
