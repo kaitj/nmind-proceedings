@@ -1,0 +1,70 @@
+{
+  "name": "test-success",
+  "urls": [],
+  "documentation": {
+    "bronze": {
+      "1": false,
+      "2": false,
+      "3": false,
+      "4": false,
+      "5": false,
+      "6": false,
+      "7": false,
+      "8": false,
+      "9": false
+    },
+    "silver": {
+      "1": false,
+      "2": false,
+      "3": false,
+      "4": false,
+      "5": false,
+      "6": false
+    },
+    "gold": {
+      "1": false,
+      "2": false,
+      "3": false,
+      "4": false,
+      "5": false,
+      "6": false
+    }
+  },
+  "infrastructure": {
+    "bronze": {
+      "1": false,
+      "2": false,
+      "3": false,
+      "4": false,
+      "5": false,
+      "6": false,
+      "7": false
+    },
+    "silver": {
+      "1": false,
+      "2": false,
+      "3": false
+    },
+    "gold": {
+      "1": false,
+      "2": false,
+      "3": false,
+      "4": false,
+      "5": false
+    }
+  },
+  "testing": {
+    "bronze": {
+      "1": false,
+      "2": false
+    },
+    "silver": {
+      "1": false,
+      "2": false
+    },
+    "gold": {
+      "1": false,
+      "2": false
+    }
+  }
+}
