@@ -1,0 +1,48 @@
+name: Create PR for new checklist
+
+on:
+  workflow_dispatch:
+    inputs:
+      json_checklist:
+        description: 'Checklist content as JSON'
+        required: true
+
+jobs:
+  create-file:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Extract name
+        id: extract-name
+        run: |
+          echo "file_content=${{ github.events.inputs.file_content }}" >> $GITHUB_ENV
+          echo "name=`(echo $file_content | jq -r '.name' | tr ' -' '__')` >> $GITHUB_ENV"
+
+      - name: Create file
+        run: |
+          echo "file_name='src/lib/data/entries/checlist_${{ env.name }}.json'" >> $GITHUB_ENV
+          echo "${{ github.event.inputs.json_checklist }}" > $file_name
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Create new branch
+        run: |
+          echo "branch_name=checklist/${{ env.name }}" >> $GITHUB_ENV
+          git checkout -b checklist/<tool_name> 
+          git add ${{ env.file_name }}
+          git commit -m "Add ${{ env.name }} checklist"
+          git push origin $branch_name
+
+      - name: Create PR
+        uses: peter-evans/create-pull-request@v5
+        with:
+            token: ${{ secrets.GITHUB_TOKEN }}
+            branch: ${{ env.branch_name }}
+            title: "Add checklist for ${{ env.name }}"
+            body: "This PR adds a new / updated checklist for ${{ env.name }}"
