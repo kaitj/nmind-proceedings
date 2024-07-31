@@ -16,15 +16,15 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Extract name
-        id: extract-name
         run: |
-          echo 'file_content=${{ github.event.inputs.json_checklist }}' >> $GITHUB_ENV
-          name=$(echo $file_content | jq -r '.name' | tr ' -' '__')
-          echo 'name=${name}' >> $GITHUB_ENV
+          json_checklist=${{ github.event.inputs.json_checklist }}
+          name=$(echo "$json_checklist" | jq -r '.name' | tr ' -' '__')
+          echo "name=$(echo $name)" >> $GITHUB_ENV
 
       - name: Create file
         run: |
-          echo 'file_name="src/lib/data/entries/checklist_${{ env.name }}.json"' >> $GITHUB_ENV
+          file_name="src/lib/data/entries/checklist_${{ env.name }}.json"
+          echo "file_name=$(echo $file_name)" >> $GITHUB_ENV
           echo '${{ github.event.inputs.json_checklist }}' > $file_name
 
       - name: Configure Git
@@ -34,16 +34,15 @@ jobs:
 
       - name: Create new branch
         run: |
-          echo 'branch_name=checklist/${{ env.name }}' >> $GITHUB_ENV
-          git checkout -b checklist/<tool_name> 
           git add ${{ env.file_name }}
           git commit -m 'Add ${{ env.name }} checklist'
-          git push origin $branch_name
-
+  
       - name: Create PR
-        uses: peter-evans/create-pull-request@v5
+        uses: peter-evans/create-pull-request@v6
         with:
-            token: ${{ secrets.GITHUB_TOKEN }}
-            branch: ${{ env.branch_name }}
-            title: 'Add checklist for ${{ env.name }}'
-            body: 'This PR adds a new / updated checklist for ${{ env.name }}'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          base: development
+          branch: checklist/${{ env.name }}
+          commit-message: 'Add ${{ env.name }} checklist'
+          title: 'Add checklist for ${{ env.name }}'
+          body: 'This PR adds a new / updated checklist for ${{ env.name }}'
