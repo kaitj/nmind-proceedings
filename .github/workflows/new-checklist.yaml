@@ -1,0 +1,43 @@
+name: Create PR for new checklist
+
+on:
+  repository_dispatch:
+    types: [new_checklist]
+
+jobs:
+  create-file:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Extract name
+        run: |
+          json_checklist='${{ github.event.client_payload.data }}'
+          name=$(echo "$json_checklist" | jq -r '.name' | tr ' -' '__')
+          echo "name=$(echo $name)" >> $GITHUB_ENV
+
+      - name: Create file
+        run: |
+          file_name="src/lib/data/entries/checklist_${{ env.name }}.json"
+          echo "file_name=$(echo $file_name)" >> $GITHUB_ENV
+          echo '${{ github.event.client_payload.data }}' | jq . > $file_name
+
+      - name: Configure Git
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+
+      - name: Create new file
+        run: |
+          git add ${{ env.file_name }}
+          git commit -m 'Add ${{ env.name }} checklist'
+  
+      - name: Create PR
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: checklist/${{ env.name }}
+          commit-message: 'Add ${{ env.name }} checklist'
+          title: 'Add checklist for ${{ env.name }}'
+          body: 'This PR adds a new / updated checklist for ${{ env.name }}'
