@@ -1,0 +1,65 @@
+name: Add checklist
+on:
+  issues:
+    types: [labeled]
+
+jobs:
+  update-proceedings:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check labels
+        id: check_labels
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const labels = context.payload.issue.labels.map(label => label.name);
+            const hasApproved = labels.includes('approved');
+            const hasChecklist = labels.includes('checklist');
+            return hasApproved && hasChecklist;
+      
+      - name: Early exit
+        if: steps.check_labels.outputs.result == 'false'
+        run: echo "Not an approved checklist issue - exiting"
+
+      - name: Checkout
+        if: steps.check_labels.outputs.result == 'true'
+        uses: actions/checkout@v4
+
+      - name: Extract checklist data
+        if: steps.check_labels.outputs.result == 'true'
+        run: |
+          issue_body='${{ github.event.issue.body }}'
+          checklist=$(echo "$issue_body" | sed -n '/```json/,/```/p' | sed '1d;$d')
+          name=$(echo "$checklist" | jq -r '.name' | sed 's/ /_/g')
+          echo "checklist=$(echo $checklist)" >> $GITHUB_ENV
+          echo "name=$(echo $name)" >> $GITHUB_ENV
+
+      - name: Create file
+        if: steps.check_labels.outputs.result == 'true'
+        run: |
+          file_name="src/lib/data/entries/checklist_${{ env.name }}.json"
+          echo "file_name=$(echo $file_name)" >> $GITHUB_ENV
+          echo '${{ env.checklist }}' | jq . > $file_name
+
+      - name: Validate checklist
+        if: steps.check_labels.outputs.result == 'true'
+        uses: GrantBirki/json-yaml-validate@v3
+        with:
+          base_dir: src/lib/data/entries
+          json_schema: src/lib/data/evaluationSchemas/checklist_schema.json
+          ajv_strict_mode: false
+          json_exclude_regex: ''
+      
+      - name: Configure git
+        if: steps.check_labels.outputs.result == 'true'
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+        
+      - name: Push to proceedings page
+        if: steps.check_labels.outputs.result == 'true'
+        run: |
+          git add ${{ env.file_name }}
+          git commit -m 'Closes #${{ github.event.issue.number }}'
+          git push
