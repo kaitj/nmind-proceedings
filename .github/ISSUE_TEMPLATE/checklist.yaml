@@ -1,0 +1,25 @@
+name: Checklist Submission
+description: Submit a new checklist for a tool
+title: "Checklist: "
+labels: ["checklist"]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for submitting a new checklist!
+  
+  - type: textarea
+    id: checklist
+    attributes:
+      label: Checklist content
+      description: Provide the JSON checklist content
+      placeholder: 'ex. {"name": "tool name"}'
+    validations:
+      required: true
+
+  - type: textarea
+    id: details
+    attributes:
+      label: Additional information
+      description: Please provide us with any additional information
+    validations:
+      required: false
