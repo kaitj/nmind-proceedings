@@ -23,6 +23,25 @@ pflannery.vscode-versionlens
 svelte.svelte-vscode
 ```
 
+## Workflow
+
+The workflow to add a new tool to the proceedings page is as follows:
+
+```mermaid
+flowchart LR
+  A(User checklist submission) --> B(Github Issue)
+  B --> C(Checklist review)
+  C --> D{Approved?}
+  D -->|No| E(Revision)
+  E --> C
+  D -->|Yes| F(Added to proceedings)
+```
+
+1. User submits checklist from the [web app](https://nmind.org/standards-checklist)
+2. An issue is created from submitted checklist
+3. Review process with NMIND moderator via created issue
+4. When approved (addition of `approved` label), user submission is added to the [checklist](https://nmind.org/proceedings) via CI.
+
 ## Developing
 
 Once you've pulled down the repo with e.g. `git clone` and installed dependencies with `npm install`, start a development server:
