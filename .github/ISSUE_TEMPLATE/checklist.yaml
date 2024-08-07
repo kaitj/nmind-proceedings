@@ -5,7 +5,11 @@ labels: ["checklist"]
 body:
   - type: markdown
     attributes:
-      value: Thanks for submitting a new checklist!
+      value: |
+        Thanks for choosing to submit a new checklist! 
+        
+        Please take a quick look at the 
+        [submission workflow](https://github.com/nmind/proceedings?tab=readme-ov-file#workflow).
   
   - type: textarea
     id: checklist
@@ -23,3 +27,12 @@ body:
       description: Please provide us with any additional information
     validations:
       required: false
+
+  - type: checkboxes
+    id: agreement
+    attributes:
+      label: Agreement
+      description: By submitting this checklist, you understand and agree to the submission process.
+      options:
+        - label: I agree
+          required: true
