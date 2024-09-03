@@ -1,0 +1,16 @@
+name: Other
+description: Report a bug / suggest a feature to help us improve
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for reporting a bug / suggesting a new feature
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug / feature
+      description: Describe the bug / feature and the expected behaviour
+      placeholder: |
+        A clear, concise description of the bug / feature and the expected behaviour
+    validations:
+      required: true
