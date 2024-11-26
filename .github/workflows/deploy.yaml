@@ -3,7 +3,11 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: 
-        - development
+      - development
+  workflow_run:
+    workflows: ["Add checklist"]
+    types:
+      - completed
 
 jobs:
   build:
