@@ -1,0 +1,79 @@
+{
+  "name": "NiftyOne",
+  "urls": [
+    {
+      "url_type": "Landing page",
+      "url": "https://github.com/childmindresearch/niftyone/"
+    },
+    {
+      "url_type": "Source code",
+      "url": "https://github.com/childmindresearch/niftyone/"
+    }
+  ],
+  "documentation": {
+    "bronze": {
+      "1": false,
+      "2": false,
+      "3": true,
+      "4": true,
+      "5": true,
+      "6": false,
+      "7": false,
+      "8": true,
+      "9": true
+    },
+    "silver": {
+      "1": true,
+      "2": false,
+      "3": false,
+      "4": false,
+      "5": true,
+      "6": true
+    },
+    "gold": {
+      "1": false,
+      "2": false,
+      "3": true,
+      "4": true,
+      "5": false,
+      "6": false
+    }
+  },
+  "infrastructure": {
+    "bronze": {
+      "1": true,
+      "2": true,
+      "3": true,
+      "4": true,
+      "5": true,
+      "6": false,
+      "7": true
+    },
+    "silver": {
+      "1": true,
+      "2": true,
+      "3": true
+    },
+    "gold": {
+      "1": false,
+      "2": false,
+      "3": false,
+      "4": true,
+      "5": true
+    }
+  },
+  "testing": {
+    "bronze": {
+      "1": true,
+      "2": false
+    },
+    "silver": {
+      "1": true,
+      "2": true
+    },
+    "gold": {
+      "1": true,
+      "2": false
+    }
+  }
+}
