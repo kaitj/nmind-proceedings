@@ -1,0 +1,79 @@
+{
+  "name": "XCP-D",
+  "urls": [
+    {
+      "url_type": "Landing page",
+      "url": "https://xcp-d.readthedocs.io/en/latest/index.html"
+    },
+    {
+      "url_type": "Source code",
+      "url": "https://github.com/PennLINC/xcp_d"
+    }
+  ],
+  "documentation": {
+    "bronze": {
+      "1": true,
+      "2": true,
+      "3": true,
+      "4": true,
+      "5": true,
+      "6": true,
+      "7": true,
+      "8": true,
+      "9": true
+    },
+    "silver": {
+      "1": true,
+      "2": true,
+      "3": true,
+      "4": true,
+      "5": true,
+      "6": true
+    },
+    "gold": {
+      "1": true,
+      "2": true,
+      "3": true,
+      "4": true,
+      "5": true,
+      "6": true
+    }
+  },
+  "infrastructure": {
+    "bronze": {
+      "1": true,
+      "2": true,
+      "3": true,
+      "4": true,
+      "5": true,
+      "6": true,
+      "7": true
+    },
+    "silver": {
+      "1": true,
+      "2": true,
+      "3": true
+    },
+    "gold": {
+      "1": true,
+      "2": true,
+      "3": true,
+      "4": true,
+      "5": true
+    }
+  },
+  "testing": {
+    "bronze": {
+      "1": true,
+      "2": true
+    },
+    "silver": {
+      "1": true,
+      "2": true
+    },
+    "gold": {
+      "1": false,
+      "2": false
+    }
+  }
+}
