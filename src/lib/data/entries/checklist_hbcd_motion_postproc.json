@@ -1,0 +1,79 @@
+{
+  "name": "hbcd_motion_postproc",
+  "urls": [
+    {
+      "url_type": "Source code",
+      "url": "https://github.com/ohspc89/hbcd_motion_postproc"
+    },
+    {
+      "url_type": "Documentation",
+      "url": "https://hbcd-motion-postproc.readthedocs.io/en/latest/"
+    }
+  ],
+  "documentation": {
+    "bronze": {
+      "1": true,
+      "2": true,
+      "3": true,
+      "4": true,
+      "5": true,
+      "6": true,
+      "7": true,
+      "8": true,
+      "9": true
+    },
+    "silver": {
+      "1": true,
+      "2": true,
+      "3": true,
+      "4": true,
+      "5": true,
+      "6": true
+    },
+    "gold": {
+      "1": false,
+      "2": false,
+      "3": false,
+      "4": false,
+      "5": false,
+      "6": false
+    }
+  },
+  "infrastructure": {
+    "bronze": {
+      "1": true,
+      "2": true,
+      "3": true,
+      "4": true,
+      "5": true,
+      "6": true,
+      "7": true
+    },
+    "silver": {
+      "1": false,
+      "2": false,
+      "3": true
+    },
+    "gold": {
+      "1": false,
+      "2": false,
+      "3": false,
+      "4": false,
+      "5": false
+    }
+  },
+  "testing": {
+    "bronze": {
+      "1": false,
+      "2": false
+    },
+    "silver": {
+      "1": false,
+      "2": false
+    },
+    "gold": {
+      "1": false,
+      "2": false
+    }
+  }
+}
