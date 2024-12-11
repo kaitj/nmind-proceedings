@@ -4,6 +4,10 @@
     {
       "url_type": "Source code",
       "url": "https://github.com/nipreps/nibabies"
+    },
+    {
+      "url_type": "Documentation",
+      "url": "https://nibabies.readthedocs.io/en/latest/"
     }
   ],
   "documentation": {
@@ -14,14 +18,14 @@
       "4": true,
       "5": true,
       "6": true,
-      "7": false,
+      "7": true,
       "8": true,
       "9": true
     },
     "silver": {
       "1": false,
-      "2": false,
-      "3": true,
+      "2": true,
+      "3": false,
       "4": true,
       "5": true,
       "6": true
@@ -30,7 +34,7 @@
       "1": true,
       "2": true,
       "3": true,
-      "4": true,
+      "4": false,
       "5": false,
       "6": false
     }
@@ -54,18 +58,18 @@
       "1": true,
       "2": true,
       "3": false,
-      "4": false,
-      "5": false
+      "4": true,
+      "5": true
     }
   },
   "testing": {
     "bronze": {
       "1": true,
-      "2": true
+      "2": false
     },
     "silver": {
       "1": true,
-      "2": false
+      "2": true
     },
     "gold": {
       "1": false,
