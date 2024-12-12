@@ -32,7 +32,7 @@ jobs:
         if: steps.check_labels.outputs.result == 'true'
         run: |
           issue_body='${{ github.event.issue.body }}'
-          checklist=$(echo "$issue_body" | sed -n '/```json/,/```/p' | sed '1d;$d')
+          checklist=$(echo "$issue_body" | sed -n '/```json/I,/```/p' | sed '1d;$d')
           name=$(echo "$checklist" | jq -r '.name' | sed 's/ /_/g')
           echo "checklist=$(echo $checklist)" >> $GITHUB_ENV
           echo "name=$(echo $name)" >> $GITHUB_ENV
