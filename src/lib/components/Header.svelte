@@ -19,7 +19,7 @@
 				<li>
 					<a
 						href="https://www.nmind.org/proceedings"
-						class="btn btn-ghost normal-case text-lg font-light">Proceedings</a
+						class="btn btn-ghost normal-case text-lg font-light">Tools</a
 					>
 				</li>
 			</ul>
