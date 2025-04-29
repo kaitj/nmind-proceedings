@@ -66,3 +66,37 @@ jobs:
           git add ${{ env.file_name }}
           git commit -m 'Closes #${{ github.event.issue.number }}'
           git push 
+
+      # Badge generation steps
+      - name: Setup Python
+        if: steps.check_labels.outputs.result == 'true'
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+        
+      - name: Generate badge
+        if: steps.check_labels.outputs.result == 'true'
+        run: |
+          badge_url=$(python .github/scripts/create_badge.py "${{ env.file_name }}")
+          echo "badge=$(echo $badge_url)" >> $GITHUB_ENV
+      
+      - name: Comment on issue
+        if: steps.check_labels.outputs.result == 'true'
+        uses: peter-evans/create-or-update-comment@v4
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            ![${{ env.name }}](${{ env.badge }})
+
+            ✅ **Your NMIND badge has been generated!**
+
+            🔗 **Badge URL**:
+            ```
+            ${{ env.badge }}
+            ```
+
+            📄 **To embed this badge in a `README.md`, use the following Markdown:**
+            ```md
+            ![${{ env.name }}](${{ env.badge }})
+            ```
+            
