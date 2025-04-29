@@ -21,7 +21,7 @@ def count_bools(obj: Any) -> tuple[int, int]:
             false_count += f
         return true_count, false_count
     else:
-        raise TypeError(f"Unsupported type: {type(obj)}")
+        pass
 
 
 def generate_badge(true_count: int, false_count: int) -> str:
@@ -47,14 +47,7 @@ def generate_badge(true_count: int, false_count: int) -> str:
 def process_checklist(checklist_path: Path) -> str:
     """Process a checklist, generating a badge."""
     checklist = json.loads(checklist_path.read_text())
-
-    eval_meta = checklist.get("evaluations")
-    if not eval_meta:
-        raise ValueError("No evaluations found.")
-    evals = eval_meta[0].get("checklist")
-    if not checklist:
-        raise ValueError("No checklist items found.")
-    true_count, false_count = count_bools(evals)
+    true_count, false_count = count_bools(checklist)
     badge_url = generate_badge(true_count=true_count, false_count=false_count)
 
     return badge_url
