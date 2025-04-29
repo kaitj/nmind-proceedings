@@ -34,7 +34,7 @@ jobs:
         run: |
           issue_body='${{ github.event.issue.body }}'
           checklist=$(echo "$issue_body" | sed -n '/```json/I,/```/p' | sed '1d;$d')
-          name=$(echo "$checklist" | jq -r '.name' | sed 's/ /_/g')
+          name=$(echo "$checklist" | jq -r '.name' | sed -e 's/ /_/g' -e 's/-//g')
           echo "checklist=$(echo $checklist)" >> $GITHUB_ENV
           echo "name=$(echo $name)" >> $GITHUB_ENV
 
@@ -86,7 +86,8 @@ jobs:
         with:
           issue-number: ${{ github.event.issue.number }}
           body: |
-            ✅ **Your NMIND badge has been generated!**: ![${{ env.name }}](${{ env.badge }})
+            ✅ **Your NMIND badge has been generated!**: 
+            ![${{ env.name }}](${{ env.badge }})
 
             🔗 **Badge URL**:
             ```
@@ -95,6 +96,6 @@ jobs:
 
             📄 **To embed this badge in a `README.md`, use the following Markdown:**
             ```md
-            ![${{ env.name }}](${{ env.badge }})
+            [![${{ env.name }}](${{ env.badge }})](https://nmind.org/proceedings/${{ env.name }})
             ```
             
