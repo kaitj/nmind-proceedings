@@ -9,6 +9,8 @@ jobs:
     permissions:
       contents: write
       issues: write
+    env:
+      checklist_version: "1.1"
 
     steps:
       - name: Check labels
@@ -32,9 +34,25 @@ jobs:
       - name: Extract checklist data
         if: steps.check_labels.outputs.result == 'true'
         run: |
+          # Extract checklist
           issue_body='${{ github.event.issue.body }}'
           checklist=$(echo "$issue_body" | sed -n '/```json/I,/```/p' | sed '1d;$d')
           name=$(echo "$checklist" | jq -r '.name' | sed 's/ /_/g')
+
+          # Add date, evaluators, history
+          date_str=$(date +%F)
+          evaluators=$(jq -r '[.issue.assignees[] | {name: .name, contact: .html_url}]' <<< '${{ toJson(github.event) }}')
+          history="https://github.com/nmind/proceedings/commits/development/src/lib/data/entries/checklist_${name}.json",
+
+          # Add additional checklist items
+          checklist=$(echo "$checklist" | jq \
+            --arg checklist_version "$checklist_version" \
+            --arg date "$date_str" \
+            --argjson evaluators "$evaluators" \
+            --arg history "$history" \
+            '. + {date: $date, evaluators: $evaluators, history: $history}')
+
+          # Export variables to environment
           echo "checklist=$(echo $checklist)" >> $GITHUB_ENV
           echo "name=$(echo $name)" >> $GITHUB_ENV
 
