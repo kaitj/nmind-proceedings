@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { sortingKeys } from '$lib/constants';
 	import type { Tool } from '$lib/types';
-	import { filterToolData, sortFilteredData, tooltip } from '$lib/utils';
+	import { filterToolData, sortFilteredData } from '$lib/utils';
 
 	import ToolListviewCard from './ToolListviewCard.svelte';
 
@@ -9,7 +9,6 @@
 	let currentPage = 1;
 
 	let searchQuery = '';
-	let metadataQuery = '';
 	let sortingQuery = sortingKeys[0];
 	let sectionTierQuery: string[] = [];
 
@@ -17,7 +16,7 @@
 	let sortedTools: Tool[] = [];
 	let paginatedTools: Tool[] = [];
 
-	$: filterToolData(searchQuery, metadataQuery, sectionTierQuery).then(
+	$: filterToolData(searchQuery, sectionTierQuery).then(
 		(response) => (filteredTools = response)
 	);
 	$: sortedTools = sortFilteredData(filteredTools, sortingQuery);
@@ -36,22 +35,6 @@
 			currentPage = 1;
 		} else {
 			currentPage = newPage;
-		}
-	}
-
-	function setMetadataQuery(event: MouseEvent): void {
-		event.preventDefault();
-		const target = event.target as HTMLButtonElement;
-		const searchableQueries = metadataQuery
-			.split(',')
-			.flatMap((tagQuery) => (tagQuery.trim() ? [tagQuery.trim()] : []));
-
-		if (searchableQueries.includes(target.innerHTML)) {
-			metadataQuery = searchableQueries
-				.filter((tagQuery) => tagQuery !== target.innerHTML)
-				.join(', ');
-		} else {
-			metadataQuery = `${target.innerHTML}, ${metadataQuery}`;
 		}
 	}
 
@@ -85,11 +68,11 @@
 	</div>
 	<div id="textSearch">
 		<label for="tool-name" class="label">
-			<span class="label-text text-lg">Search by text:</span>
+			<span class="label-text text-lg">Search:</span>
 		</label>
 		<input
 			type="text"
-			placeholder="Enter tool name/description"
+			placeholder="Enter tool name"
 			bind:value={searchQuery}
 			on:focus={() => changePage(1)}
 			class="input input-bordered input-primary w-full max-w-xs"
@@ -97,30 +80,9 @@
 		/>
 	</div>
 
-	<div id="tagSearch">
-		<label for="tool-tags" class="label">
-			<span class="label-text text-lg">Search by tag:</span>
-			<span
-				aria-hidden="true"
-				use:tooltip={{
-					content:
-						'Separate multiple tags by comma: e.g. "fsl, docker, python" or "debian,tomography"'
-				}}>❔</span
-			>
-		</label>
-		<input
-			type="text"
-			placeholder="Enter tool metadata"
-			bind:value={metadataQuery}
-			on:focus={() => changePage(1)}
-			class="input input-bordered input-primary w-full max-w-xs"
-			id="tool-tags"
-		/>
-	</div>
-
 	<div id="sectionTierSelect" class="min-w-min">
 		<label for="testing-select" class="label">
-			<span class="label-text text-lg">Search by minimum standard:</span>
+			<span class="label-text text-lg">Filter:</span>
 		</label>
 		<div class="flex grow gap-4">
 			<div>
@@ -218,7 +180,7 @@
 	<hr />
 
 	{#each paginatedTools as tool (tool.slug)}
-		<ToolListviewCard {tool} {setMetadataQuery} />
+		<ToolListviewCard {tool} />
 	{/each}
 
 	<div class="join w-full flex justify-center mt-8 mb-8 ml-0 mr-0">

@@ -7,7 +7,6 @@
 	import ToolListviewEvaluation from './ToolListviewEvaluation.svelte';
 
 	export let tool: Tool;
-	export let setMetadataQuery: (event: MouseEvent) => void;
 
 	let mostRecentEvaluation: Evaluation | null = getMostRecentEvaluation(tool.evaluations);
 	let docsUrl = getToolUrlByTextDescriptor(tool, toolURLTextDescriptors.DOCS);
@@ -57,18 +56,6 @@
 
 					<p class="text-sm pb-1">Evaluated on {mostRecentEvaluation?.date}</p>
 					<p class="text-sm pb-1">Evaluated using Checklist v{mostRecentEvaluation?.toolVersion}</p>
-
-					{#if tool.tags?.length > 0}
-						<div class="flex flex-row flex-wrap gap-4 pt-2">
-							{#each tool.tags as tag (tag)}
-								<button
-									type="button"
-									class="btn btn-outline btn-primary btn-xs"
-									on:click={setMetadataQuery}>{tag}</button
-								>
-							{/each}
-						</div>
-					{/if}
 				</div>
 			</div>
 

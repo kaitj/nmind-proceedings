@@ -1,8 +1,8 @@
 <script lang="ts">
-	import EvaluationDetail from '$lib/components/EvaluationDetail.svelte';
-	import { sortEvaluationsByDate } from '$lib/utils';
-	import type { Tool, Evaluation } from '$lib/types';
 	import { base } from '$app/paths';
+	import EvaluationDetail from '$lib/components/EvaluationDetail.svelte';
+	import type { Evaluation, Tool } from '$lib/types';
+	import { sortEvaluationsByDate } from '$lib/utils';
 
 	export let data: Tool;
 
@@ -26,17 +26,6 @@
 			</div>
 			<h1 class="text-4xl lg:text-5xl xl:text-6xl break-words">{data?.name}</h1>
 		</div>
-
-		<p class="pt-6">{data?.description}</p>
-
-		{#if data?.tags?.length > 0}
-			<h2 class="text-xl lg:text-2xl xl:text-3xl pt-6 pb-4">Tags</h2>
-			<div class="flex flex-row flex-wrap gap-4">
-				{#each data?.tags as tag (tag)}
-					<div class="badge badge-primary badge-outline hyphens-none">{tag}</div>
-				{/each}
-			</div>
-		{/if}
 
 		<h2 class="text-xl lg:text-2xl xl:text-3xl pt-6 pb-2">Links</h2>
 		<ul class="mb-6">
