@@ -1,7 +1,7 @@
-import tippy from 'tippy.js';
 import { sortingKeys } from '$lib/constants';
-import type { Evaluation, EvaluationSchema, Tool } from './types';
+import tippy from 'tippy.js';
 import type { Props } from 'tippy.js/index.d.ts';
+import type { Evaluation, EvaluationSchema, Tool } from './types';
 
 import data from '$lib/data/concat_data.json';
 
@@ -108,7 +108,6 @@ function filterTagsWithFinalQueryInclusiveMatching(tools: Tool[], tagQueries: st
 
 export async function filterToolData(
 	textQuery: string,
-	tagQuery: string,
 	sectionTierQuery: string[]
 ) {
 	let ongoingFilteredTools = data.evaluatedTools;
@@ -128,20 +127,6 @@ export async function filterToolData(
 				return Object.values(currentSectionTierItems).every((item) => item);
 			});
 		});
-	}
-
-	// then filter by tag
-	if (tagQuery) {
-		if (tagQuery.endsWith(',')) {
-			tagFilterFunction = filterTagsByExactQueryMatchesOnly;
-		}
-
-		// split on commas, then remove any empty strings and leading-or-trailing spaces
-		const tagQueries = tagQuery
-			.split(',')
-			.flatMap((tagQuery) => (tagQuery.trim() ? [tagQuery.trim()] : []));
-
-		ongoingFilteredTools = tagFilterFunction(ongoingFilteredTools, tagQueries);
 	}
 
 	// then filter by name

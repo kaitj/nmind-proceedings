@@ -12,11 +12,6 @@
 </dl>
 
 <dl class="flex justify-start pb-1">
-	<dt>Tool Version:</dt>
-	<dd class="pl-2">{evaluation.toolVersion}</dd>
-</dl>
-
-<dl class="flex justify-start pb-1">
 	<dt>Evaluator:</dt>
 	<dd class="pl-2">{evaluation.evaluatorEmail}</dd>
 </dl>
