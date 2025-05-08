@@ -1,125 +1,126 @@
 // types.ts
 
+export type ChecklistTier = 'testing' | 'infrastructure' | 'documentation';
+
 export interface Tool {
-	name: string;
-	urls: { text: string; href: string }[];
-	description: string;
-	slug: string;
-	image: string;
-	tags: string[];
-	maintainers: {
-		name: string;
-		email: string;
-		affiliation: string;
-	}[];
-	evaluations: Evaluation[];
-}
-
-export interface Evaluation {
 	checklistVersion: string;
-	toolVersion: string;
 	date: string;
-	evaluatorEmail: string;
-	checklist: Checklist;
+	evaluators: Evaluator[];
+	history: string;
+	name: string;
+	urls: Url[]
+	documentation: Documentation;
+	infrastructure: Infrastructure;
+	testing: Testing;
+	slug: string; // for web app, generated from name in checklist
 }
 
-export interface Checklist {
-	testing: {
-		bronze: {
-			bronze_tst_1: boolean;
-			bronze_tst_2: boolean;
-		};
-		silver: {
-			silver_tst_1: boolean;
-			silver_tst_2: boolean;
-		};
-		gold: {
-			gold_tst_1: boolean;
-			gold_tst_2: boolean;
-		};
+export interface Evaluator {
+	name: string;
+	contact: string;
+}
+
+export interface Url {
+	url: string
+	url_type: string
+}
+
+export interface Testing {
+	bronze: {
+		1: boolean;
+		2: boolean;
 	};
-	infrastructure: {
-		bronze: {
-			bronze_inf_1: boolean;
-			bronze_inf_2: boolean;
-			bronze_inf_3: boolean;
-			bronze_inf_4: boolean;
-			bronze_inf_5: boolean;
-			bronze_inf_6: boolean;
-			bronze_inf_7: boolean;
-		};
-		silver: {
-			silver_inf_1: boolean;
-			silver_inf_2: boolean;
-			silver_inf_3: boolean;
-		};
-		gold: {
-			gold_inf_1: boolean;
-			gold_inf_2: boolean;
-			gold_inf_3: boolean;
-			gold_inf_4: boolean;
-			gold_inf_5: boolean;
-		};
+	silver: {
+		1: boolean;
+		2: boolean;
 	};
-	documentation: {
-		bronze: {
-			bronze_doc_1: boolean;
-			bronze_doc_2: boolean;
-			bronze_doc_3: boolean;
-			bronze_doc_4: boolean;
-			bronze_doc_5: boolean;
-			bronze_doc_6: boolean;
-			bronze_doc_7: boolean;
-			bronze_doc_8: boolean;
-			bronze_doc_9: boolean;
-		};
-		silver: {
-			silver_doc_1: boolean;
-			silver_doc_2: boolean;
-			silver_doc_3: boolean;
-			silver_doc_4: boolean;
-			silver_doc_5: boolean;
-			silver_doc_6: boolean;
-		};
-		gold: {
-			gold_doc_1: boolean;
-			gold_doc_2: boolean;
-			gold_doc_3: boolean;
-			gold_doc_4: boolean;
-			gold_doc_5: boolean;
-			gold_doc_6: boolean;
-		};
+	gold: {
+		1: boolean;
+		2: boolean;
 	};
 }
 
-export interface EvaluationSchema {
-	'@context': {
-		'@version': number;
-		reproschema: string;
+export interface Infrastructure {
+	bronze: {
+		1: boolean;
+		2: boolean;
+		3: boolean;
+		4: boolean;
+		5: boolean;
+		6: boolean;
+		7: boolean;
 	};
-	tiers: { [key: string]: Tier };
-	items: Item[];
+	silver: {
+		1: boolean;
+		2: boolean;
+		3: boolean;
+	};
+	gold: {
+		1: boolean;
+		2: boolean;
+		3: boolean;
+		4: boolean;
+		5: boolean;
+	};
 }
 
-interface Tier {
-	intendedAudience: string[];
-	benefits: string[];
-	prerequisiteTiers?: string[];
+export interface Documentation {
+	bronze: {
+		1: boolean;
+		2: boolean;
+		3: boolean;
+		4: boolean;
+		5: boolean;
+		6: boolean;
+		7: boolean;
+		8: boolean;
+		9: boolean;
+	};
+	silver: {
+		1: boolean;
+		2: boolean;
+		3: boolean;
+		4: boolean;
+		5: boolean;
+		6: boolean;
+	};
+	gold: {
+		1: boolean;
+		2: boolean;
+		3: boolean;
+		4: boolean;
+		5: boolean;
+		6: boolean;
+	};
 }
 
-interface Item {
-	prompt: string;
-	type: string;
-	id?: string;
-	tier?: string;
-	section?: string;
-	items?: Item[];
-	options?: string[];
-}
 
-export interface EvaluationItemData {
-	prompt: string;
-	value: boolean;
-}
+// export interface EvaluationSchema {
+// 	'@context': {
+// 		'@version': number;
+// 		reproschema: string;
+// 	};
+// 	tiers: { [key: string]: Tier };
+// 	items: Item[];
+// }
 
-export type DataArray = Tool[] | Evaluation[];
+// interface Tier {
+// 	intendedAudience: string[];
+// 	benefits: string[];
+// 	prerequisiteTiers?: string[];
+// }
+
+// interface Item {
+// 	prompt: string;
+// 	type: string;
+// 	id?: string;
+// 	tier?: string;
+// 	section?: string;
+// 	items?: Item[];
+// 	options?: string[];
+// }
+
+// export interface EvaluationItemData {
+// 	prompt: string;
+// 	value: boolean;
+// }

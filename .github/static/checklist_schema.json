@@ -3,7 +3,7 @@
   "description": "Checklists for bronze, silver, and gold tiers of NMIND standards",
   "type": "object",
   "properties": {
-    "checklist_version": {
+    "checklistVersion": {
       "title": "Checklist version",
       "type": "string"
     },
