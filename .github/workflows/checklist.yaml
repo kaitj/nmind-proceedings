@@ -10,7 +10,7 @@ jobs:
       contents: write
       issues: write
     env:
-      checklist_version: "1.1"
+      checklistVersion: "1.1"
 
     steps:
       - name: Check labels
@@ -48,12 +48,12 @@ jobs:
 
           # Add additional checklist items
           checklist_json=$(echo "$checklist_json" | jq \
-            --arg checklist_version "$checklist_version" \
+            --arg checklistVersion "$checklistVersion" \
             --arg date "$date_str" \
             --argjson evaluators "$evaluators" \
             --arg history "$history" \
             --arg image "$image" \
-            '. + {checklist_version: $checklist_version, date: $date, evaluators: $evaluators, history: $history, image: $image}')
+            '. + {checklistVersion: $checklistVersion, date: $date, evaluators: $evaluators, history: $history, image: $image}')
           echo $checklist_json
 
           # Export variables to environment

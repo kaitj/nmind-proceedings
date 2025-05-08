@@ -6,7 +6,7 @@ const PATH_DIR_ENTRIES_INPUT = 'src/lib/data/entries';
 const PATH_DIR_ENTRIES_OUTPUT = 'src/lib/data/evaluatedTools';
 
 const OUTPUT_SKELETON = {
-	"checklist_version": null,
+	"checklistVersion": null,
 	"date": null,
 	"evaluators": [],
 	"history": null,
@@ -19,7 +19,7 @@ const OUTPUT_SKELETON = {
 };
 
 const DEFAULTS = {
-	"checklist_version": "1.1",
+	"checklistVersion": "1.1",
 	"evaluators": [{"name": "NMIND"}],
 	"date": new Date().toISOString().split('T')[0]
 }
@@ -52,7 +52,7 @@ function migrate(entry) {
 	const entry_migrated = { ...OUTPUT_SKELETON };
 	const defaults = { ...DEFAULTS};
 
-	entry_migrated.checklist_version = entry.checklist_version ? entry.checklist_version : defaults.checklist_version;
+	entry_migrated.checklistVersion = entry.checklistVersion ? entry.checklistVersion : defaults.checklistVersion;
 	entry_migrated.date = entry.date ? entry.date : defaults.date;
 	entry_migrated.evaluators = entry.evaluators ? entry.evaluators : defaults.evaluators;
 	entry_migrated.history = entry.history;
