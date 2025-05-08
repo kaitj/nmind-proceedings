@@ -6,23 +6,23 @@ const PATH_DIR_ENTRIES_INPUT = 'src/lib/data/entries';
 const PATH_DIR_ENTRIES_OUTPUT = 'src/lib/data/evaluatedTools';
 
 const OUTPUT_SKELETON = {
+	"checklist_version": null,
+	"date": null,
+	"evaluators": [],
+	"history": null,
 	"name": null,
-	"description": null,
-	"urls": [],
-	"maintainers": [],
-	"evaluations": [],
-	"slug": null,
 	"image": "brain_9_svgrepo_com--CadetBlue.png",
-	"tags": []
+	"urls": [],
+	"documentation": {},
+	"infrastructure": {},
+	"testing": {}
 };
 
-const EVALUATION_SKELETON = {
-	"checklistVersion": "1.1",
-	"toolVersion": "0.0.0",
-	"date": null,
-	"evaluatorEmail": "nmind@nmind.mock",
-	"checklist": {}
-};
+const DEFAULTS = {
+	"checklist_version": "1.1",
+	"evaluators": [{"name": "NMIND"}],
+	"date": new Date().toISOString().split('T')[0]
+}
 
 /**
  * Read all json files from the input directory
@@ -47,49 +47,27 @@ async function readDirectoryData(dirPath) {
 	);
 }
 
+function migrate(entry) {
+	/* Ensure checklist entry fits schema, migrating with defaults if necessary. */
+	const entry_migrated = { ...OUTPUT_SKELETON };
+	const defaults = { ...DEFAULTS};
+
+	entry_migrated.checklist_version = entry.checklist_version ? entry.checklist_version : defaults.checklist_version;
+	entry_migrated.date = entry.date ? entry.date : defaults.date;
+	entry_migrated.evaluators = entry.evaluators ? entry.evaluators : defaults.evaluators;
+	entry_migrated.history = entry.history;
+	entry_migrated.name = entry.name;
+	entry_migrated.image = entry.image;
+	entry_migrated.urls = entry.urls;
+	entry_migrated.documentation = entry.documentation;
+	entry_migrated.infrastructure = entry.infrastructure;
+	entry_migrated.testing = entry.testing;
+
+	return entry_migrated;
+}
+
 function makeUrlSafeName(name) {
 	return name.toLowerCase().replace(/[^\w\s]/gi, '').replace(/ /g, '-');
-}
-
-function convertKeys(obj) {
-    const newObj = {};
-    Object.keys(obj).forEach(key => {
-        let categoryAbbreviation;
-        if (key === 'testing') {
-            categoryAbbreviation = 'tst';
-        } else if (key === 'infrastructure') {
-            categoryAbbreviation = 'inf';
-        } else if (key === 'documentation') {
-            categoryAbbreviation = 'doc';
-        } else {
-			return;
-		}
-        newObj[key] = {};
-        Object.keys(obj[key]).forEach(subKey => {
-			newObj[key][subKey] = {};
-			Object.keys(obj[key][subKey]).forEach(subSubKey => {
-				newObj[key][subKey][`${subKey}_${categoryAbbreviation}_${subSubKey}`] = obj[key][subKey][subSubKey];
-			});
-        });
-    });
-    return newObj;
-}
-
-function backMigrate(entry) {
-	const entry_backmigrated = { ...OUTPUT_SKELETON };
-	entry_backmigrated.name = entry.name;
-	entry_backmigrated.description = `This tool was migrated from the old format. Please update it.`;
-	entry_backmigrated.urls = entry.urls.map(x => ({ "text": x.url_type, href: x.url }));
-	entry_backmigrated.slug = makeUrlSafeName(entry.name);
-	entry_backmigrated.evaluations = entry.evaluations ? entry.evaluations : [];
-
-	const evaluation = { ...EVALUATION_SKELETON };
-	// set date as today in the format YYYY-MM-DD
-	evaluation.date = new Date().toISOString().split('T')[0];
-	evaluation.checklist = convertKeys(entry);
-
-	entry_backmigrated.evaluations.push(evaluation);
-	return entry_backmigrated;
 }
 
 // Create the output directory if it doesn't exist
@@ -97,9 +75,9 @@ await promises.mkdir(PATH_DIR_ENTRIES_OUTPUT, { recursive: true });
 
 // Read all entries from the input directory, and write them to the output directory
 for (const entry of await readDirectoryData(PATH_DIR_ENTRIES_INPUT)) {
-	const entry_backmigrated = backMigrate(entry);
-	const id = entry_backmigrated.slug;
-	const outputPath = join(PATH_DIR_ENTRIES_OUTPUT, `${id}.json`);
-	await promises.writeFile(outputPath, JSON.stringify(entry_backmigrated, null, 2));
+	const entry_migrated = migrate(entry);
+	const id = makeUrlSafeName(entry_migrated.name);
+	const outputPath = join(PATH_DIR_ENTRIES_OUTPUT, `checklist_${id}.json`);
+	await promises.writeFile(outputPath, JSON.stringify(entry_migrated, null, 2));
 	console.log(`Generated ${outputPath} successfully.`);
 }
