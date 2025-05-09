@@ -1,9 +1,10 @@
-import { loadTools } from '$lib/utils';
-import type { LayoutLoad } from './$types';
+import { loadSchemas, loadTools } from '$lib/utils';
+import type { LayoutServerLoad } from './$types';
 
-export const load: LayoutLoad = async () => {
+export const load: LayoutServerLoad = async() => {
     const tools = await loadTools();
-    return { tools };
+    const schemas = await loadSchemas();
+    return { tools, schemas };
 }
 
 export const prerender = true;

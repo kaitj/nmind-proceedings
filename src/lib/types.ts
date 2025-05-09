@@ -1,7 +1,6 @@
+import type { checklistSections, checklistTiers } from "$lib/constants";
+
 // types.ts
-
-export type ChecklistTier = 'testing' | 'infrastructure' | 'documentation';
-
 export interface Tool {
 	checklistVersion: string;
 	date: string;
@@ -10,9 +9,9 @@ export interface Tool {
 	name: string;
 	image: string;
 	urls: Url[]
-	documentation: Documentation;
-	infrastructure: Infrastructure;
-	testing: Testing;
+	documentation: ChecklistSection;
+	infrastructure: ChecklistSection;
+	testing: ChecklistSection;
 	slug: string; // for web app, generated from name in checklist
 }
 
@@ -25,103 +24,43 @@ export interface Url {
 	url: string
 	url_type: string
 }
+export type Section = typeof checklistSections[number];
 
-export interface Testing {
-	bronze: {
-		1: boolean;
-		2: boolean;
+export type Tier = typeof checklistTiers[number];
+
+export type ChecklistSection = {
+	bronze: Record<string, boolean>;
+	silver: Record<string, boolean>;
+	gold: Record<string, boolean>;
+};
+
+export interface EvaluationSchema {
+	[key: string]: any;
+	'@context': {
+		'@version': number;
+		reproschema: string;
 	};
-	silver: {
-		1: boolean;
-		2: boolean;
-	};
-	gold: {
-		1: boolean;
-		2: boolean;
-	};
+	tiers: { [key: string]: SchemaTier };
+	items: SchemaItem[];
 }
 
-export interface Infrastructure {
-	bronze: {
-		1: boolean;
-		2: boolean;
-		3: boolean;
-		4: boolean;
-		5: boolean;
-		6: boolean;
-		7: boolean;
-	};
-	silver: {
-		1: boolean;
-		2: boolean;
-		3: boolean;
-	};
-	gold: {
-		1: boolean;
-		2: boolean;
-		3: boolean;
-		4: boolean;
-		5: boolean;
-	};
+interface SchemaTier {
+	intendedAudience: string[];
+	benefits: string[];
+	prerequisiteTiers?: string[];
 }
 
-export interface Documentation {
-	bronze: {
-		1: boolean;
-		2: boolean;
-		3: boolean;
-		4: boolean;
-		5: boolean;
-		6: boolean;
-		7: boolean;
-		8: boolean;
-		9: boolean;
-	};
-	silver: {
-		1: boolean;
-		2: boolean;
-		3: boolean;
-		4: boolean;
-		5: boolean;
-		6: boolean;
-	};
-	gold: {
-		1: boolean;
-		2: boolean;
-		3: boolean;
-		4: boolean;
-		5: boolean;
-		6: boolean;
-	};
+interface SchemaItem {
+	prompt: string;
+	type: string;
+	id?: string;
+	tier?: string;
+	section?: string;
+	items?: SchemaItem[];
+	options?: string[];
 }
 
-
-// export interface EvaluationSchema {
-// 	'@context': {
-// 		'@version': number;
-// 		reproschema: string;
-// 	};
-// 	tiers: { [key: string]: Tier };
-// 	items: Item[];
-// }
-
-// interface Tier {
-// 	intendedAudience: string[];
-// 	benefits: string[];
-// 	prerequisiteTiers?: string[];
-// }
-
-// interface Item {
-// 	prompt: string;
-// 	type: string;
-// 	id?: string;
-// 	tier?: string;
-// 	section?: string;
-// 	items?: Item[];
-// 	options?: string[];
-// }
-
-// export interface EvaluationItemData {
-// 	prompt: string;
-// 	value: boolean;
-// }
+export interface EvaluationItemData {
+	prompt: string;
+	value: boolean;
+}

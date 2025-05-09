@@ -1,16 +1,17 @@
 <script lang="ts">
 	import Footer from '$lib/components/Footer.svelte';
 	import Header from '$lib/components/Header.svelte';
-	import { toolStore } from '$lib/stores/toolStore';
-	import type { Tool } from '$lib/types';
+	import { schemaStore, toolStore } from '$lib/stores';
+	import type { EvaluationSchema, Tool } from '$lib/types';
 
 	import { onMount } from 'svelte';
 
-	export let data: { tools: Tool[] };
+	export let data: { tools: Tool[], schemas: EvaluationSchema[] };
 	onMount(() => {
 		toolStore.set(data.tools);
+		schemaStore.set(data.schemas);
 	})
-
+	
 	import 'tippy.js/dist/tippy.css';
 	import '../app.css';
 </script>
