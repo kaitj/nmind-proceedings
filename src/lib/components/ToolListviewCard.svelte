@@ -1,12 +1,18 @@
 <script lang="ts">
     import { base } from '$app/paths';
     import { toolURLTextDescriptors } from '$lib/constants';
-    import type { Tool } from '$lib/types';
-    import { getToolUrlByTextDescriptor } from '$lib/utils';
+    import type { EvaluationSchema, Tool } from '$lib/types';
+    import { getComplianceColor, getOverallCompletionRatio, getToolUrlByTextDescriptor } from '$lib/utils';
+
+    import ToolListviewEvaluation from './ToolListviewEvaluation.svelte';
 
 	export let tool: Tool;
+    export let schemas: EvaluationSchema[];
 
     let docsUrl = getToolUrlByTextDescriptor(tool, toolURLTextDescriptors.DOCS);
+
+	const completionRatio = getOverallCompletionRatio(tool);
+	const complianceColor = getComplianceColor(completionRatio);
 </script>
 
 <div class="p-4">
@@ -55,6 +61,9 @@
 					<p class="text-sm pb-1">Evaluated using Checklist v{tool.checklistVersion}</p>
                 </div>
             </div>
+
+            <ToolListviewEvaluation tool={tool} schemas={schemas}/>
+			<div class="compliance-bar p-1 h-32" style="background-color: {complianceColor};"></div>
         </div>
     </a>
 </div>

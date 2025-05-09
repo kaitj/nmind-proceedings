@@ -1,15 +1,12 @@
 <script lang="ts">
     import { page } from '$app/stores';
-    import { sortingKeys } from '$lib/constants';
-    import type { Tool } from '$lib/types';
+    import { checklistSections, sortingKeys } from '$lib/constants';
+    import type { EvaluationSchema, Tool } from '$lib/types';
     import { filterToolData, sortFilteredData } from '$lib/utils';
 
 	import ToolListviewCard from './ToolListviewCard.svelte';
 
-    // Filter options
-    const sectionTypes = ['Testing', 'Infrastructure', 'Documentation'];
-
-    // Pagination parameters
+	// Pagination parameters
 	let toolsPerPage = 5;
 	let currentPage = 1;
 
@@ -21,6 +18,7 @@
 	let filteredTools: Tool[] = [];
 	let sortedTools: Tool[] = [];
 	let paginatedTools: Tool[] = [];
+	let schemas: EvaluationSchema[] = [];
 
     function paginateSortedData(tools: Tool[], pageNumber: number) {
         const toolStart = (pageNumber - 1) * toolsPerPage;
@@ -34,6 +32,7 @@
     );
     $: sortedTools = sortFilteredData(filteredTools, sortingQuery);
     $: paginateSortedData(sortedTools, currentPage);
+	$: schemas = $page.data.schemas;
 
     function changePage(newPage: number): void {
         const maxPage = Math.ceil(filteredTools.length / toolsPerPage);
@@ -85,20 +84,20 @@
 			<span class="label-text text-lg">Search by minimum standard:</span>
         </div>
 		<div id="tier-select" class="flex grow gap-4">
-            {#each sectionTypes as section}
+            {#each checklistSections as section}
                 <div>
                     <select
-                    on:change={(changeEvent) => updateSectionTierQuery(section.toLowerCase(), changeEvent)}
+                    on:change={(changeEvent) => updateSectionTierQuery(section, changeEvent)}
                     class="select select-primary w-full min-w-min"
-                    id="{section.toLowerCase()}-select"
+                    id="{section}-select"
                     >
                         <option value="">❌ None</option>
                         <option value="bronze">🥉 Bronze</option>
                         <option value="silver">🥈 Silver</option>
                         <option value="gold">🥇 Gold</option>
                     </select>
-                    <label for="{section.toLowerCase()}-select" class="label justify-end">
-                        <span class="label-text-alt">{section}</span>
+                    <label for="{section}-select" class="label justify-end">
+                        <span class="label-text-alt">{section.charAt(0).toUpperCase() + section.slice(1)}</span>
                     </label>
                 </div>
             {/each}
@@ -138,8 +137,8 @@
 			 <div
 				class="h-24 flex flex-row flex-grow flex-wrap justify-center items-center relative right-2 lg:right-4 xl:right-6"
 			>
-                {#each sectionTypes as section}
-                    <p class="w-56 text-center text-lg">{section}</p>
+                {#each checklistSections as section}
+                    <p class="w-56 text-center text-lg">{section.charAt(0).toUpperCase() + section.slice(1)}</p>
                 {/each}
 			</div>
 		</div>
@@ -148,7 +147,7 @@
 	<hr />
 
 	{#each paginatedTools as tool (tool.slug)}
-		<ToolListviewCard {tool} />
+		<ToolListviewCard {tool} {schemas}/>
 	{/each}
 
 	<div class="join w-full flex justify-center mt-8 mb-8 ml-0 mr-0">
@@ -164,7 +163,7 @@
 		</div>
 
 		<button
-			disabled={currentPage >= filteredTools.length / toolsPerPage}
+			disabled={currentPage >= Math.ceil(filteredTools.length / toolsPerPage)}
 			on:click={() => changePage(currentPage + 1)}
 			class="join-item btn btn-outline"
 		>
