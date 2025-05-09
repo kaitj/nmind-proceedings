@@ -8,6 +8,7 @@ export interface Tool {
 	evaluators: Evaluator[];
 	history: string;
 	name: string;
+	image: string;
 	urls: Url[]
 	documentation: Documentation;
 	infrastructure: Infrastructure;
