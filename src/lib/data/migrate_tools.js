@@ -11,7 +11,7 @@ const OUTPUT_SKELETON = {
 	"evaluators": [],
 	"history": null,
 	"name": null,
-	"image": "brain_9_svgrepo_com--CadetBlue.png",
+	"image": null,
 	"urls": [],
 	"documentation": {},
 	"infrastructure": {},
@@ -21,7 +21,8 @@ const OUTPUT_SKELETON = {
 const DEFAULTS = {
 	"checklistVersion": "1.1",
 	"evaluators": [{"name": "NMIND"}],
-	"date": new Date().toISOString().split('T')[0]
+	"date": new Date().toISOString().split('T')[0],
+	"image": "brain_9_svgrepo_com--CadetBlue.png"
 }
 
 /**
@@ -52,12 +53,12 @@ function migrate(entry) {
 	const entry_migrated = { ...OUTPUT_SKELETON };
 	const defaults = { ...DEFAULTS};
 
-	entry_migrated.checklistVersion = entry.checklistVersion ? entry.checklistVersion : defaults.checklistVersion;
-	entry_migrated.date = entry.date ? entry.date : defaults.date;
-	entry_migrated.evaluators = entry.evaluators ? entry.evaluators : defaults.evaluators;
+	entry_migrated.checklistVersion = entry.checklistVersion ?? defaults.checklistVersion;
+	entry_migrated.date = entry.date ?? defaults.date;
+	entry_migrated.evaluators = entry.evaluators ?? defaults.evaluators;
 	entry_migrated.history = entry.history;
 	entry_migrated.name = entry.name;
-	entry_migrated.image = entry.image;
+	entry_migrated.image = defaults.image;
 	entry_migrated.urls = entry.urls;
 	entry_migrated.documentation = entry.documentation;
 	entry_migrated.infrastructure = entry.infrastructure;
