@@ -1,111 +1,83 @@
 {
 	"name": "SIENA",
-	"description": "SIENA (Structural Image Evaluation, using Normalisation, of Atrophy) is a tool from the FMRIB Software Library. Developed at Oxford University, it specializes in the assessment of brain atrophy. It has been instrumental in the study of neurodegenerative diseases.",
+	"date": "2023-07-24",
 	"urls": [
 		{
-			"text": "Home Page",
-			"href": "siena.com"
+			"url_type": "Home Page",
+			"url": "siena.com"
 		}
 	],
-	"maintainers": [
-		{
-			"name": "Allen Dach",
-			"email": "allendach@foomail.mock",
-			"affiliation": "University of Cambridge"
-		},
-		{
-			"name": "Drew Farrell",
-			"email": "drewfarrell@foomail.mock",
-			"affiliation": "University of Warwick"
-		},
-		{
-			"name": "Elsa Gusikowski",
-			"email": "elsagusikowski@foomail.mock",
-			"affiliation": "Imperial College London"
-		},
-		{
-			"name": "Jill Tremblay",
-			"email": "jilltremblay@foomail.mock",
-			"affiliation": "California Institute of Technology"
-		}
-	],
-	"evaluations": [
-		{
-			"checklistVersion": "1.1",
-			"toolVersion": "8.5.6",
-			"date": "2023-07-24",
-			"evaluatorEmail": "cmarkiewicz@nmind.mock",
-			"checklist": {
-				"testing": {
-					"bronze": {
-						"bronze_tst_1": true,
-						"bronze_tst_2": true
-					},
-					"silver": {
-						"silver_tst_1": false,
-						"silver_tst_2": true
-					},
-					"gold": {
-						"gold_tst_1": false,
-						"gold_tst_2": true
-					}
-				},
-				"infrastructure": {
-					"bronze": {
-						"bronze_inf_1": true,
-						"bronze_inf_2": false,
-						"bronze_inf_3": false,
-						"bronze_inf_4": true,
-						"bronze_inf_5": true,
-						"bronze_inf_6": false,
-						"bronze_inf_7": true
-					},
-					"silver": {
-						"silver_inf_1": true,
-						"silver_inf_2": false,
-						"silver_inf_3": false
-					},
-					"gold": {
-						"gold_inf_1": true,
-						"gold_inf_2": false,
-						"gold_inf_3": false,
-						"gold_inf_4": true,
-						"gold_inf_5": true
-					}
-				},
-				"documentation": {
-					"bronze": {
-						"bronze_doc_1": false,
-						"bronze_doc_2": false,
-						"bronze_doc_3": false,
-						"bronze_doc_4": false,
-						"bronze_doc_5": true,
-						"bronze_doc_6": true,
-						"bronze_doc_7": true,
-						"bronze_doc_8": false,
-						"bronze_doc_9": true
-					},
-					"silver": {
-						"silver_doc_1": true,
-						"silver_doc_2": true,
-						"silver_doc_3": true,
-						"silver_doc_4": true,
-						"silver_doc_5": true,
-						"silver_doc_6": true
-					},
-					"gold": {
-						"gold_doc_1": false,
-						"gold_doc_2": true,
-						"gold_doc_3": false,
-						"gold_doc_4": true,
-						"gold_doc_5": true,
-						"gold_doc_6": true
-					}
-				}
-			}
-		}
-	],
-	"slug": "siena",
 	"image": "brain_9_svgrepo_com--SteelBlue.png",
-	"tags": ["data-science", "docker", "fmri"]
+	"checklistVersion": "1.1",
+	"evaluators": [
+		{
+			"name": "NMIND"
+		}
+	],
+	"testing": {
+		"bronze": {
+			"1": true,
+			"2": true
+		},
+		"silver": {
+			"1": false,
+			"2": true
+		},
+		"gold": {
+			"1": false,
+			"2": true
+		}
+	},
+	"infrastructure": {
+		"bronze": {
+			"1": true,
+			"2": false,
+			"3": false,
+			"4": true,
+			"5": true,
+			"6": false,
+			"7": true
+		},
+		"silver": {
+			"1": true,
+			"2": false,
+			"3": false
+		},
+		"gold": {
+			"1": true,
+			"2": false,
+			"3": false,
+			"4": true,
+			"5": true
+		}
+	},
+	"documentation": {
+		"bronze": {
+			"1": false,
+			"2": false,
+			"3": false,
+			"4": false,
+			"5": true,
+			"6": true,
+			"7": true,
+			"8": false,
+			"9": true
+		},
+		"silver": {
+			"1": true,
+			"2": true,
+			"3": true,
+			"4": true,
+			"5": true,
+			"6": true
+		},
+		"gold": {
+			"1": false,
+			"2": true,
+			"3": false,
+			"4": true,
+			"5": true,
+			"6": true
+		}
+	}
 }

@@ -1,14 +1,14 @@
-import type { checklistSections, checklistTiers } from "$lib/constants";
+import type { checklistSections, checklistTiers } from '$lib/constants';
 
 // types.ts
 export interface Tool {
 	checklistVersion: string;
 	date: string;
 	evaluators: Evaluator[];
-	history: string;
+	history: string | null;
 	name: string;
 	image: string;
-	urls: Url[]
+	urls: Url[];
 	documentation: ChecklistSection;
 	infrastructure: ChecklistSection;
 	testing: ChecklistSection;
@@ -17,16 +17,16 @@ export interface Tool {
 
 export interface Evaluator {
 	name: string;
-	contact: string;
+	contact: string | null;
 }
 
 export interface Url {
-	url: string
-	url_type: string
+	url: string;
+	url_type: string;
 }
-export type Section = typeof checklistSections[number];
+export type Section = (typeof checklistSections)[number];
 
-export type Tier = typeof checklistTiers[number];
+export type Tier = (typeof checklistTiers)[number];
 
 export type ChecklistSection = {
 	bronze: Record<string, boolean>;

@@ -1,5 +1,5 @@
-import { render, cleanup } from '@testing-library/svelte';
-import { describe, it, expect, afterEach } from 'vitest';
+import { cleanup, render } from '@testing-library/svelte';
+import { afterEach, describe, expect, it } from 'vitest';
 import EvaluationItem from '../src/lib/components/EvaluationItem.svelte';
 
 describe('EvaluationItem', () => {

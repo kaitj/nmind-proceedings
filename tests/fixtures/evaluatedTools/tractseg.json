@@ -1,101 +1,84 @@
 {
 	"name": "TractSeg",
-	"description": "TractSeg is a fast and accurate tool for the automatic segmentation of white matter tracts from diffusion MRI data. Developed at the University of Oxford, it has become a standard tool in many neuroimaging labs.",
+	"date": "2022-12-08",
 	"urls": [
 		{
-			"text": "Home Page",
-			"href": "tractseg.org"
+			"url_type": "Home Page",
+			"url": "tractseg.org"
 		}
 	],
-	"maintainers": [
-		{
-			"name": "Mitchell Bode-Purdy",
-			"email": "mitchellbodepurdy@foomail.mock",
-			"affiliation": "University of Bristol"
-		},
-		{
-			"name": "Bryant Turcotte-Watsica",
-			"email": "bryantturcottewatsica@foomail.mock",
-			"affiliation": "University of California, Santa Cruz"
-		}
-	],
-	"evaluations": [
-		{
-			"checklistVersion": "1.1",
-			"toolVersion": "6.2.7",
-			"date": "2022-12-08",
-			"evaluatorEmail": "gkiar@nmind.mock",
-			"checklist": {
-				"testing": {
-					"bronze": {
-						"bronze_tst_1": true,
-						"bronze_tst_2": true
-					},
-					"silver": {
-						"silver_tst_1": false,
-						"silver_tst_2": true
-					},
-					"gold": {
-						"gold_tst_1": true,
-						"gold_tst_2": false
-					}
-				},
-				"infrastructure": {
-					"bronze": {
-						"bronze_inf_1": false,
-						"bronze_inf_2": true,
-						"bronze_inf_3": false,
-						"bronze_inf_4": false,
-						"bronze_inf_5": true,
-						"bronze_inf_6": false,
-						"bronze_inf_7": false
-					},
-					"silver": {
-						"silver_inf_1": true,
-						"silver_inf_2": false,
-						"silver_inf_3": false
-					},
-					"gold": {
-						"gold_inf_1": true,
-						"gold_inf_2": true,
-						"gold_inf_3": false,
-						"gold_inf_4": false,
-						"gold_inf_5": false
-					}
-				},
-				"documentation": {
-					"bronze": {
-						"bronze_doc_1": false,
-						"bronze_doc_2": true,
-						"bronze_doc_3": false,
-						"bronze_doc_4": false,
-						"bronze_doc_5": true,
-						"bronze_doc_6": true,
-						"bronze_doc_7": false,
-						"bronze_doc_8": true,
-						"bronze_doc_9": true
-					},
-					"silver": {
-						"silver_doc_1": false,
-						"silver_doc_2": true,
-						"silver_doc_3": true,
-						"silver_doc_4": true,
-						"silver_doc_5": false,
-						"silver_doc_6": true
-					},
-					"gold": {
-						"gold_doc_1": false,
-						"gold_doc_2": true,
-						"gold_doc_3": true,
-						"gold_doc_4": true,
-						"gold_doc_5": true,
-						"gold_doc_6": true
-					}
-				}
-			}
-		}
-	],
-	"slug": "tractseg",
 	"image": "brain_9_svgrepo_com--YellowGreen.png",
-	"tags": ["conversion", "protocols", "pytorch", "machine-learning", "brainweb"]
+	"checklistVersion": "1.1",
+	"evaluators": [
+		{
+			"name": "NMIND",
+			"contact": "https://github.com/nmind"
+		}
+	],
+	"testing": {
+		"bronze": {
+			"1": true,
+			"2": true
+		},
+		"silver": {
+			"1": false,
+			"2": true
+		},
+		"gold": {
+			"1": true,
+			"2": false
+		}
+	},
+	"infrastructure": {
+		"bronze": {
+			"1": false,
+			"2": true,
+			"3": false,
+			"4": false,
+			"5": true,
+			"6": false,
+			"7": false
+		},
+		"silver": {
+			"1": true,
+			"2": false,
+			"3": false
+		},
+		"gold": {
+			"1": true,
+			"2": true,
+			"3": false,
+			"4": false,
+			"5": false
+		}
+	},
+	"documentation": {
+		"bronze": {
+			"1": false,
+			"2": true,
+			"3": false,
+			"4": false,
+			"5": true,
+			"6": true,
+			"7": false,
+			"8": true,
+			"9": true
+		},
+		"silver": {
+			"1": false,
+			"2": true,
+			"3": true,
+			"4": true,
+			"5": false,
+			"6": true
+		},
+		"gold": {
+			"1": false,
+			"2": true,
+			"3": true,
+			"4": true,
+			"5": true,
+			"6": true
+		}
+	}
 }

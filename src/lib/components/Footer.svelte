@@ -30,6 +30,6 @@
 		>
 	</div>
 	<div>
-		<p>© 2024 NMIND.</p>
+		<p>© 2025 NMIND.</p>
 	</div>
 </footer>

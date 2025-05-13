@@ -1,124 +1,92 @@
 {
 	"name": "PyNets",
-	"description": "PyNets is an open-source workflow for structural and functional connectome ensemble learning. It was developed at the Massachusetts Institute of Technology and has been adopted by neuroscience researchers worldwide.",
+	"date": "2022-09-12",
 	"urls": [
 		{
-			"text": "Home Page",
-			"href": "pynets.com"
+			"url_type": "Home Page",
+			"url": "pynets.com"
 		},
 		{
-			"text": "Source Code",
-			"href": "github.com/pynets"
+			"url_type": "Source Code",
+			"url": "github.com/pynets"
 		},
 		{
-			"text": "Documentation",
-			"href": "northwestern.edu/pynets"
+			"url_type": "Documentation",
+			"url": "northwestern.edu/pynets"
 		}
 	],
-	"maintainers": [
-		{
-			"name": "Madeline Abbott",
-			"email": "madelineabbott@foomail.mock",
-			"affiliation": "University of Manchester"
-		},
-		{
-			"name": "Dr. Jennifer Huels",
-			"email": "drjenniferhuels@foomail.mock",
-			"affiliation": "University of Wolverhampton"
-		},
-		{
-			"name": "Kelli Rath",
-			"email": "kellirath@foomail.mock",
-			"affiliation": "University of East Anglia"
-		},
-		{
-			"name": "Kelvin Abbott V",
-			"email": "kelvinabbottv@foomail.mock",
-			"affiliation": "University of Cambridge"
-		},
-		{
-			"name": "Boyd McLaughlin",
-			"email": "boydmclaughlin@foomail.mock",
-			"affiliation": "California Institute of Technology"
-		}
-	],
-	"evaluations": [
-		{
-			"checklistVersion": "1.1",
-			"toolVersion": "8.5.1",
-			"date": "2022-09-12",
-			"evaluatorEmail": "mgoncalves@nmind.mock",
-			"checklist": {
-				"testing": {
-					"bronze": {
-						"bronze_tst_1": false,
-						"bronze_tst_2": true
-					},
-					"silver": {
-						"silver_tst_1": false,
-						"silver_tst_2": false
-					},
-					"gold": {
-						"gold_tst_1": false,
-						"gold_tst_2": false
-					}
-				},
-				"infrastructure": {
-					"bronze": {
-						"bronze_inf_1": false,
-						"bronze_inf_2": true,
-						"bronze_inf_3": true,
-						"bronze_inf_4": true,
-						"bronze_inf_5": true,
-						"bronze_inf_6": true,
-						"bronze_inf_7": false
-					},
-					"silver": {
-						"silver_inf_1": true,
-						"silver_inf_2": true,
-						"silver_inf_3": true
-					},
-					"gold": {
-						"gold_inf_1": true,
-						"gold_inf_2": false,
-						"gold_inf_3": true,
-						"gold_inf_4": false,
-						"gold_inf_5": false
-					}
-				},
-				"documentation": {
-					"bronze": {
-						"bronze_doc_1": true,
-						"bronze_doc_2": false,
-						"bronze_doc_3": false,
-						"bronze_doc_4": false,
-						"bronze_doc_5": false,
-						"bronze_doc_6": false,
-						"bronze_doc_7": true,
-						"bronze_doc_8": false,
-						"bronze_doc_9": true
-					},
-					"silver": {
-						"silver_doc_1": false,
-						"silver_doc_2": true,
-						"silver_doc_3": false,
-						"silver_doc_4": false,
-						"silver_doc_5": true,
-						"silver_doc_6": false
-					},
-					"gold": {
-						"gold_doc_1": true,
-						"gold_doc_2": false,
-						"gold_doc_3": false,
-						"gold_doc_4": true,
-						"gold_doc_5": true,
-						"gold_doc_6": false
-					}
-				}
-			}
-		}
-	],
-	"slug": "pynets",
 	"image": "brain_9_svgrepo_com--LimeGreen.png",
-	"tags": []
+	"checklistVersion": "1.1",
+	"evaluators": [
+		{
+			"name": "NMIND",
+			"contact": "https://github.com/nmind"
+		}
+	],
+	"testing": {
+		"bronze": {
+			"1": false,
+			"2": true
+		},
+		"silver": {
+			"1": false,
+			"2": false
+		},
+		"gold": {
+			"1": false,
+			"2": false
+		}
+	},
+	"infrastructure": {
+		"bronze": {
+			"1": false,
+			"2": true,
+			"3": true,
+			"4": true,
+			"5": true,
+			"6": true,
+			"7": false
+		},
+		"silver": {
+			"1": true,
+			"2": true,
+			"3": true
+		},
+		"gold": {
+			"1": true,
+			"2": false,
+			"3": true,
+			"4": false,
+			"5": false
+		}
+	},
+	"documentation": {
+		"bronze": {
+			"1": true,
+			"2": false,
+			"3": false,
+			"4": false,
+			"5": false,
+			"6": false,
+			"7": true,
+			"8": false,
+			"9": true
+		},
+		"silver": {
+			"1": false,
+			"2": true,
+			"3": false,
+			"4": false,
+			"5": true,
+			"6": false
+		},
+		"gold": {
+			"1": true,
+			"2": false,
+			"3": false,
+			"4": true,
+			"5": true,
+			"6": false
+		}
+	}
 }

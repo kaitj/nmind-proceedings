@@ -1,110 +1,88 @@
 {
 	"name": "Imaris for Neuroscientists",
-	"description": "Imaris for Neuroscientists is a powerful visualization and analysis software designed specifically for neuroscientists. Developed by Bitplane, it provides a comprehensive solution for the visualization and analysis of 3D and 4D microscopy datasets.",
+	"date": "2022-04-22",
 	"urls": [
 		{
-			"text": "Source Code",
-			"href": "yale.edu/imaris_for_neuroscientists"
+			"url_type": "Source Code",
+			"url": "yale.edu/imaris_for_neuroscientists"
 		},
 		{
-			"text": "Documentation",
-			"href": "github.com/imaris_for_neuroscientists"
+			"url_type": "Documentation",
+			"url": "github.com/imaris_for_neuroscientists"
 		}
 	],
-	"maintainers": [
-		{
-			"name": "Lloyd Erdman",
-			"email": "lloyderdman@foomail.mock",
-			"affiliation": "University of Liverpool"
-		},
-		{
-			"name": "Allen Dach",
-			"email": "allendach@foomail.mock",
-			"affiliation": "Johns Hopkins University"
-		},
-		{
-			"name": "Renee Metz",
-			"email": "reneemetz@foomail.mock",
-			"affiliation": "Johns Hopkins University"
-		}
-	],
-	"evaluations": [
-		{
-			"checklistVersion": "1.1",
-			"toolVersion": "4.6.7",
-			"date": "2022-04-22",
-			"evaluatorEmail": "jclucas@nmind.mock",
-			"checklist": {
-				"testing": {
-					"bronze": {
-						"bronze_tst_1": false,
-						"bronze_tst_2": false
-					},
-					"silver": {
-						"silver_tst_1": false,
-						"silver_tst_2": false
-					},
-					"gold": {
-						"gold_tst_1": false,
-						"gold_tst_2": false
-					}
-				},
-				"infrastructure": {
-					"bronze": {
-						"bronze_inf_1": false,
-						"bronze_inf_2": false,
-						"bronze_inf_3": true,
-						"bronze_inf_4": false,
-						"bronze_inf_5": true,
-						"bronze_inf_6": true,
-						"bronze_inf_7": true
-					},
-					"silver": {
-						"silver_inf_1": false,
-						"silver_inf_2": false,
-						"silver_inf_3": false
-					},
-					"gold": {
-						"gold_inf_1": true,
-						"gold_inf_2": true,
-						"gold_inf_3": false,
-						"gold_inf_4": false,
-						"gold_inf_5": true
-					}
-				},
-				"documentation": {
-					"bronze": {
-						"bronze_doc_1": false,
-						"bronze_doc_2": false,
-						"bronze_doc_3": true,
-						"bronze_doc_4": false,
-						"bronze_doc_5": false,
-						"bronze_doc_6": true,
-						"bronze_doc_7": false,
-						"bronze_doc_8": true,
-						"bronze_doc_9": false
-					},
-					"silver": {
-						"silver_doc_1": true,
-						"silver_doc_2": false,
-						"silver_doc_3": false,
-						"silver_doc_4": true,
-						"silver_doc_5": true,
-						"silver_doc_6": true
-					},
-					"gold": {
-						"gold_doc_1": false,
-						"gold_doc_2": true,
-						"gold_doc_3": true,
-						"gold_doc_4": false,
-						"gold_doc_5": true,
-						"gold_doc_6": true
-					}
-				}
-			}
-		}
-	],
-	"slug": "imaris-for-neuroscientists",
 	"image": "brain_9_svgrepo_com--YellowGreen.png",
-	"tags": ["spm", "big-data", "image-processing", "ontology", "mri", "pet"]
+	"checklistVersion": "1.1",
+	"evaluators": [
+		{
+			"name": "NMIND",
+			"contact": "https://github.com/nmind"
+		}
+	],
+	"testing": {
+		"bronze": {
+			"1": false,
+			"2": false
+		},
+		"silver": {
+			"1": false,
+			"2": false
+		},
+		"gold": {
+			"1": false,
+			"2": false
+		}
+	},
+	"infrastructure": {
+		"bronze": {
+			"1": false,
+			"2": false,
+			"3": true,
+			"4": false,
+			"5": true,
+			"6": true,
+			"7": true
+		},
+		"silver": {
+			"1": false,
+			"2": false,
+			"3": false
+		},
+		"gold": {
+			"1": true,
+			"2": true,
+			"3": false,
+			"4": false,
+			"5": true
+		}
+	},
+	"documentation": {
+		"bronze": {
+			"1": false,
+			"2": false,
+			"3": true,
+			"4": false,
+			"5": false,
+			"6": true,
+			"7": false,
+			"8": true,
+			"9": false
+		},
+		"silver": {
+			"1": true,
+			"2": false,
+			"3": false,
+			"4": true,
+			"5": true,
+			"6": true
+		},
+		"gold": {
+			"1": false,
+			"2": true,
+			"3": true,
+			"4": false,
+			"5": true,
+			"6": true
+		}
+	}
 }

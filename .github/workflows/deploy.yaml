@@ -2,10 +2,10 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: 
+    branches:
       - development
   workflow_run:
-    workflows: ["Add checklist"]
+    workflows: ['Add checklist']
     types:
       - completed
 
@@ -20,7 +20,7 @@ jobs:
           npm install
           npm run build
           touch build/.nojekyll
-          
+
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:

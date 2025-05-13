@@ -1,5 +1,5 @@
-import { render, cleanup } from '@testing-library/svelte';
-import { describe, it, expect, afterEach } from 'vitest';
+import { cleanup, render } from '@testing-library/svelte';
+import { afterEach, describe, expect, it } from 'vitest';
 import Footer from '../src/lib/components/Footer.svelte';
 
 describe('Footer', () => {
@@ -17,6 +17,6 @@ describe('Footer', () => {
 	it('should render the correct year', () => {
 		const { getByText } = render(Footer);
 
-		expect(getByText('© 2023 NMIND.')).toBeDefined();
+		expect(getByText('© 2025 NMIND.')).toBeDefined();
 	});
 });

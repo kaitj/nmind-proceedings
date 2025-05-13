@@ -5,41 +5,29 @@
 	},
 	"tiers": {
 		"bronze": {
-			"intendedAudience": [
-				"users"
-			],
+			"intendedAudience": ["users"],
 			"benefits": [
 				"Being able to cite the software in grant applications and publications",
 				"Reasonable degree of certainty other will be able to install and use your code"
 			]
 		},
 		"silver": {
-			"intendedAudience": [
-				"users"
-			],
+			"intendedAudience": ["users"],
 			"benefits": [
 				"Accessibility across a range of user experience",
 				"Increasing the likelihood of your tool being used",
 				"Greater stability during development due to tests constantly checking code"
 			],
-			"prerequisiteTiers": [
-				"bronze"
-			]
+			"prerequisiteTiers": ["bronze"]
 		},
 		"gold": {
-			"intendedAudience": [
-				"users",
-				"developers"
-			],
+			"intendedAudience": ["users", "developers"],
 			"benefits": [
 				"A greater sense of community guidelines, attracting contributors",
 				"Extensive documentation assists users with more advanced use cases",
 				"JoSS will increase the visibility of your project"
 			],
-			"prerequisiteTiers": [
-				"bronze",
-				"silver"
-			]
+			"prerequisiteTiers": ["bronze", "silver"]
 		}
 	},
 	"items": [
@@ -57,11 +45,7 @@
 				{
 					"prompt": "type",
 					"type": "select",
-					"options": [
-						"landing page",
-						"source code",
-						"documentation"
-					]
+					"options": ["landing page", "source code", "documentation"]
 				}
 			],
 			"type": "list"
@@ -171,9 +155,7 @@
 		{
 			"id": "6",
 			"prompt": "Digital Object Identifier (DOI) points to latest version",
-			"examples": [
-				"Zenodo"
-			],
+			"examples": ["Zenodo"],
 			"tier": "bronze",
 			"section": "infrastructure",
 			"type": "checkbox"
@@ -263,9 +245,7 @@
 			"id": "3",
 			"prompt": "No excessive files included",
 			"clarification": "unused files / cache",
-			"examples": [
-				".gitignore"
-			],
+			"examples": [".gitignore"],
 			"tier": "silver",
 			"section": "infrastructure",
 			"type": "checkbox"
@@ -323,10 +303,7 @@
 		{
 			"id": "6",
 			"prompt": "Maintenance status is documented",
-			"examples": [
-				"expected turnaround time on pull requests",
-				"whether project is maintained"
-			],
+			"examples": ["expected turnaround time on pull requests", "whether project is maintained"],
 			"tier": "gold",
 			"section": "documentation",
 			"type": "checkbox"

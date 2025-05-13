@@ -1,106 +1,83 @@
 {
 	"name": "antspy",
-	"description": "Antspy is the Python interface for the ANTs library, developed to make the powerful tools of ANTs more accessible to the broader Python-based data science community. It was created through a collaborative effort between the University of Pennsylvania and the Broad Institute.",
+	"date": "2023-02-23",
 	"urls": [
 		{
-			"text": "Documentation",
-			"href": "utaustin.edu/antspy"
+			"url_type": "Documentation",
+			"url": "utaustin.edu/antspy"
 		}
 	],
-	"maintainers": [
-		{
-			"name": "Eduardo Dickens",
-			"email": "eduardodickens@foomail.mock",
-			"affiliation": "University of Southampton"
-		},
-		{
-			"name": "Marta Osinski",
-			"email": "martaosinski@foomail.mock",
-			"affiliation": "University of St Andrews"
-		},
-		{
-			"name": "Janis Kautzer",
-			"email": "janiskautzer@foomail.mock",
-			"affiliation": "University of Wolverhampton"
-		}
-	],
-	"evaluations": [
-		{
-			"checklistVersion": "1.1",
-			"toolVersion": "3.4.3",
-			"date": "2023-02-23",
-			"evaluatorEmail": "djarecka@nmind.mock",
-			"checklist": {
-				"testing": {
-					"bronze": {
-						"bronze_tst_1": true,
-						"bronze_tst_2": false
-					},
-					"silver": {
-						"silver_tst_1": true,
-						"silver_tst_2": false
-					},
-					"gold": {
-						"gold_tst_1": false,
-						"gold_tst_2": false
-					}
-				},
-				"infrastructure": {
-					"bronze": {
-						"bronze_inf_1": true,
-						"bronze_inf_2": true,
-						"bronze_inf_3": true,
-						"bronze_inf_4": true,
-						"bronze_inf_5": false,
-						"bronze_inf_6": true,
-						"bronze_inf_7": false
-					},
-					"silver": {
-						"silver_inf_1": false,
-						"silver_inf_2": true,
-						"silver_inf_3": true
-					},
-					"gold": {
-						"gold_inf_1": false,
-						"gold_inf_2": false,
-						"gold_inf_3": true,
-						"gold_inf_4": false,
-						"gold_inf_5": false
-					}
-				},
-				"documentation": {
-					"bronze": {
-						"bronze_doc_1": false,
-						"bronze_doc_2": false,
-						"bronze_doc_3": true,
-						"bronze_doc_4": false,
-						"bronze_doc_5": true,
-						"bronze_doc_6": true,
-						"bronze_doc_7": true,
-						"bronze_doc_8": true,
-						"bronze_doc_9": false
-					},
-					"silver": {
-						"silver_doc_1": true,
-						"silver_doc_2": false,
-						"silver_doc_3": false,
-						"silver_doc_4": true,
-						"silver_doc_5": true,
-						"silver_doc_6": true
-					},
-					"gold": {
-						"gold_doc_1": false,
-						"gold_doc_2": false,
-						"gold_doc_3": true,
-						"gold_doc_4": false,
-						"gold_doc_5": true,
-						"gold_doc_6": false
-					}
-				}
-			}
-		}
-	],
-	"slug": "antspy",
 	"image": "brain_9_svgrepo_com--DarkGray.png",
-	"tags": ["topological-data-analysis", "freesurfer", "mrs"]
+	"checklistVersion": "1.1",
+	"evaluators": [
+		{
+			"name": "NMIND"
+		}
+	],
+	"testing": {
+		"bronze": {
+			"1": true,
+			"2": false
+		},
+		"silver": {
+			"1": true,
+			"2": false
+		},
+		"gold": {
+			"1": false,
+			"2": false
+		}
+	},
+	"infrastructure": {
+		"bronze": {
+			"1": true,
+			"2": true,
+			"3": true,
+			"4": true,
+			"5": false,
+			"6": true,
+			"7": false
+		},
+		"silver": {
+			"1": false,
+			"2": true,
+			"3": true
+		},
+		"gold": {
+			"1": false,
+			"2": false,
+			"3": true,
+			"4": false,
+			"5": false
+		}
+	},
+	"documentation": {
+		"bronze": {
+			"1": false,
+			"2": false,
+			"3": true,
+			"4": false,
+			"5": true,
+			"6": true,
+			"7": true,
+			"8": true,
+			"9": false
+		},
+		"silver": {
+			"1": true,
+			"2": false,
+			"3": false,
+			"4": true,
+			"5": true,
+			"6": true
+		},
+		"gold": {
+			"1": false,
+			"2": false,
+			"3": true,
+			"4": false,
+			"5": true,
+			"6": false
+		}
+	}
 }

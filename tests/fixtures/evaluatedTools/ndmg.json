@@ -1,124 +1,91 @@
 {
 	"name": "NDMG",
-	"description": "NDMG, or NeuroData's MRI Graphs, is a tool that focuses on quantifying the connectivity matrix of the brain based on dMRI data. It's a joint project of researchers from Johns Hopkins University and the National Institute of Mental Health.",
+	"date": "2022-05-01",
 	"urls": [
 		{
-			"text": "Source Code",
-			"href": "ndmg.com"
+			"url_type": "Source Code",
+			"url": "ndmg.com"
 		},
 		{
-			"text": "Documentation",
-			"href": "cornell.edu/ndmg"
+			"url_type": "Documentation",
+			"url": "cornell.edu/ndmg"
 		},
 		{
-			"text": "Home Page",
-			"href": "github.com/ndmg"
+			"url_type": "Home Page",
+			"url": "github.com/ndmg"
 		}
 	],
-	"maintainers": [
-		{
-			"name": "Desiree Stamm",
-			"email": "desireestamm@foomail.mock",
-			"affiliation": "University of California, Merced"
-		},
-		{
-			"name": "Timothy Bogan",
-			"email": "timothybogan@foomail.mock",
-			"affiliation": "University of California, Irvine"
-		},
-		{
-			"name": "Nichole Lynch",
-			"email": "nicholelynch@foomail.mock",
-			"affiliation": "University of California, Irvine"
-		},
-		{
-			"name": "Regina Corkery",
-			"email": "reginacorkery@foomail.mock",
-			"affiliation": "University of Edinburgh"
-		},
-		{
-			"name": "Desiree Trantow",
-			"email": "desireetrantow@foomail.mock",
-			"affiliation": "University of Kent"
-		}
-	],
-	"evaluations": [
-		{
-			"checklistVersion": "1.1",
-			"toolVersion": "9.0.1",
-			"date": "2022-05-01",
-			"evaluatorEmail": "gkiar@nmind.mock",
-			"checklist": {
-				"testing": {
-					"bronze": {
-						"bronze_tst_1": false,
-						"bronze_tst_2": true
-					},
-					"silver": {
-						"silver_tst_1": true,
-						"silver_tst_2": false
-					},
-					"gold": {
-						"gold_tst_1": false,
-						"gold_tst_2": true
-					}
-				},
-				"infrastructure": {
-					"bronze": {
-						"bronze_inf_1": false,
-						"bronze_inf_2": false,
-						"bronze_inf_3": true,
-						"bronze_inf_4": false,
-						"bronze_inf_5": false,
-						"bronze_inf_6": true,
-						"bronze_inf_7": true
-					},
-					"silver": {
-						"silver_inf_1": true,
-						"silver_inf_2": true,
-						"silver_inf_3": false
-					},
-					"gold": {
-						"gold_inf_1": true,
-						"gold_inf_2": false,
-						"gold_inf_3": false,
-						"gold_inf_4": true,
-						"gold_inf_5": true
-					}
-				},
-				"documentation": {
-					"bronze": {
-						"bronze_doc_1": false,
-						"bronze_doc_2": true,
-						"bronze_doc_3": true,
-						"bronze_doc_4": true,
-						"bronze_doc_5": false,
-						"bronze_doc_6": true,
-						"bronze_doc_7": true,
-						"bronze_doc_8": true,
-						"bronze_doc_9": false
-					},
-					"silver": {
-						"silver_doc_1": false,
-						"silver_doc_2": false,
-						"silver_doc_3": true,
-						"silver_doc_4": true,
-						"silver_doc_5": false,
-						"silver_doc_6": true
-					},
-					"gold": {
-						"gold_doc_1": false,
-						"gold_doc_2": false,
-						"gold_doc_3": false,
-						"gold_doc_4": false,
-						"gold_doc_5": true,
-						"gold_doc_6": false
-					}
-				}
-			}
-		}
-	],
-	"slug": "ndmg",
 	"image": "brain_9_svgrepo_com--MediumPurple.png",
-	"tags": ["dataflow", "surface-reconstruction", "incf", "image-registration", "big-data"]
+	"checklistVersion": "1.1",
+	"evaluators": [
+		{
+			"name": "NMIND"
+		}
+	],
+	"testing": {
+		"bronze": {
+			"1": false,
+			"2": true
+		},
+		"silver": {
+			"1": true,
+			"2": false
+		},
+		"gold": {
+			"1": false,
+			"2": true
+		}
+	},
+	"infrastructure": {
+		"bronze": {
+			"1": false,
+			"2": false,
+			"3": true,
+			"4": false,
+			"5": false,
+			"6": true,
+			"7": true
+		},
+		"silver": {
+			"1": true,
+			"2": true,
+			"3": false
+		},
+		"gold": {
+			"1": true,
+			"2": false,
+			"3": false,
+			"4": true,
+			"5": true
+		}
+	},
+	"documentation": {
+		"bronze": {
+			"1": false,
+			"2": true,
+			"3": true,
+			"4": true,
+			"5": false,
+			"6": true,
+			"7": true,
+			"8": true,
+			"9": false
+		},
+		"silver": {
+			"1": false,
+			"2": false,
+			"3": true,
+			"4": true,
+			"5": false,
+			"6": true
+		},
+		"gold": {
+			"1": false,
+			"2": false,
+			"3": false,
+			"4": false,
+			"5": true,
+			"6": false
+		}
+	}
 }

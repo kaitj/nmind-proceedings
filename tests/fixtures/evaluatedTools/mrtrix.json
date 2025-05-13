@@ -1,199 +1,88 @@
 {
 	"name": "MRTRIX",
-	"description": "MRTRIX, developed by the Florey Institute of Neuroscience and Mental Health, is a software library for the processing, analysis and visualization of diffusion MRI datasets. Its robust algorithms and visualization tools make it a favorite in the neuroimaging community.",
+	"date": "2023-06-25",
 	"urls": [
 		{
-			"text": "Documentation",
-			"href": "mrtrix.org"
+			"url_type": "Documentation",
+			"url": "mrtrix.org"
 		},
 		{
-			"text": "Home Page",
-			"href": "uchicago.edu/mrtrix"
+			"url_type": "Home Page",
+			"url": "uchicago.edu/mrtrix"
 		}
 	],
-	"maintainers": [
-		{
-			"name": "Carrie Mraz",
-			"email": "carriemraz@foomail.mock",
-			"affiliation": "University of Leeds"
-		},
-		{
-			"name": "Mitchell Bode-Purdy",
-			"email": "mitchellbodepurdy@foomail.mock",
-			"affiliation": "Princeton University"
-		},
-		{
-			"name": "Herman Luettgen DVM",
-			"email": "hermanluettgendvm@foomail.mock",
-			"affiliation": "University of Chicago"
-		},
-		{
-			"name": "Holly Dooley",
-			"email": "hollydooley@foomail.mock",
-			"affiliation": "University of Kent"
-		},
-		{
-			"name": "Desiree Stamm",
-			"email": "desireestamm@foomail.mock",
-			"affiliation": "University of Sussex"
-		},
-		{
-			"name": "Doyle Cassin IV",
-			"email": "doylecassiniv@foomail.mock",
-			"affiliation": "University of Sydney"
-		}
-	],
-	"evaluations": [
-		{
-			"checklistVersion": "1.1",
-			"toolVersion": "7.7.3",
-			"date": "2023-04-05",
-			"evaluatorEmail": "gkiar@nmind.mock",
-			"checklist": {
-				"testing": {
-					"bronze": {
-						"bronze_tst_1": false,
-						"bronze_tst_2": false
-					},
-					"silver": {
-						"silver_tst_1": true,
-						"silver_tst_2": true
-					},
-					"gold": {
-						"gold_tst_1": false,
-						"gold_tst_2": false
-					}
-				},
-				"infrastructure": {
-					"bronze": {
-						"bronze_inf_1": false,
-						"bronze_inf_2": true,
-						"bronze_inf_3": true,
-						"bronze_inf_4": true,
-						"bronze_inf_5": false,
-						"bronze_inf_6": true,
-						"bronze_inf_7": false
-					},
-					"silver": {
-						"silver_inf_1": false,
-						"silver_inf_2": false,
-						"silver_inf_3": true
-					},
-					"gold": {
-						"gold_inf_1": false,
-						"gold_inf_2": true,
-						"gold_inf_3": false,
-						"gold_inf_4": false,
-						"gold_inf_5": false
-					}
-				},
-				"documentation": {
-					"bronze": {
-						"bronze_doc_1": false,
-						"bronze_doc_2": false,
-						"bronze_doc_3": false,
-						"bronze_doc_4": false,
-						"bronze_doc_5": false,
-						"bronze_doc_6": true,
-						"bronze_doc_7": false,
-						"bronze_doc_8": true,
-						"bronze_doc_9": false
-					},
-					"silver": {
-						"silver_doc_1": true,
-						"silver_doc_2": false,
-						"silver_doc_3": true,
-						"silver_doc_4": true,
-						"silver_doc_5": false,
-						"silver_doc_6": false
-					},
-					"gold": {
-						"gold_doc_1": true,
-						"gold_doc_2": true,
-						"gold_doc_3": true,
-						"gold_doc_4": true,
-						"gold_doc_5": false,
-						"gold_doc_6": false
-					}
-				}
-			}
-		},
-		{
-			"checklistVersion": "1.1",
-			"toolVersion": "8.7.3",
-			"date": "2023-06-25",
-			"evaluatorEmail": "jclucas@nmind.mock",
-			"checklist": {
-				"testing": {
-					"bronze": {
-						"bronze_tst_1": true,
-						"bronze_tst_2": false
-					},
-					"silver": {
-						"silver_tst_1": true,
-						"silver_tst_2": false
-					},
-					"gold": {
-						"gold_tst_1": false,
-						"gold_tst_2": false
-					}
-				},
-				"infrastructure": {
-					"bronze": {
-						"bronze_inf_1": false,
-						"bronze_inf_2": true,
-						"bronze_inf_3": false,
-						"bronze_inf_4": true,
-						"bronze_inf_5": false,
-						"bronze_inf_6": true,
-						"bronze_inf_7": true
-					},
-					"silver": {
-						"silver_inf_1": false,
-						"silver_inf_2": true,
-						"silver_inf_3": false
-					},
-					"gold": {
-						"gold_inf_1": false,
-						"gold_inf_2": false,
-						"gold_inf_3": false,
-						"gold_inf_4": false,
-						"gold_inf_5": false
-					}
-				},
-				"documentation": {
-					"bronze": {
-						"bronze_doc_1": false,
-						"bronze_doc_2": true,
-						"bronze_doc_3": true,
-						"bronze_doc_4": false,
-						"bronze_doc_5": true,
-						"bronze_doc_6": false,
-						"bronze_doc_7": false,
-						"bronze_doc_8": true,
-						"bronze_doc_9": false
-					},
-					"silver": {
-						"silver_doc_1": false,
-						"silver_doc_2": true,
-						"silver_doc_3": false,
-						"silver_doc_4": true,
-						"silver_doc_5": false,
-						"silver_doc_6": false
-					},
-					"gold": {
-						"gold_doc_1": false,
-						"gold_doc_2": false,
-						"gold_doc_3": false,
-						"gold_doc_4": true,
-						"gold_doc_5": true,
-						"gold_doc_6": true
-					}
-				}
-			}
-		}
-	],
-	"slug": "mrtrix",
 	"image": "brain_9_svgrepo_com--CadetBlue.png",
-	"tags": ["mapper-algorithm", "visualization", "opencv", "data-science", "surface-reconstruction"]
+	"checklistVersion": "1.1",
+	"evaluators": [
+		{
+			"name": "NMIND",
+			"contact": "https://github.com/nmind"
+		}
+	],
+	"testing": {
+		"bronze": {
+			"1": true,
+			"2": false
+		},
+		"silver": {
+			"1": true,
+			"2": false
+		},
+		"gold": {
+			"1": false,
+			"2": false
+		}
+	},
+	"infrastructure": {
+		"bronze": {
+			"1": false,
+			"2": true,
+			"3": false,
+			"4": true,
+			"5": false,
+			"6": true,
+			"7": true
+		},
+		"silver": {
+			"1": false,
+			"2": true,
+			"3": false
+		},
+		"gold": {
+			"1": false,
+			"2": false,
+			"3": false,
+			"4": false,
+			"5": false
+		}
+	},
+	"documentation": {
+		"bronze": {
+			"1": false,
+			"2": true,
+			"3": true,
+			"4": false,
+			"5": true,
+			"6": false,
+			"7": false,
+			"8": true,
+			"9": false
+		},
+		"silver": {
+			"1": false,
+			"2": true,
+			"3": false,
+			"4": true,
+			"5": false,
+			"6": false
+		},
+		"gold": {
+			"1": false,
+			"2": false,
+			"3": false,
+			"4": true,
+			"5": true,
+			"6": true
+		}
+	}
 }

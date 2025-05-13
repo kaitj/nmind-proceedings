@@ -1,5 +1,5 @@
-import { render, cleanup } from '@testing-library/svelte';
-import { describe, it, expect, afterEach } from 'vitest';
+import { cleanup, render } from '@testing-library/svelte';
+import { afterEach, describe, expect, it } from 'vitest';
 import Header from '../src/lib/components/Header.svelte';
 
 describe('Header component', () => {
@@ -27,7 +27,7 @@ describe('Header component', () => {
 
 	it('should render the Proceedings link', () => {
 		const { getByRole } = render(Header);
-		const proceedingsLink = getByRole('link', { name: /proceedings/i });
+		const proceedingsLink = getByRole('link', { name: /tools/i });
 		expect(proceedingsLink).toBeDefined();
 		expect(proceedingsLink.getAttribute('href')).toBe('https://www.nmind.org/proceedings');
 	});

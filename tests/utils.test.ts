@@ -1,14 +1,13 @@
 import { cleanup } from '@testing-library/svelte';
-import { describe, it, expect, afterEach } from 'vitest';
+import { afterEach, describe, expect, it } from 'vitest';
+import { sortingKeys } from '../src/lib/constants';
 import {
-	sortEvaluationsByDate,
-	getMostRecentEvaluation,
-	getCompletionFractionFromSectionTier,
-	getSectionTierPromptById,
-	mungeChecklistSectionTier,
-	findEvaluationSchemaByVersion,
-	getToolUrlByTextDescriptor,
 	filterToolData,
+	findEvaluationSchemaByVersion,
+	getCompletionFractionFromSectionTier,
+	getSectionTierPrompt,
+	getToolUrlByTextDescriptor,
+	mungeChecklistSectionTier,
 	sortFilteredData,
 	tooltip
 } from '../src/lib/utils';
@@ -16,43 +15,10 @@ import toolData from '../tests/fixtures/evaluatedTools/3d-slicer.json';
 import toolData2 from '../tests/fixtures/evaluatedTools/amira.json';
 import toolData3 from '../tests/fixtures/evaluatedTools/analysis-of-dysfunctional-neuroimages-adni.json';
 import schemaData from '../tests/fixtures/evaluationSchemas/v1-1.json';
-import { sortingKeys } from '../src/lib/constants';
-import type { Evaluation } from '../src/lib/types';
-
-describe('sortEvaluationsByDate', () => {
-	it('should sort evaluations by date in ascending order', () => {
-		const evalsDeepCopy = JSON.parse(JSON.stringify(toolData.evaluations));
-		const artificiallyInverted = [evalsDeepCopy[1], evalsDeepCopy[0]];
-		const sortedEvaluations = sortEvaluationsByDate(toolData.evaluations);
-		expect(sortedEvaluations).toEqual(artificiallyInverted);
-	});
-
-	it('should return an empty array if evaluations is empty', () => {
-		const evaluations: Evaluation[] = [];
-		const sortedEvaluations = sortEvaluationsByDate(evaluations);
-		expect(sortedEvaluations).toEqual([]);
-	});
-});
-
-describe('getMostRecentEvaluation', () => {
-	it('should return the most recent evaluation', () => {
-		const mostRecentEvaluation = getMostRecentEvaluation(toolData.evaluations);
-		// The more-recent of the two evaluations in the fixture is the second one
-		expect(mostRecentEvaluation?.date).toEqual('2023-07-13');
-	});
-
-	it('should return null if evaluations is empty', () => {
-		const evaluations: Evaluation[] = [];
-		const mostRecentEvaluation = getMostRecentEvaluation(evaluations);
-		expect(mostRecentEvaluation).toBeNull();
-	});
-});
 
 describe('getCompletionFractionFromSectionTier', () => {
 	it('should return the completion fraction for a section tier', () => {
-		const completionFraction = getCompletionFractionFromSectionTier(
-			toolData.evaluations[0].checklist.infrastructure.bronze
-		);
+		const completionFraction = getCompletionFractionFromSectionTier(toolData.infrastructure.bronze);
 		expect(completionFraction).toStrictEqual({
 			numerator: 4,
 			denominator: 7
@@ -60,16 +26,16 @@ describe('getCompletionFractionFromSectionTier', () => {
 	});
 });
 
-describe('getSectionTierPromptById', () => {
+describe('getSectionTierPrompt', () => {
 	it('should return the prompt for a section tier by id', () => {
-		const prompt = getSectionTierPromptById(schemaData, 'bronze_doc_1');
+		const prompt = getSectionTierPrompt(schemaData, '1', 'documentation', 'bronze');
 		expect(prompt).toBe(
 			'Landing page (e.g., GitHub README, website) provides a link to documentation and brief description of what program does'
 		);
 	});
 
 	it('should return null if section tier id is not found', () => {
-		const prompt = getSectionTierPromptById(schemaData, 'nonexistent_id');
+		const prompt = getSectionTierPrompt(schemaData, 'nonexistent_id', 'documentation', 'bronze');
 		expect(prompt).toEqual(null);
 	});
 });
@@ -107,8 +73,11 @@ describe('mungeChecklistSectionTier', () => {
 			}
 		];
 		const mungedSectionTier = mungeChecklistSectionTier(
-			toolData.evaluations[0].checklist.infrastructure.bronze,
-			Number(toolData.evaluations[0].checklistVersion)
+			[schemaData],
+			toolData,
+			'infrastructure',
+			'bronze',
+			Number(toolData.checklistVersion)
 		);
 		expect(mungedSectionTier).toEqual(referenceMungedSectionTier);
 	});
@@ -117,7 +86,10 @@ describe('mungeChecklistSectionTier', () => {
 		const nonexistentSchemaVersion = 999;
 		const callWithNonexistentSchema = () => {
 			mungeChecklistSectionTier(
-				toolData.evaluations[0].checklist.infrastructure.bronze,
+				[schemaData],
+				toolData,
+				'infrastucture',
+				'bronze',
 				nonexistentSchemaVersion
 			);
 		};
@@ -142,8 +114,8 @@ describe('getToolUrlByTextDescriptor', () => {
 	it('should return the URL for a tool with a given text descriptor', () => {
 		const url = getToolUrlByTextDescriptor(toolData, 'Source Code');
 		expect(url).toStrictEqual({
-			text: 'Source Code',
-			href: 'uclondon.edu/3d_slicer'
+			url_type: 'Source Code',
+			url: 'uclondon.edu/3d_slicer'
 		});
 	});
 
@@ -155,47 +127,38 @@ describe('getToolUrlByTextDescriptor', () => {
 
 describe('filterToolData', () => {
 	afterEach(cleanup);
-	it('should filter tool data by text query, tag query, and section tier query', async () => {
+	it('should filter tool data by text query and section tier query', async () => {
+		const tools = [toolData, toolData2, toolData3];
 		const textQuery = 'Amira';
-		const tagQuery = 'numpy,mrs';
 		const sectionTierQuery = ['testing-gold'];
-		const filteredTools = await filterToolData(textQuery, tagQuery, sectionTierQuery);
+
+		const filteredTools = await filterToolData(tools, textQuery, sectionTierQuery);
 		expect(filteredTools).toEqual([toolData2]);
 	});
 
 	it('should filter tool data by text query', async () => {
+		const tools = [toolData, toolData2, toolData3];
 		const textQuery = 'Analysis of Dysfunct';
-		const tagQuery = '';
 		const sectionTierQuery: string[] = [];
 
-		const filteredTools = await filterToolData(textQuery, tagQuery, sectionTierQuery);
+		const filteredTools = await filterToolData(tools, textQuery, sectionTierQuery);
 		expect(filteredTools).toEqual([toolData3]);
 	});
 
-	it('should filter tool data by tag query', async () => {
-		const textQuery = '';
-		const tagQuery = 'neuro';
-		const sectionTierQuery: string[] = [];
-
-		const filteredTools = await filterToolData(textQuery, tagQuery, sectionTierQuery);
-		expect(filteredTools).toContainEqual(expect.objectContaining(toolData2));
-		expect(filteredTools).toContainEqual(expect.objectContaining(toolData3));
-	});
-
 	it('should filter tool data by section tier query', async () => {
+		const tools = [toolData, toolData2, toolData3];
 		const textQuery = '';
-		const tagQuery = '';
 		const sectionTierQuery = ['testing-bronze', 'testing-gold'];
 
-		const filteredTools = await filterToolData(textQuery, tagQuery, sectionTierQuery);
+		const filteredTools = await filterToolData(tools, textQuery, sectionTierQuery);
 		expect(filteredTools).toContainEqual(expect.objectContaining(toolData2));
 	});
 
 	it('should return an empty array if no tools match the query', async () => {
+		const tools = [toolData, toolData2, toolData3];
 		const textQuery = 'nonexistent tool';
-		const tagQuery = 'nonexistent tag';
 		const sectionTierQuery: string[] = [];
-		const filteredTools = await filterToolData(textQuery, tagQuery, sectionTierQuery);
+		const filteredTools = await filterToolData(tools, textQuery, sectionTierQuery);
 		expect(filteredTools).toEqual([]);
 	});
 });

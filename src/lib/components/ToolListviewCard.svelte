@@ -1,15 +1,19 @@
 <script lang="ts">
-    import { base } from '$app/paths';
-    import { toolURLTextDescriptors } from '$lib/constants';
-    import type { EvaluationSchema, Tool } from '$lib/types';
-    import { getComplianceColor, getOverallCompletionRatio, getToolUrlByTextDescriptor } from '$lib/utils';
+	import { base } from '$app/paths';
+	import { toolURLTextDescriptors } from '$lib/constants';
+	import type { EvaluationSchema, Tool } from '$lib/types';
+	import {
+		getComplianceColor,
+		getOverallCompletionRatio,
+		getToolUrlByTextDescriptor
+	} from '$lib/utils';
 
-    import ToolListviewEvaluation from './ToolListviewEvaluation.svelte';
+	import ToolListviewEvaluation from './ToolListviewEvaluation.svelte';
 
 	export let tool: Tool;
-    export let schemas: EvaluationSchema[];
+	export let schemas: EvaluationSchema[];
 
-    let docsUrl = getToolUrlByTextDescriptor(tool, toolURLTextDescriptors.DOCS);
+	let docsUrl = getToolUrlByTextDescriptor(tool, toolURLTextDescriptors.DOCS);
 
 	const completionRatio = getOverallCompletionRatio(tool);
 	const complianceColor = getComplianceColor(completionRatio);
@@ -59,20 +63,22 @@
 
 					<p class="text-sm pb-1">Evaluated on {tool.date}</p>
 					<p class="text-sm pb-1">Evaluated using Checklist v{tool.checklistVersion}</p>
-                </div>
-            </div>
+				</div>
+			</div>
 
-            <ToolListviewEvaluation tool={tool} schemas={schemas}/>
+			<ToolListviewEvaluation {tool} {schemas} />
 			<div class="compliance-bar p-1 h-32" style="background-color: {complianceColor};"></div>
-        </div>
-    </a>
+		</div>
+	</a>
 </div>
 
 <style>
 	.card-wrapper:hover,
 	.card-wrapper:focus {
 		transform: scale(1.05);
-		box-shadow: rgba(0, 0, 0, 0.2) 0px 25px 30px -5px, rgba(0, 0, 0, 0.15) 0px 10px 12px -6px;
+		box-shadow:
+			rgba(0, 0, 0, 0.2) 0px 25px 30px -5px,
+			rgba(0, 0, 0, 0.15) 0px 10px 12px -6px;
 		border-color: rgb(90, 92, 106);
 	}
 </style>

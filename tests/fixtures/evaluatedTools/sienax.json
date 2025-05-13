@@ -1,109 +1,92 @@
 {
 	"name": "SIENAX",
-	"description": "SIENAX, part of the FMRIB Software Library from Oxford University, is an extension of SIENA. It provides a cross-sectional method to assess brain volume changes, making it a powerful tool for studying conditions such as multiple sclerosis.",
+	"date": "2022-06-15",
 	"urls": [
 		{
-			"text": "Home Page",
-			"href": "sienax.org"
+			"url_type": "Home Page",
+			"url": "sienax.org"
 		},
 		{
-			"text": "Documentation",
-			"href": "github.com/sienax"
+			"url_type": "Documentation",
+			"url": "github.com/sienax"
 		},
 		{
-			"text": "Source Code",
-			"href": "stanford.edu/sienax"
+			"url_type": "Source Code",
+			"url": "stanford.edu/sienax"
 		}
 	],
-	"maintainers": [
-		{
-			"name": "Kelvin Nienow",
-			"email": "kelvinnienow@foomail.mock",
-			"affiliation": "University of Leicester"
-		},
-		{
-			"name": "Herman Luettgen DVM",
-			"email": "hermanluettgendvm@foomail.mock",
-			"affiliation": "University of California, Santa Barbara"
-		}
-	],
-	"evaluations": [
-		{
-			"checklistVersion": "1.1",
-			"toolVersion": "7.0.6",
-			"date": "2022-06-15",
-			"evaluatorEmail": "jclucas@nmind.mock",
-			"checklist": {
-				"testing": {
-					"bronze": {
-						"bronze_tst_1": false,
-						"bronze_tst_2": true
-					},
-					"silver": {
-						"silver_tst_1": true,
-						"silver_tst_2": false
-					},
-					"gold": {
-						"gold_tst_1": false,
-						"gold_tst_2": true
-					}
-				},
-				"infrastructure": {
-					"bronze": {
-						"bronze_inf_1": false,
-						"bronze_inf_2": false,
-						"bronze_inf_3": true,
-						"bronze_inf_4": false,
-						"bronze_inf_5": true,
-						"bronze_inf_6": true,
-						"bronze_inf_7": false
-					},
-					"silver": {
-						"silver_inf_1": true,
-						"silver_inf_2": true,
-						"silver_inf_3": false
-					},
-					"gold": {
-						"gold_inf_1": false,
-						"gold_inf_2": true,
-						"gold_inf_3": false,
-						"gold_inf_4": false,
-						"gold_inf_5": false
-					}
-				},
-				"documentation": {
-					"bronze": {
-						"bronze_doc_1": false,
-						"bronze_doc_2": false,
-						"bronze_doc_3": false,
-						"bronze_doc_4": false,
-						"bronze_doc_5": true,
-						"bronze_doc_6": true,
-						"bronze_doc_7": true,
-						"bronze_doc_8": false,
-						"bronze_doc_9": true
-					},
-					"silver": {
-						"silver_doc_1": true,
-						"silver_doc_2": true,
-						"silver_doc_3": false,
-						"silver_doc_4": false,
-						"silver_doc_5": false,
-						"silver_doc_6": false
-					},
-					"gold": {
-						"gold_doc_1": false,
-						"gold_doc_2": true,
-						"gold_doc_3": false,
-						"gold_doc_4": false,
-						"gold_doc_5": false,
-						"gold_doc_6": false
-					}
-				}
-			}
-		}
-	],
-	"slug": "sienax",
 	"image": "brain_9_svgrepo_com--Crimson.png",
-	"tags": []
+	"checklistVersion": "1.1",
+	"evaluators": [
+		{
+			"name": "NMIND",
+			"contact": "https://github.com/nmind"
+		}
+	],
+	"testing": {
+		"bronze": {
+			"1": false,
+			"2": true
+		},
+		"silver": {
+			"1": true,
+			"2": false
+		},
+		"gold": {
+			"1": false,
+			"2": true
+		}
+	},
+	"infrastructure": {
+		"bronze": {
+			"1": false,
+			"2": false,
+			"3": true,
+			"4": false,
+			"5": true,
+			"6": true,
+			"7": false
+		},
+		"silver": {
+			"1": true,
+			"2": true,
+			"3": false
+		},
+		"gold": {
+			"1": false,
+			"2": true,
+			"3": false,
+			"4": false,
+			"5": false
+		}
+	},
+	"documentation": {
+		"bronze": {
+			"1": false,
+			"2": false,
+			"3": false,
+			"4": false,
+			"5": true,
+			"6": true,
+			"7": true,
+			"8": false,
+			"9": true
+		},
+		"silver": {
+			"1": true,
+			"2": true,
+			"3": false,
+			"4": false,
+			"5": false,
+			"6": false
+		},
+		"gold": {
+			"1": false,
+			"2": true,
+			"3": false,
+			"4": false,
+			"5": false,
+			"6": false
+		}
+	}
 }

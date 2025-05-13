@@ -1,16 +1,18 @@
 <script lang="ts">
-    import { page } from '$app/stores';
-    import { checklistSections, sortingKeys } from '$lib/constants';
-    import type { EvaluationSchema, Tool } from '$lib/types';
-    import { filterToolData, sortFilteredData } from '$lib/utils';
+	import { checklistSections, sortingKeys } from '$lib/constants';
+	import type { EvaluationSchema, Tool } from '$lib/types';
+	import { filterToolData, sortFilteredData } from '$lib/utils';
 
 	import ToolListviewCard from './ToolListviewCard.svelte';
+
+	export let tools: Tool[] = [];
+	export let schemas: EvaluationSchema[] = [];
 
 	// Pagination parameters
 	let toolsPerPage = 5;
 	let currentPage = 1;
 
-    // Search parameters
+	// Search parameters
 	let textQuery = '';
 	let sortingQuery = sortingKeys[1]; // Sort by date (default)
 	let sectionTierQuery: string[] = [];
@@ -18,35 +20,31 @@
 	let filteredTools: Tool[] = [];
 	let sortedTools: Tool[] = [];
 	let paginatedTools: Tool[] = [];
-	let schemas: EvaluationSchema[] = [];
 
-    function paginateSortedData(tools: Tool[], pageNumber: number) {
-        const toolStart = (pageNumber - 1) * toolsPerPage;
-        paginatedTools = tools.slice(toolStart, toolStart + toolsPerPage);
-    }
+	function paginateSortedData(tools: Tool[], pageNumber: number) {
+		const toolStart = (pageNumber - 1) * toolsPerPage;
+		paginatedTools = tools.slice(toolStart, toolStart + toolsPerPage);
+	}
 
-    $: filterToolData($page.data.tools, textQuery, sectionTierQuery).then(
-        (response) => {
-            filteredTools = response;
-        }
-    );
-    $: sortedTools = sortFilteredData(filteredTools, sortingQuery);
-    $: paginateSortedData(sortedTools, currentPage);
-	$: schemas = $page.data.schemas;
+	$: filterToolData(tools, textQuery, sectionTierQuery).then((response) => {
+		filteredTools = response;
+	});
+	$: sortedTools = sortFilteredData(filteredTools, sortingQuery);
+	$: paginateSortedData(sortedTools, currentPage);
 
-    function changePage(newPage: number): void {
-        const maxPage = Math.ceil(filteredTools.length / toolsPerPage);
-        currentPage = newPage >= 1 && newPage <= maxPage ? newPage : 1;
-    }
+	function changePage(newPage: number): void {
+		const maxPage = Math.ceil(filteredTools.length / toolsPerPage);
+		currentPage = newPage >= 1 && newPage <= maxPage ? newPage : 1;
+	}
 
 	function updateSectionTierQuery(section: string, event: Event): void {
-        const { value } = event.target as HTMLSelectElement;
+		const { value } = event.target as HTMLSelectElement;
 
-        sectionTierQuery = [
-            ...sectionTierQuery.filter((item) => !item.startsWith(section)),
-            ...(value ? [`${section}-${value}`] : []),
-        ];
-    }
+		sectionTierQuery = [
+			...sectionTierQuery.filter((item) => !item.startsWith(section)),
+			...(value ? [`${section}-${value}`] : [])
+		];
+	}
 </script>
 
 <div
@@ -61,7 +59,8 @@
 			class="btn btn-primary btn-md"
 			style="color: #fff;"
 			on:click={() => window.open('https://www.nmind.org/standards-checklist/', '_blank')}
-			id="checklist">Add a tool
+			id="checklist"
+			>Add a tool
 		</button>
 	</div>
 
@@ -80,29 +79,29 @@
 	</div>
 
 	<div id="sectionTierSelect" class="min-w-min">
-         <div class="label">
+		<div class="label">
 			<span class="label-text text-lg">Search by minimum standard:</span>
-        </div>
-		<div id="tier-select" class="flex grow gap-4">
-            {#each checklistSections as section}
-                <div>
-                    <select
-                    on:change={(changeEvent) => updateSectionTierQuery(section, changeEvent)}
-                    class="select select-primary w-full min-w-min"
-                    id="{section}-select"
-                    >
-                        <option value="">❌ None</option>
-                        <option value="bronze">🥉 Bronze</option>
-                        <option value="silver">🥈 Silver</option>
-                        <option value="gold">🥇 Gold</option>
-                    </select>
-                    <label for="{section}-select" class="label justify-end">
-                        <span class="label-text-alt">{section.charAt(0).toUpperCase() + section.slice(1)}</span>
-                    </label>
-                </div>
-            {/each}
 		</div>
-	</div>		
+		<div id="tier-select" class="flex grow gap-4">
+			{#each checklistSections as section}
+				<div>
+					<select
+						on:change={(changeEvent) => updateSectionTierQuery(section, changeEvent)}
+						class="select select-primary w-full min-w-min"
+						id="{section}-select"
+					>
+						<option value="">❌ None</option>
+						<option value="bronze">🥉 Bronze</option>
+						<option value="silver">🥈 Silver</option>
+						<option value="gold">🥇 Gold</option>
+					</select>
+					<label for="{section}-select" class="label justify-end">
+						<span class="label-text-alt">{section.charAt(0).toUpperCase() + section.slice(1)}</span>
+					</label>
+				</div>
+			{/each}
+		</div>
+	</div>
 </div>
 
 <hr class="mt-12" />
@@ -134,12 +133,14 @@
 			the bounding flexbox for the `ToolListviewCard` component's SVG shields
 			always calculates out to a couple REM wider than the bounding flexbox below.
 			It's not perfect: but looks better than without, across all breakpoints. -->
-			 <div
+			<div
 				class="h-24 flex flex-row flex-grow flex-wrap justify-center items-center relative right-2 lg:right-4 xl:right-6"
 			>
-                {#each checklistSections as section}
-                    <p class="w-56 text-center text-lg">{section.charAt(0).toUpperCase() + section.slice(1)}</p>
-                {/each}
+				{#each checklistSections as section}
+					<p class="w-56 text-center text-lg">
+						{section.charAt(0).toUpperCase() + section.slice(1)}
+					</p>
+				{/each}
 			</div>
 		</div>
 	</div>
@@ -147,7 +148,7 @@
 	<hr />
 
 	{#each paginatedTools as tool (tool.slug)}
-		<ToolListviewCard {tool} {schemas}/>
+		<ToolListviewCard {tool} {schemas} />
 	{/each}
 
 	<div class="join w-full flex justify-center mt-8 mb-8 ml-0 mr-0">
