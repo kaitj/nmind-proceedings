@@ -1,125 +1,87 @@
 {
 	"name": "FIRST",
-	"description": "FMRIB's Integrated Registration and Segmentation Tool (FIRST) is part of the FMRIB Software Library, developed at Oxford University. It's designed to provide robust and accurate segmentation of subcortical brain structures, making it an invaluable tool in studies of brain anatomy.",
+	"date": "2022-09-03",
 	"urls": [
 		{
-			"text": "Documentation",
-			"href": "github.com/first"
+			"url_type": "Documentation",
+			"url": "github.com/first"
 		},
 		{
-			"text": "Source Code",
-			"href": "ucla.edu/first"
+			"url_type": "Source Code",
+			"url": "ucla.edu/first"
 		}
 	],
-	"maintainers": [
-		{
-			"name": "Benjamin Sipes",
-			"email": "benjaminsipes@foomail.mock",
-			"affiliation": "University of California, Santa Cruz"
-		},
-		{
-			"name": "Lynda Davis",
-			"email": "lyndadavis@foomail.mock",
-			"affiliation": "Stanford University"
-		},
-		{
-			"name": "Domingo Funk-Schoen",
-			"email": "domingofunkschoen@foomail.mock",
-			"affiliation": "University of Chicago"
-		},
-		{
-			"name": "Peggy Larkin",
-			"email": "peggylarkin@foomail.mock",
-			"affiliation": "University of California, Riverside"
-		},
-		{
-			"name": "Mr. Roland Christiansen",
-			"email": "mrrolandchristiansen@foomail.mock",
-			"affiliation": "University of York"
-		},
-		{
-			"name": "Cheryl Renner",
-			"email": "cherylrenner@foomail.mock",
-			"affiliation": "Harvard University"
-		}
-	],
-	"evaluations": [
-		{
-			"checklistVersion": "1.1",
-			"toolVersion": "1.0.2",
-			"date": "2022-09-03",
-			"evaluatorEmail": "mgoncalves@nmind.mock",
-			"checklist": {
-				"testing": {
-					"bronze": {
-						"bronze_tst_1": false,
-						"bronze_tst_2": true
-					},
-					"silver": {
-						"silver_tst_1": false,
-						"silver_tst_2": true
-					},
-					"gold": {
-						"gold_tst_1": true,
-						"gold_tst_2": true
-					}
-				},
-				"infrastructure": {
-					"bronze": {
-						"bronze_inf_1": false,
-						"bronze_inf_2": false,
-						"bronze_inf_3": false,
-						"bronze_inf_4": false,
-						"bronze_inf_5": false,
-						"bronze_inf_6": false,
-						"bronze_inf_7": false
-					},
-					"silver": {
-						"silver_inf_1": false,
-						"silver_inf_2": true,
-						"silver_inf_3": true
-					},
-					"gold": {
-						"gold_inf_1": false,
-						"gold_inf_2": false,
-						"gold_inf_3": false,
-						"gold_inf_4": true,
-						"gold_inf_5": true
-					}
-				},
-				"documentation": {
-					"bronze": {
-						"bronze_doc_1": false,
-						"bronze_doc_2": false,
-						"bronze_doc_3": false,
-						"bronze_doc_4": false,
-						"bronze_doc_5": true,
-						"bronze_doc_6": false,
-						"bronze_doc_7": false,
-						"bronze_doc_8": true,
-						"bronze_doc_9": true
-					},
-					"silver": {
-						"silver_doc_1": true,
-						"silver_doc_2": false,
-						"silver_doc_3": false,
-						"silver_doc_4": true,
-						"silver_doc_5": true,
-						"silver_doc_6": true
-					},
-					"gold": {
-						"gold_doc_1": true,
-						"gold_doc_2": false,
-						"gold_doc_3": false,
-						"gold_doc_4": false,
-						"gold_doc_5": false,
-						"gold_doc_6": false
-					}
-				}
-			}
-		}
-	],
-	"slug": "first",
 	"image": "brain_9_svgrepo_com--LimeGreen.png",
-	"tags": ["mrtrix3", "image-segmentation", "opencv"]
+	"checklistVersion": "1.1",
+	"evaluators": [
+		{
+			"name": "NMIND"
+		}
+	],
+	"testing": {
+		"bronze": {
+			"1": false,
+			"2": true
+		},
+		"silver": {
+			"1": false,
+			"2": true
+		},
+		"gold": {
+			"1": true,
+			"2": true
+		}
+	},
+	"infrastructure": {
+		"bronze": {
+			"1": false,
+			"2": false,
+			"3": false,
+			"4": false,
+			"5": false,
+			"6": false,
+			"7": false
+		},
+		"silver": {
+			"1": false,
+			"2": true,
+			"3": true
+		},
+		"gold": {
+			"1": false,
+			"2": false,
+			"3": false,
+			"4": true,
+			"5": true
+		}
+	},
+	"documentation": {
+		"bronze": {
+			"1": false,
+			"2": false,
+			"3": false,
+			"4": false,
+			"5": true,
+			"6": false,
+			"7": false,
+			"8": true,
+			"9": true
+		},
+		"silver": {
+			"1": true,
+			"2": false,
+			"3": false,
+			"4": true,
+			"5": true,
+			"6": true
+		},
+		"gold": {
+			"1": true,
+			"2": false,
+			"3": false,
+			"4": false,
+			"5": false,
+			"6": false
+		}
+	}
 }

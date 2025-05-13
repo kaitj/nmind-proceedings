@@ -1,185 +1,83 @@
 {
 	"name": "DIPY",
-	"description": "DIPY, or Diffusion Imaging in Python, is a software library for the analysis of diffusion MRI data. It was developed by a group of researchers at the University of Sheffield and has been instrumental in the study of brain white matter.",
+	"date": "2023-02-28",
 	"urls": [
 		{
-			"text": "Documentation",
-			"href": "dipy.org"
+			"url_type": "Documentation",
+			"url": "dipy.org"
 		}
 	],
-	"maintainers": [
-		{
-			"name": "Marguerite Franecki",
-			"email": "margueritefranecki@foomail.mock",
-			"affiliation": "University of Edinburgh"
-		},
-		{
-			"name": "Bernice Powlowski",
-			"email": "bernicepowlowski@foomail.mock",
-			"affiliation": "University of California, Santa Barbara"
-		},
-		{
-			"name": "Dana Wiegand",
-			"email": "danawiegand@foomail.mock",
-			"affiliation": "Duke University"
-		},
-		{
-			"name": "Eunice Hayes",
-			"email": "eunicehayes@foomail.mock",
-			"affiliation": "University of Cambridge"
-		}
-	],
-	"evaluations": [
-		{
-			"checklistVersion": "1.1",
-			"toolVersion": "5.0.8",
-			"date": "2022-12-28",
-			"evaluatorEmail": "gkiar@nmind.mock",
-			"checklist": {
-				"testing": {
-					"bronze": {
-						"bronze_tst_1": false,
-						"bronze_tst_2": false
-					},
-					"silver": {
-						"silver_tst_1": false,
-						"silver_tst_2": false
-					},
-					"gold": {
-						"gold_tst_1": false,
-						"gold_tst_2": false
-					}
-				},
-				"infrastructure": {
-					"bronze": {
-						"bronze_inf_1": false,
-						"bronze_inf_2": false,
-						"bronze_inf_3": false,
-						"bronze_inf_4": true,
-						"bronze_inf_5": true,
-						"bronze_inf_6": true,
-						"bronze_inf_7": true
-					},
-					"silver": {
-						"silver_inf_1": true,
-						"silver_inf_2": false,
-						"silver_inf_3": false
-					},
-					"gold": {
-						"gold_inf_1": true,
-						"gold_inf_2": true,
-						"gold_inf_3": true,
-						"gold_inf_4": false,
-						"gold_inf_5": true
-					}
-				},
-				"documentation": {
-					"bronze": {
-						"bronze_doc_1": true,
-						"bronze_doc_2": false,
-						"bronze_doc_3": true,
-						"bronze_doc_4": false,
-						"bronze_doc_5": false,
-						"bronze_doc_6": false,
-						"bronze_doc_7": true,
-						"bronze_doc_8": true,
-						"bronze_doc_9": true
-					},
-					"silver": {
-						"silver_doc_1": false,
-						"silver_doc_2": false,
-						"silver_doc_3": false,
-						"silver_doc_4": false,
-						"silver_doc_5": true,
-						"silver_doc_6": true
-					},
-					"gold": {
-						"gold_doc_1": false,
-						"gold_doc_2": false,
-						"gold_doc_3": false,
-						"gold_doc_4": true,
-						"gold_doc_5": true,
-						"gold_doc_6": true
-					}
-				}
-			}
-		},
-		{
-			"checklistVersion": "1.1",
-			"toolVersion": "7.5.8",
-			"date": "2023-02-28",
-			"evaluatorEmail": "mgoncalves@nmind.mock",
-			"checklist": {
-				"testing": {
-					"bronze": {
-						"bronze_tst_1": true,
-						"bronze_tst_2": false
-					},
-					"silver": {
-						"silver_tst_1": false,
-						"silver_tst_2": true
-					},
-					"gold": {
-						"gold_tst_1": false,
-						"gold_tst_2": false
-					}
-				},
-				"infrastructure": {
-					"bronze": {
-						"bronze_inf_1": false,
-						"bronze_inf_2": false,
-						"bronze_inf_3": true,
-						"bronze_inf_4": false,
-						"bronze_inf_5": true,
-						"bronze_inf_6": false,
-						"bronze_inf_7": false
-					},
-					"silver": {
-						"silver_inf_1": true,
-						"silver_inf_2": true,
-						"silver_inf_3": false
-					},
-					"gold": {
-						"gold_inf_1": false,
-						"gold_inf_2": false,
-						"gold_inf_3": true,
-						"gold_inf_4": false,
-						"gold_inf_5": false
-					}
-				},
-				"documentation": {
-					"bronze": {
-						"bronze_doc_1": true,
-						"bronze_doc_2": true,
-						"bronze_doc_3": true,
-						"bronze_doc_4": false,
-						"bronze_doc_5": true,
-						"bronze_doc_6": false,
-						"bronze_doc_7": false,
-						"bronze_doc_8": true,
-						"bronze_doc_9": false
-					},
-					"silver": {
-						"silver_doc_1": true,
-						"silver_doc_2": true,
-						"silver_doc_3": true,
-						"silver_doc_4": true,
-						"silver_doc_5": false,
-						"silver_doc_6": true
-					},
-					"gold": {
-						"gold_doc_1": true,
-						"gold_doc_2": false,
-						"gold_doc_3": false,
-						"gold_doc_4": false,
-						"gold_doc_5": false,
-						"gold_doc_6": false
-					}
-				}
-			}
-		}
-	],
-	"slug": "dipy",
 	"image": "brain_9_svgrepo_com--MediumSlateBlue.png",
-	"tags": ["machine-learning"]
+	"checklistVersion": "1.1",
+	"evaluators": [
+		{
+			"name": "NMIND"
+		}
+	],
+	"testing": {
+		"bronze": {
+			"1": true,
+			"2": false
+		},
+		"silver": {
+			"1": false,
+			"2": true
+		},
+		"gold": {
+			"1": false,
+			"2": false
+		}
+	},
+	"infrastructure": {
+		"bronze": {
+			"1": false,
+			"2": false,
+			"3": true,
+			"4": false,
+			"5": true,
+			"6": false,
+			"7": false
+		},
+		"silver": {
+			"1": true,
+			"2": true,
+			"3": false
+		},
+		"gold": {
+			"1": false,
+			"2": false,
+			"3": true,
+			"4": false,
+			"5": false
+		}
+	},
+	"documentation": {
+		"bronze": {
+			"1": true,
+			"2": true,
+			"3": true,
+			"4": false,
+			"5": true,
+			"6": false,
+			"7": false,
+			"8": true,
+			"9": false
+		},
+		"silver": {
+			"1": true,
+			"2": true,
+			"3": true,
+			"4": true,
+			"5": false,
+			"6": true
+		},
+		"gold": {
+			"1": true,
+			"2": false,
+			"3": false,
+			"4": false,
+			"5": false,
+			"6": false
+		}
+	}
 }

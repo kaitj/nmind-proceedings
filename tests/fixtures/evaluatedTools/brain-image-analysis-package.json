@@ -1,133 +1,88 @@
 {
 	"name": "Brain Image Analysis Package",
-	"description": "This software package, developed by a team of neuroscientists at Johns Hopkins University, focuses on detailed analysis of brain images. It uses advanced algorithms for image processing, making it suitable for research that requires high precision.",
+	"date": "2022-05-12",
 	"urls": [
 		{
-			"text": "Source Code",
-			"href": "caltech.edu/brain_image_analysis_package"
+			"url_type": "Source Code",
+			"url": "caltech.edu/brain_image_analysis_package"
 		},
 		{
-			"text": "Home Page",
-			"href": "github.com/brain_image_analysis_package"
+			"url_type": "Home Page",
+			"url": "github.com/brain_image_analysis_package"
 		}
 	],
-	"maintainers": [
-		{
-			"name": "Andre Williamson",
-			"email": "andrewilliamson@foomail.mock",
-			"affiliation": "University of Bristol"
-		},
-		{
-			"name": "Emmett Doyle",
-			"email": "emmettdoyle@foomail.mock",
-			"affiliation": "University of California, Davis"
-		},
-		{
-			"name": "Herman Luettgen DVM",
-			"email": "hermanluettgendvm@foomail.mock",
-			"affiliation": "University of California, Merced"
-		},
-		{
-			"name": "Lynda Davis",
-			"email": "lyndadavis@foomail.mock",
-			"affiliation": "University of Nottingham"
-		},
-		{
-			"name": "Myrtle Schmidt",
-			"email": "myrtleschmidt@foomail.mock",
-			"affiliation": "University of Texas at Austin"
-		},
-		{
-			"name": "Drew Farrell",
-			"email": "drewfarrell@foomail.mock",
-			"affiliation": "University of Glasgow"
-		}
-	],
-	"evaluations": [
-		{
-			"checklistVersion": "1.1",
-			"toolVersion": "9.9.1",
-			"date": "2022-05-12",
-			"evaluatorEmail": "jclucas@nmind.mock",
-			"checklist": {
-				"testing": {
-					"bronze": {
-						"bronze_tst_1": true,
-						"bronze_tst_2": false
-					},
-					"silver": {
-						"silver_tst_1": false,
-						"silver_tst_2": true
-					},
-					"gold": {
-						"gold_tst_1": false,
-						"gold_tst_2": true
-					}
-				},
-				"infrastructure": {
-					"bronze": {
-						"bronze_inf_1": true,
-						"bronze_inf_2": true,
-						"bronze_inf_3": false,
-						"bronze_inf_4": false,
-						"bronze_inf_5": false,
-						"bronze_inf_6": false,
-						"bronze_inf_7": false
-					},
-					"silver": {
-						"silver_inf_1": true,
-						"silver_inf_2": false,
-						"silver_inf_3": false
-					},
-					"gold": {
-						"gold_inf_1": true,
-						"gold_inf_2": true,
-						"gold_inf_3": true,
-						"gold_inf_4": false,
-						"gold_inf_5": false
-					}
-				},
-				"documentation": {
-					"bronze": {
-						"bronze_doc_1": true,
-						"bronze_doc_2": true,
-						"bronze_doc_3": true,
-						"bronze_doc_4": true,
-						"bronze_doc_5": false,
-						"bronze_doc_6": true,
-						"bronze_doc_7": false,
-						"bronze_doc_8": true,
-						"bronze_doc_9": false
-					},
-					"silver": {
-						"silver_doc_1": true,
-						"silver_doc_2": true,
-						"silver_doc_3": true,
-						"silver_doc_4": true,
-						"silver_doc_5": true,
-						"silver_doc_6": true
-					},
-					"gold": {
-						"gold_doc_1": false,
-						"gold_doc_2": true,
-						"gold_doc_3": false,
-						"gold_doc_4": false,
-						"gold_doc_5": false,
-						"gold_doc_6": true
-					}
-				}
-			}
-		}
-	],
-	"slug": "brain-image-analysis-package",
 	"image": "brain_9_svgrepo_com--MediumSlateBlue.png",
-	"tags": [
-		"eeg",
-		"workflow-engine",
-		"data-sharing",
-		"mri",
-		"deep-learning",
-		"mrs",
-		"mapper-algorithm"
-	]
+	"checklistVersion": "1.1",
+	"evaluators": [
+		{
+			"name": "NMIND",
+			"contact": "https://github.com/nmind"
+		}
+	],
+	"testing": {
+		"bronze": {
+			"1": true,
+			"2": false
+		},
+		"silver": {
+			"1": false,
+			"2": true
+		},
+		"gold": {
+			"1": false,
+			"2": true
+		}
+	},
+	"infrastructure": {
+		"bronze": {
+			"1": true,
+			"2": true,
+			"3": false,
+			"4": false,
+			"5": false,
+			"6": false,
+			"7": false
+		},
+		"silver": {
+			"1": true,
+			"2": false,
+			"3": false
+		},
+		"gold": {
+			"1": true,
+			"2": true,
+			"3": true,
+			"4": false,
+			"5": false
+		}
+	},
+	"documentation": {
+		"bronze": {
+			"1": true,
+			"2": true,
+			"3": true,
+			"4": true,
+			"5": false,
+			"6": true,
+			"7": false,
+			"8": true,
+			"9": false
+		},
+		"silver": {
+			"1": true,
+			"2": true,
+			"3": true,
+			"4": true,
+			"5": true,
+			"6": true
+		},
+		"gold": {
+			"1": false,
+			"2": true,
+			"3": false,
+			"4": false,
+			"5": false,
+			"6": true
+		}
+	}
 }

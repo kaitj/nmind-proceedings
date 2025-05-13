@@ -2,7 +2,7 @@
 	import { base } from '$app/paths';
 	import EvaluationDetail from '$lib/components/EvaluationDetail.svelte';
 	import type { EvaluationSchema, Tool } from '$lib/types.js';
-	
+
 	export let data;
 	const tool: Tool = data.tool!;
 	const schemas: EvaluationSchema[] = data.schemas!;
@@ -42,6 +42,6 @@
 
 		<hr />
 		<h2 class="text-xl lg:text-2xl xl:text-3xl pt-6 pb-2">NMIND Evaluation</h2>
-		<EvaluationDetail schemas={schemas} tool={tool} />
+		<EvaluationDetail {schemas} {tool} />
 	</div>
 </div>

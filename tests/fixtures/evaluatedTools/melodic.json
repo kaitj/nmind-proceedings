@@ -1,120 +1,88 @@
 {
 	"name": "MELODIC",
-	"description": "MELODIC, developed by the Oxford University FMRIB Centre, is a tool for performing multivariate exploratory linear optimized decomposition into independent components of fMRI data. It has been pivotal in advancing our understanding of functional connectivity.",
+	"date": "2023-02-12",
 	"urls": [
 		{
-			"text": "Home Page",
-			"href": "github.com/melodic"
+			"url_type": "Home Page",
+			"url": "github.com/melodic"
 		},
 		{
-			"text": "Source Code",
-			"href": "duke.edu/melodic"
+			"url_type": "Source Code",
+			"url": "duke.edu/melodic"
 		}
 	],
-	"maintainers": [
-		{
-			"name": "Ramiro Strosin",
-			"email": "ramirostrosin@foomail.mock",
-			"affiliation": "University of California, Irvine"
-		},
-		{
-			"name": "Silvia Champlin DDS",
-			"email": "silviachamplindds@foomail.mock",
-			"affiliation": "Columbia University"
-		},
-		{
-			"name": "Travis Mraz",
-			"email": "travismraz@foomail.mock",
-			"affiliation": "University of Bristol"
-		},
-		{
-			"name": "Myrtle Hills",
-			"email": "myrtlehills@foomail.mock",
-			"affiliation": "University of Nottingham"
-		},
-		{
-			"name": "Stacy Johnson",
-			"email": "stacyjohnson@foomail.mock",
-			"affiliation": "University of Warwick"
-		}
-	],
-	"evaluations": [
-		{
-			"checklistVersion": "1.1",
-			"toolVersion": "8.5.4",
-			"date": "2023-02-12",
-			"evaluatorEmail": "cmarkiewicz@nmind.mock",
-			"checklist": {
-				"testing": {
-					"bronze": {
-						"bronze_tst_1": true,
-						"bronze_tst_2": false
-					},
-					"silver": {
-						"silver_tst_1": false,
-						"silver_tst_2": false
-					},
-					"gold": {
-						"gold_tst_1": true,
-						"gold_tst_2": true
-					}
-				},
-				"infrastructure": {
-					"bronze": {
-						"bronze_inf_1": false,
-						"bronze_inf_2": true,
-						"bronze_inf_3": true,
-						"bronze_inf_4": true,
-						"bronze_inf_5": false,
-						"bronze_inf_6": true,
-						"bronze_inf_7": false
-					},
-					"silver": {
-						"silver_inf_1": true,
-						"silver_inf_2": true,
-						"silver_inf_3": false
-					},
-					"gold": {
-						"gold_inf_1": true,
-						"gold_inf_2": false,
-						"gold_inf_3": false,
-						"gold_inf_4": true,
-						"gold_inf_5": true
-					}
-				},
-				"documentation": {
-					"bronze": {
-						"bronze_doc_1": true,
-						"bronze_doc_2": false,
-						"bronze_doc_3": false,
-						"bronze_doc_4": true,
-						"bronze_doc_5": true,
-						"bronze_doc_6": false,
-						"bronze_doc_7": true,
-						"bronze_doc_8": true,
-						"bronze_doc_9": true
-					},
-					"silver": {
-						"silver_doc_1": true,
-						"silver_doc_2": false,
-						"silver_doc_3": true,
-						"silver_doc_4": false,
-						"silver_doc_5": true,
-						"silver_doc_6": false
-					},
-					"gold": {
-						"gold_doc_1": false,
-						"gold_doc_2": false,
-						"gold_doc_3": true,
-						"gold_doc_4": true,
-						"gold_doc_5": true,
-						"gold_doc_6": true
-					}
-				}
-			}
-		}
-	],
-	"slug": "melodic",
 	"image": "brain_9_svgrepo_com--LimeGreen.png",
-	"tags": []
+	"checklistVersion": "1.1",
+	"evaluators": [
+		{
+			"name": "NMIND",
+			"contact": "https://github.com/nmind"
+		}
+	],
+	"testing": {
+		"bronze": {
+			"1": true,
+			"2": false
+		},
+		"silver": {
+			"1": false,
+			"2": false
+		},
+		"gold": {
+			"1": true,
+			"2": true
+		}
+	},
+	"infrastructure": {
+		"bronze": {
+			"1": false,
+			"2": true,
+			"3": true,
+			"4": true,
+			"5": false,
+			"6": true,
+			"7": false
+		},
+		"silver": {
+			"1": true,
+			"2": true,
+			"3": false
+		},
+		"gold": {
+			"1": true,
+			"2": false,
+			"3": false,
+			"4": true,
+			"5": true
+		}
+	},
+	"documentation": {
+		"bronze": {
+			"1": true,
+			"2": false,
+			"3": false,
+			"4": true,
+			"5": true,
+			"6": false,
+			"7": true,
+			"8": true,
+			"9": true
+		},
+		"silver": {
+			"1": true,
+			"2": false,
+			"3": true,
+			"4": false,
+			"5": true,
+			"6": false
+		},
+		"gold": {
+			"1": false,
+			"2": false,
+			"3": true,
+			"4": true,
+			"5": true,
+			"6": true
+		}
+	}
 }

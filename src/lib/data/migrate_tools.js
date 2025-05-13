@@ -6,24 +6,24 @@ const PATH_DIR_ENTRIES_INPUT = 'src/lib/data/entries';
 const PATH_DIR_ENTRIES_OUTPUT = 'src/lib/data/evaluatedTools';
 
 const OUTPUT_SKELETON = {
-	"checklistVersion": null,
-	"date": null,
-	"evaluators": [],
-	"history": null,
-	"name": null,
-	"image": null,
-	"urls": [],
-	"documentation": {},
-	"infrastructure": {},
-	"testing": {}
+	checklistVersion: null,
+	date: null,
+	evaluators: [],
+	history: null,
+	name: null,
+	image: null,
+	urls: [],
+	documentation: {},
+	infrastructure: {},
+	testing: {}
 };
 
 const DEFAULTS = {
-	"checklistVersion": "1.1",
-	"evaluators": [{"name": "NMIND"}],
-	"date": new Date().toISOString().split('T')[0],
-	"image": "brain_9_svgrepo_com--CadetBlue.png"
-}
+	checklistVersion: '1.1',
+	evaluators: [{ name: 'NMIND' }],
+	date: new Date().toISOString().split('T')[0],
+	image: 'brain_9_svgrepo_com--CadetBlue.png'
+};
 
 /**
  * Read all json files from the input directory
@@ -51,7 +51,7 @@ async function readDirectoryData(dirPath) {
 function migrate(entry) {
 	/* Ensure checklist entry fits schema, migrating with defaults if necessary. */
 	const entry_migrated = { ...OUTPUT_SKELETON };
-	const defaults = { ...DEFAULTS};
+	const defaults = { ...DEFAULTS };
 
 	entry_migrated.checklistVersion = entry.checklistVersion ?? defaults.checklistVersion;
 	entry_migrated.date = entry.date ?? defaults.date;
@@ -68,7 +68,10 @@ function migrate(entry) {
 }
 
 function makeUrlSafeName(name) {
-	return name.toLowerCase().replace(/[^\w\s]/gi, '').replace(/ /g, '-');
+	return name
+		.toLowerCase()
+		.replace(/[^\w\s]/gi, '')
+		.replace(/ /g, '-');
 }
 
 // Create the output directory if it doesn't exist

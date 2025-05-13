@@ -5,7 +5,7 @@
 	import EvaluationShieldIcon from './EvaluationShieldIcon.svelte';
 
 	export let tool: Tool;
-    export let schemas: EvaluationSchema[];
+	export let schemas: EvaluationSchema[];
 </script>
 
 <div class="flex flex-row flex-grow flex-wrap justify-center">
@@ -14,12 +14,10 @@
 			{#each checklistTiers as tier}
 				<EvaluationShieldIcon
 					fillColor={shieldColors[tier]}
-					sectionTierCompletionFraction={getCompletionFractionFromSectionTier(
-						tool[section][tier]
-					)}
+					sectionTierCompletionFraction={getCompletionFractionFromSectionTier(tool[section][tier])}
 					sectionTierCompletionEvidence={mungeChecklistSectionTier(
-                        schemas,
-						tool, 
+						schemas,
+						tool,
 						section,
 						tier,
 						Number(tool.checklistVersion)

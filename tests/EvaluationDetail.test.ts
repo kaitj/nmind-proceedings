@@ -1,7 +1,8 @@
-import { render, cleanup } from '@testing-library/svelte';
-import { describe, it, expect, afterEach } from 'vitest';
+import { cleanup, render } from '@testing-library/svelte';
+import { afterEach, describe, expect, it } from 'vitest';
 import EvaluationDetail from '../src/lib/components/EvaluationDetail.svelte';
 import data from '../tests/fixtures/evaluatedTools/3d-slicer.json';
+import schemaData from '../tests/fixtures/evaluationSchemas/v1-1.json';
 
 describe('EvaluationDetail Component', () => {
 	afterEach(cleanup);
@@ -9,41 +10,44 @@ describe('EvaluationDetail Component', () => {
 	it('renders the evaluation overview', () => {
 		const { getByText } = render(EvaluationDetail, {
 			props: {
-				evaluation: data.evaluations[0]
+				tool: data,
+				schemas: [schemaData]
 			}
 		});
 		expect(getByText('Checklist Version:')).toBeDefined();
-		expect(getByText(data.evaluations[0].checklistVersion)).toBeDefined();
-
-		expect(getByText('Tool Version:')).toBeDefined();
-		expect(getByText(data.evaluations[0].toolVersion)).toBeDefined();
+		expect(getByText(data.checklistVersion)).toBeDefined();
 
 		expect(getByText('Date:')).toBeDefined();
-		expect(getByText(data.evaluations[0].date)).toBeDefined();
+		expect(getByText(data.date)).toBeDefined();
 
-		expect(getByText('Evaluator:')).toBeDefined();
-		expect(getByText(data.evaluations[0].evaluatorEmail)).toBeDefined();
+		expect(getByText('Evaluator(s):')).toBeDefined();
+		for (const evaluator of data.evaluators) {
+			expect(getByText(evaluator.name)).toBeDefined();
+			if (evaluator.contact) {
+				expect(getByText(evaluator.contact)).toBeDefined();
+			}
+		}
 	});
 
 	it('renders the evaluation checklist', () => {
 		const { getAllByRole } = render(EvaluationDetail, {
 			props: {
-				evaluation: data.evaluations[0]
+				tool: data,
+				schemas: [schemaData]
 			}
 		});
 
-		const checklistHeadings = [
-			'Testing',
-			'Infrastructure',
-			'Documentation',
-			'Bronze Tier',
-			'Silver Tier',
-			'Gold Tier'
-		];
+		const mainSections = ['Testing', 'Infrastructure', 'Documentation'];
+		mainSections.forEach((section) => {
+			const headings = getAllByRole('heading', { name: section });
+			expect(headings).toHaveLength(1);
+		});
 
-		checklistHeadings.forEach((text) => {
-			const headings = getAllByRole('heading', { name: text });
-			expect(headings).length === 3;
+		// Each tier should appear once per section
+		const tiers = ['Bronze Tier', 'Silver Tier', 'Gold Tier'];
+		tiers.forEach((tier) => {
+			const headings = getAllByRole('heading', { name: tier });
+			expect(headings).toHaveLength(mainSections.length);
 		});
 	});
 });

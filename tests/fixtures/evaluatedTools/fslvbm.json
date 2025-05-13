@@ -1,115 +1,87 @@
 {
 	"name": "FSLVBM",
-	"description": "FSLVBM, a part of the FMRIB Software Library developed at Oxford University, focuses on the voxel-based morphometry of brain images. It was designed to aid researchers in understanding structural changes in the brain, particularly those related to neurodegenerative diseases.",
+	"date": "2022-06-29",
 	"urls": [
 		{
-			"text": "Source Code",
-			"href": "columbia.edu/fslvbm"
+			"url_type": "Source Code",
+			"url": "columbia.edu/fslvbm"
 		},
 		{
-			"text": "Documentation",
-			"href": "github.com/fslvbm"
+			"url_type": "Documentation",
+			"url": "github.com/fslvbm"
 		}
 	],
-	"maintainers": [
-		{
-			"name": "Norma Treutel",
-			"email": "normatreutel@foomail.mock",
-			"affiliation": "University of Manchester"
-		},
-		{
-			"name": "Beulah Pouros",
-			"email": "beulahpouros@foomail.mock",
-			"affiliation": "University of Pennsylvania"
-		},
-		{
-			"name": "Sheila Mertz",
-			"email": "sheilamertz@foomail.mock",
-			"affiliation": "University of California, San Francisco"
-		},
-		{
-			"name": "Ms. Sophia Tillman",
-			"email": "mssophiatillman@foomail.mock",
-			"affiliation": "Yale University"
-		}
-	],
-	"evaluations": [
-		{
-			"checklistVersion": "1.1",
-			"toolVersion": "3.3.3",
-			"date": "2022-06-29",
-			"evaluatorEmail": "mgoncalves@nmind.mock",
-			"checklist": {
-				"testing": {
-					"bronze": {
-						"bronze_tst_1": false,
-						"bronze_tst_2": true
-					},
-					"silver": {
-						"silver_tst_1": true,
-						"silver_tst_2": false
-					},
-					"gold": {
-						"gold_tst_1": false,
-						"gold_tst_2": false
-					}
-				},
-				"infrastructure": {
-					"bronze": {
-						"bronze_inf_1": false,
-						"bronze_inf_2": false,
-						"bronze_inf_3": false,
-						"bronze_inf_4": false,
-						"bronze_inf_5": true,
-						"bronze_inf_6": false,
-						"bronze_inf_7": true
-					},
-					"silver": {
-						"silver_inf_1": false,
-						"silver_inf_2": true,
-						"silver_inf_3": true
-					},
-					"gold": {
-						"gold_inf_1": false,
-						"gold_inf_2": true,
-						"gold_inf_3": true,
-						"gold_inf_4": false,
-						"gold_inf_5": true
-					}
-				},
-				"documentation": {
-					"bronze": {
-						"bronze_doc_1": false,
-						"bronze_doc_2": true,
-						"bronze_doc_3": false,
-						"bronze_doc_4": false,
-						"bronze_doc_5": true,
-						"bronze_doc_6": false,
-						"bronze_doc_7": true,
-						"bronze_doc_8": false,
-						"bronze_doc_9": true
-					},
-					"silver": {
-						"silver_doc_1": true,
-						"silver_doc_2": false,
-						"silver_doc_3": false,
-						"silver_doc_4": false,
-						"silver_doc_5": true,
-						"silver_doc_6": false
-					},
-					"gold": {
-						"gold_doc_1": false,
-						"gold_doc_2": false,
-						"gold_doc_3": true,
-						"gold_doc_4": true,
-						"gold_doc_5": true,
-						"gold_doc_6": false
-					}
-				}
-			}
-		}
-	],
-	"slug": "fslvbm",
 	"image": "brain_9_svgrepo_com--LightSlateGray.png",
-	"tags": ["docker-image", "docker", "visualization"]
+	"checklistVersion": "1.1",
+	"evaluators": [
+		{
+			"name": "NMIND"
+		}
+	],
+	"testing": {
+		"bronze": {
+			"1": false,
+			"2": true
+		},
+		"silver": {
+			"1": true,
+			"2": false
+		},
+		"gold": {
+			"1": false,
+			"2": false
+		}
+	},
+	"infrastructure": {
+		"bronze": {
+			"1": false,
+			"2": false,
+			"3": false,
+			"4": false,
+			"5": true,
+			"6": false,
+			"7": true
+		},
+		"silver": {
+			"1": false,
+			"2": true,
+			"3": true
+		},
+		"gold": {
+			"1": false,
+			"2": true,
+			"3": true,
+			"4": false,
+			"5": true
+		}
+	},
+	"documentation": {
+		"bronze": {
+			"1": false,
+			"2": true,
+			"3": false,
+			"4": false,
+			"5": true,
+			"6": false,
+			"7": true,
+			"8": false,
+			"9": true
+		},
+		"silver": {
+			"1": true,
+			"2": false,
+			"3": false,
+			"4": false,
+			"5": true,
+			"6": false
+		},
+		"gold": {
+			"1": false,
+			"2": false,
+			"3": true,
+			"4": true,
+			"5": true,
+			"6": false
+		}
+	}
 }

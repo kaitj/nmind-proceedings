@@ -1,192 +1,84 @@
 {
 	"name": "NITRC",
-	"description": "NITRC, or the Neuroimaging Informatics Tools and Resources Clearinghouse, is a resource developed under an NIH grant. It aims to provide a platform for researchers to share, find, and use neuroimaging resources, promoting collaboration and transparency in the field.",
+	"date": "2022-08-15",
 	"urls": [
 		{
-			"text": "Source Code",
-			"href": "github.com/nitrc"
+			"url_type": "Source Code",
+			"url": "github.com/nitrc"
 		}
 	],
-	"maintainers": [
-		{
-			"name": "Hilda Heathcote",
-			"email": "hildaheathcote@foomail.mock",
-			"affiliation": "University of Cambridge"
-		},
-		{
-			"name": "Casey Breitenberg DVM",
-			"email": "caseybreitenbergdvm@foomail.mock",
-			"affiliation": "University of California, Irvine"
-		},
-		{
-			"name": "Emma Schamberger",
-			"email": "emmaschamberger@foomail.mock",
-			"affiliation": "University of Kent"
-		},
-		{
-			"name": "Marguerite Franecki",
-			"email": "margueritefranecki@foomail.mock",
-			"affiliation": "University of Essex"
-		}
-	],
-	"evaluations": [
-		{
-			"checklistVersion": "1.1",
-			"toolVersion": "6.9.3",
-			"date": "2022-04-06",
-			"evaluatorEmail": "mgoncalves@nmind.mock",
-			"checklist": {
-				"testing": {
-					"bronze": {
-						"bronze_tst_1": true,
-						"bronze_tst_2": false
-					},
-					"silver": {
-						"silver_tst_1": false,
-						"silver_tst_2": false
-					},
-					"gold": {
-						"gold_tst_1": true,
-						"gold_tst_2": false
-					}
-				},
-				"infrastructure": {
-					"bronze": {
-						"bronze_inf_1": false,
-						"bronze_inf_2": false,
-						"bronze_inf_3": false,
-						"bronze_inf_4": true,
-						"bronze_inf_5": true,
-						"bronze_inf_6": false,
-						"bronze_inf_7": false
-					},
-					"silver": {
-						"silver_inf_1": false,
-						"silver_inf_2": true,
-						"silver_inf_3": false
-					},
-					"gold": {
-						"gold_inf_1": true,
-						"gold_inf_2": false,
-						"gold_inf_3": false,
-						"gold_inf_4": false,
-						"gold_inf_5": true
-					}
-				},
-				"documentation": {
-					"bronze": {
-						"bronze_doc_1": false,
-						"bronze_doc_2": false,
-						"bronze_doc_3": true,
-						"bronze_doc_4": true,
-						"bronze_doc_5": true,
-						"bronze_doc_6": false,
-						"bronze_doc_7": true,
-						"bronze_doc_8": false,
-						"bronze_doc_9": true
-					},
-					"silver": {
-						"silver_doc_1": true,
-						"silver_doc_2": true,
-						"silver_doc_3": true,
-						"silver_doc_4": true,
-						"silver_doc_5": true,
-						"silver_doc_6": false
-					},
-					"gold": {
-						"gold_doc_1": false,
-						"gold_doc_2": false,
-						"gold_doc_3": true,
-						"gold_doc_4": false,
-						"gold_doc_5": true,
-						"gold_doc_6": true
-					}
-				}
-			}
-		},
-		{
-			"checklistVersion": "1.1",
-			"toolVersion": "7.13.3",
-			"date": "2022-08-15",
-			"evaluatorEmail": "mgoncalves@nmind.mock",
-			"checklist": {
-				"testing": {
-					"bronze": {
-						"bronze_tst_1": true,
-						"bronze_tst_2": false
-					},
-					"silver": {
-						"silver_tst_1": true,
-						"silver_tst_2": true
-					},
-					"gold": {
-						"gold_tst_1": false,
-						"gold_tst_2": false
-					}
-				},
-				"infrastructure": {
-					"bronze": {
-						"bronze_inf_1": false,
-						"bronze_inf_2": false,
-						"bronze_inf_3": false,
-						"bronze_inf_4": false,
-						"bronze_inf_5": false,
-						"bronze_inf_6": true,
-						"bronze_inf_7": false
-					},
-					"silver": {
-						"silver_inf_1": true,
-						"silver_inf_2": false,
-						"silver_inf_3": false
-					},
-					"gold": {
-						"gold_inf_1": false,
-						"gold_inf_2": false,
-						"gold_inf_3": false,
-						"gold_inf_4": true,
-						"gold_inf_5": false
-					}
-				},
-				"documentation": {
-					"bronze": {
-						"bronze_doc_1": true,
-						"bronze_doc_2": true,
-						"bronze_doc_3": false,
-						"bronze_doc_4": false,
-						"bronze_doc_5": false,
-						"bronze_doc_6": true,
-						"bronze_doc_7": false,
-						"bronze_doc_8": true,
-						"bronze_doc_9": true
-					},
-					"silver": {
-						"silver_doc_1": false,
-						"silver_doc_2": false,
-						"silver_doc_3": true,
-						"silver_doc_4": false,
-						"silver_doc_5": true,
-						"silver_doc_6": true
-					},
-					"gold": {
-						"gold_doc_1": true,
-						"gold_doc_2": true,
-						"gold_doc_3": false,
-						"gold_doc_4": false,
-						"gold_doc_5": true,
-						"gold_doc_6": false
-					}
-				}
-			}
-		}
-	],
-	"slug": "nitrc",
 	"image": "brain_9_svgrepo_com--RoyalBlue.png",
-	"tags": [
-		"numpy",
-		"topological-data-analysis",
-		"brain-networks",
-		"pytorch",
-		"mapper-algorithm",
-		"python"
-	]
+	"checklistVersion": "1.1",
+	"evaluators": [
+		{
+			"name": "NMIND",
+			"contact": "https://github.com/nmind"
+		}
+	],
+	"testing": {
+		"bronze": {
+			"1": true,
+			"2": false
+		},
+		"silver": {
+			"1": true,
+			"2": true
+		},
+		"gold": {
+			"1": false,
+			"2": false
+		}
+	},
+	"infrastructure": {
+		"bronze": {
+			"1": false,
+			"2": false,
+			"3": false,
+			"4": false,
+			"5": false,
+			"6": true,
+			"7": false
+		},
+		"silver": {
+			"1": true,
+			"2": false,
+			"3": false
+		},
+		"gold": {
+			"1": false,
+			"2": false,
+			"3": false,
+			"4": true,
+			"5": false
+		}
+	},
+	"documentation": {
+		"bronze": {
+			"1": true,
+			"2": true,
+			"3": false,
+			"4": false,
+			"5": false,
+			"6": true,
+			"7": false,
+			"8": true,
+			"9": true
+		},
+		"silver": {
+			"1": false,
+			"2": false,
+			"3": true,
+			"4": false,
+			"5": true,
+			"6": true
+		},
+		"gold": {
+			"1": true,
+			"2": true,
+			"3": false,
+			"4": false,
+			"5": true,
+			"6": false
+		}
+	}
 }

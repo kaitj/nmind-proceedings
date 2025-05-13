@@ -1,115 +1,87 @@
 {
 	"name": "Nilearn",
-	"description": "Nilearn is a software library developed by a team at the French National Institute for Research in Computer Science and Automation. It uses machine learning algorithms to analyze functional MRI data, and is particularly well-regarded for its user-friendly API and detailed documentation.",
+	"date": "2022-01-11",
 	"urls": [
 		{
-			"text": "Documentation",
-			"href": "cornell.edu/nilearn"
+			"url_type": "Documentation",
+			"url": "cornell.edu/nilearn"
 		},
 		{
-			"text": "Home Page",
-			"href": "nilearn.com"
+			"url_type": "Home Page",
+			"url": "nilearn.com"
 		}
 	],
-	"maintainers": [
-		{
-			"name": "Patrick Halvorson",
-			"email": "patrickhalvorson@foomail.mock",
-			"affiliation": "University of Bath"
-		},
-		{
-			"name": "Lynda Davis",
-			"email": "lyndadavis@foomail.mock",
-			"affiliation": "Princeton University"
-		},
-		{
-			"name": "Patti Pagac",
-			"email": "pattipagac@foomail.mock",
-			"affiliation": "University of Durham"
-		},
-		{
-			"name": "Rita Bradtke",
-			"email": "ritabradtke@foomail.mock",
-			"affiliation": "University of Oxford"
-		}
-	],
-	"evaluations": [
-		{
-			"checklistVersion": "1.1",
-			"toolVersion": "6.5.3",
-			"date": "2022-01-11",
-			"evaluatorEmail": "mgoncalves@nmind.mock",
-			"checklist": {
-				"testing": {
-					"bronze": {
-						"bronze_tst_1": false,
-						"bronze_tst_2": false
-					},
-					"silver": {
-						"silver_tst_1": false,
-						"silver_tst_2": false
-					},
-					"gold": {
-						"gold_tst_1": false,
-						"gold_tst_2": true
-					}
-				},
-				"infrastructure": {
-					"bronze": {
-						"bronze_inf_1": false,
-						"bronze_inf_2": false,
-						"bronze_inf_3": false,
-						"bronze_inf_4": true,
-						"bronze_inf_5": false,
-						"bronze_inf_6": false,
-						"bronze_inf_7": false
-					},
-					"silver": {
-						"silver_inf_1": true,
-						"silver_inf_2": false,
-						"silver_inf_3": true
-					},
-					"gold": {
-						"gold_inf_1": false,
-						"gold_inf_2": true,
-						"gold_inf_3": true,
-						"gold_inf_4": false,
-						"gold_inf_5": true
-					}
-				},
-				"documentation": {
-					"bronze": {
-						"bronze_doc_1": false,
-						"bronze_doc_2": true,
-						"bronze_doc_3": false,
-						"bronze_doc_4": false,
-						"bronze_doc_5": false,
-						"bronze_doc_6": true,
-						"bronze_doc_7": true,
-						"bronze_doc_8": true,
-						"bronze_doc_9": false
-					},
-					"silver": {
-						"silver_doc_1": true,
-						"silver_doc_2": false,
-						"silver_doc_3": false,
-						"silver_doc_4": true,
-						"silver_doc_5": true,
-						"silver_doc_6": true
-					},
-					"gold": {
-						"gold_doc_1": false,
-						"gold_doc_2": true,
-						"gold_doc_3": true,
-						"gold_doc_4": false,
-						"gold_doc_5": false,
-						"gold_doc_6": false
-					}
-				}
-			}
-		}
-	],
-	"slug": "nilearn",
 	"image": "brain_9_svgrepo_com--MediumSlateBlue.png",
-	"tags": ["machine-learning", "incf", "python", "reproducible-science", "fsl", "pandas", "ants"]
+	"checklistVersion": "1.1",
+	"evaluators": [
+		{
+			"name": "NMIND"
+		}
+	],
+	"testing": {
+		"bronze": {
+			"1": false,
+			"2": false
+		},
+		"silver": {
+			"1": false,
+			"2": false
+		},
+		"gold": {
+			"1": false,
+			"2": true
+		}
+	},
+	"infrastructure": {
+		"bronze": {
+			"1": false,
+			"2": false,
+			"3": false,
+			"4": true,
+			"5": false,
+			"6": false,
+			"7": false
+		},
+		"silver": {
+			"1": true,
+			"2": false,
+			"3": true
+		},
+		"gold": {
+			"1": false,
+			"2": true,
+			"3": true,
+			"4": false,
+			"5": true
+		}
+	},
+	"documentation": {
+		"bronze": {
+			"1": false,
+			"2": true,
+			"3": false,
+			"4": false,
+			"5": false,
+			"6": true,
+			"7": true,
+			"8": true,
+			"9": false
+		},
+		"silver": {
+			"1": true,
+			"2": false,
+			"3": false,
+			"4": true,
+			"5": true,
+			"6": true
+		},
+		"gold": {
+			"1": false,
+			"2": true,
+			"3": true,
+			"4": false,
+			"5": false,
+			"6": false
+		}
+	}
 }

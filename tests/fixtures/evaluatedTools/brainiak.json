@@ -1,203 +1,92 @@
 {
 	"name": "BrainIAK",
-	"description": "BrainIAK, a software library developed by the Princeton Neuroscience Institute, is a high-performance computing toolbox for fMRI data. The library is designed to utilize high-performance computing resources efficiently, making it well-suited for large-scale fMRI studies.",
+	"date": "2022-09-23",
 	"urls": [
 		{
-			"text": "Home Page",
-			"href": "princeton.edu/brainiak"
+			"url_type": "Home Page",
+			"url": "princeton.edu/brainiak"
 		},
 		{
-			"text": "Source Code",
-			"href": "brainiak.org"
+			"url_type": "Source Code",
+			"url": "brainiak.org"
 		},
 		{
-			"text": "Documentation",
-			"href": "github.com/brainiak"
+			"url_type": "Documentation",
+			"url": "github.com/brainiak"
 		}
 	],
-	"maintainers": [
-		{
-			"name": "Lloyd Erdman",
-			"email": "lloyderdman@foomail.mock",
-			"affiliation": "King's College London"
-		},
-		{
-			"name": "Margarita Davis",
-			"email": "margaritadavis@foomail.mock",
-			"affiliation": "University of California, Irvine"
-		},
-		{
-			"name": "Lee Zieme",
-			"email": "leezieme@foomail.mock",
-			"affiliation": "University of Warwick"
-		},
-		{
-			"name": "Marshall Mann Sr.",
-			"email": "marshallmannsr@foomail.mock",
-			"affiliation": "University of California, Santa Barbara"
-		},
-		{
-			"name": "Frank Upton",
-			"email": "frankupton@foomail.mock",
-			"affiliation": "University of California, Riverside"
-		},
-		{
-			"name": "Levi Hodkiewicz",
-			"email": "levihodkiewicz@foomail.mock",
-			"affiliation": "University of Warwick"
-		}
-	],
-	"evaluations": [
-		{
-			"checklistVersion": "1.1",
-			"toolVersion": "7.0.9",
-			"date": "2022-04-21",
-			"evaluatorEmail": "jclucas@nmind.mock",
-			"checklist": {
-				"testing": {
-					"bronze": {
-						"bronze_tst_1": false,
-						"bronze_tst_2": true
-					},
-					"silver": {
-						"silver_tst_1": true,
-						"silver_tst_2": true
-					},
-					"gold": {
-						"gold_tst_1": true,
-						"gold_tst_2": false
-					}
-				},
-				"infrastructure": {
-					"bronze": {
-						"bronze_inf_1": false,
-						"bronze_inf_2": false,
-						"bronze_inf_3": false,
-						"bronze_inf_4": true,
-						"bronze_inf_5": true,
-						"bronze_inf_6": true,
-						"bronze_inf_7": true
-					},
-					"silver": {
-						"silver_inf_1": true,
-						"silver_inf_2": false,
-						"silver_inf_3": false
-					},
-					"gold": {
-						"gold_inf_1": true,
-						"gold_inf_2": true,
-						"gold_inf_3": false,
-						"gold_inf_4": false,
-						"gold_inf_5": true
-					}
-				},
-				"documentation": {
-					"bronze": {
-						"bronze_doc_1": false,
-						"bronze_doc_2": false,
-						"bronze_doc_3": false,
-						"bronze_doc_4": false,
-						"bronze_doc_5": false,
-						"bronze_doc_6": true,
-						"bronze_doc_7": true,
-						"bronze_doc_8": true,
-						"bronze_doc_9": false
-					},
-					"silver": {
-						"silver_doc_1": false,
-						"silver_doc_2": false,
-						"silver_doc_3": true,
-						"silver_doc_4": true,
-						"silver_doc_5": true,
-						"silver_doc_6": true
-					},
-					"gold": {
-						"gold_doc_1": true,
-						"gold_doc_2": true,
-						"gold_doc_3": true,
-						"gold_doc_4": false,
-						"gold_doc_5": true,
-						"gold_doc_6": false
-					}
-				}
-			}
-		},
-		{
-			"checklistVersion": "1.1",
-			"toolVersion": "9.2.9",
-			"date": "2022-09-23",
-			"evaluatorEmail": "mgoncalves@nmind.mock",
-			"checklist": {
-				"testing": {
-					"bronze": {
-						"bronze_tst_1": true,
-						"bronze_tst_2": true
-					},
-					"silver": {
-						"silver_tst_1": false,
-						"silver_tst_2": true
-					},
-					"gold": {
-						"gold_tst_1": true,
-						"gold_tst_2": true
-					}
-				},
-				"infrastructure": {
-					"bronze": {
-						"bronze_inf_1": false,
-						"bronze_inf_2": false,
-						"bronze_inf_3": true,
-						"bronze_inf_4": true,
-						"bronze_inf_5": false,
-						"bronze_inf_6": false,
-						"bronze_inf_7": false
-					},
-					"silver": {
-						"silver_inf_1": false,
-						"silver_inf_2": false,
-						"silver_inf_3": true
-					},
-					"gold": {
-						"gold_inf_1": true,
-						"gold_inf_2": true,
-						"gold_inf_3": true,
-						"gold_inf_4": true,
-						"gold_inf_5": false
-					}
-				},
-				"documentation": {
-					"bronze": {
-						"bronze_doc_1": false,
-						"bronze_doc_2": false,
-						"bronze_doc_3": false,
-						"bronze_doc_4": false,
-						"bronze_doc_5": true,
-						"bronze_doc_6": false,
-						"bronze_doc_7": false,
-						"bronze_doc_8": true,
-						"bronze_doc_9": true
-					},
-					"silver": {
-						"silver_doc_1": false,
-						"silver_doc_2": true,
-						"silver_doc_3": false,
-						"silver_doc_4": false,
-						"silver_doc_5": false,
-						"silver_doc_6": true
-					},
-					"gold": {
-						"gold_doc_1": true,
-						"gold_doc_2": true,
-						"gold_doc_3": false,
-						"gold_doc_4": true,
-						"gold_doc_5": false,
-						"gold_doc_6": false
-					}
-				}
-			}
-		}
-	],
-	"slug": "brainiak",
 	"image": "brain_9_svgrepo_com--Tomato.png",
-	"tags": ["opencv", "pet", "mrtrix3", "workflow-engine", "quality-control"]
+	"checklistVersion": "1.1",
+	"evaluators": [
+		{
+			"name": "NMIND",
+			"contact": "https://github.com/nmind"
+		}
+	],
+	"testing": {
+		"bronze": {
+			"1": true,
+			"2": true
+		},
+		"silver": {
+			"1": false,
+			"2": true
+		},
+		"gold": {
+			"1": true,
+			"2": true
+		}
+	},
+	"infrastructure": {
+		"bronze": {
+			"1": false,
+			"2": false,
+			"3": true,
+			"4": true,
+			"5": false,
+			"6": false,
+			"7": false
+		},
+		"silver": {
+			"1": false,
+			"2": false,
+			"3": true
+		},
+		"gold": {
+			"1": true,
+			"2": true,
+			"3": true,
+			"4": true,
+			"5": false
+		}
+	},
+	"documentation": {
+		"bronze": {
+			"1": false,
+			"2": false,
+			"3": false,
+			"4": false,
+			"5": true,
+			"6": false,
+			"7": false,
+			"8": true,
+			"9": true
+		},
+		"silver": {
+			"1": false,
+			"2": true,
+			"3": false,
+			"4": false,
+			"5": false,
+			"6": true
+		},
+		"gold": {
+			"1": true,
+			"2": true,
+			"3": false,
+			"4": true,
+			"5": false,
+			"6": false
+		}
+	}
 }

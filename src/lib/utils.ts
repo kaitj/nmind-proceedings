@@ -31,30 +31,30 @@ export async function filterToolData(
 	tools: Tool[],
 	textQuery: string,
 	sectionTierQuery: string[]
-  ): Promise<Tool[]> {
+): Promise<Tool[]> {
 	let filteredTools = tools;
 	if (sectionTierQuery.length > 0) {
-	  filteredTools = sectionTierQuery.reduce((result, sectionTier) => {
-		const [section, tier] = sectionTier.split('-');
-  
-		return result.filter((tool) => {
-		  const sectionData = tool[section as keyof Tool];
-		  if (!sectionData || typeof sectionData !== 'object') return false;
-  
-		  const tierData = (sectionData as Record<string, any>)[tier];
-		  if (!tierData || typeof tierData !== 'object') return false;
-  
-		  return Object.values(tierData).every(Boolean);
-		});
-	  }, filteredTools);
+		filteredTools = sectionTierQuery.reduce((result, sectionTier) => {
+			const [section, tier] = sectionTier.split('-');
+
+			return result.filter((tool) => {
+				const sectionData = tool[section as keyof Tool];
+				if (!sectionData || typeof sectionData !== 'object') return false;
+
+				const tierData = (sectionData as Record<string, any>)[tier];
+				if (!tierData || typeof tierData !== 'object') return false;
+
+				return Object.values(tierData).every(Boolean);
+			});
+		}, filteredTools);
 	}
-	
+
 	if (textQuery) {
-	  filteredTools = filteredTools.filter((tool) =>
-		tool.name.toLowerCase().includes(textQuery.toLowerCase())
-	  );
+		filteredTools = filteredTools.filter((tool) =>
+			tool.name.toLowerCase().includes(textQuery.toLowerCase())
+		);
 	}
-	
+
 	return filteredTools;
 }
 
@@ -73,23 +73,24 @@ export function sortFilteredData(filteredTools: Tool[], sortQuery: string): Tool
 
 	return [...filteredTools].sort(sorter);
 }
-  
-export function getToolUrlByTextDescriptor(
-	tool: Tool,
-	urlType: string
-  ): Url | null {
+
+export function getToolUrlByTextDescriptor(tool: Tool, urlType: string): Url | null {
 	return tool.urls.find((entry) => entry.url_type === urlType) ?? null;
-  }
+}
 
 export function findEvaluationSchemaByVersion(
 	arr: EvaluationSchema[],
 	version: number
-	): EvaluationSchema | null {
-	  	return arr.find((item) => item['@context']['@version'] === version) ?? null;
-	}
-	
+): EvaluationSchema | null {
+	return arr.find((item) => item['@context']['@version'] === version) ?? null;
+}
 
-export function getSectionTierPrompt(schema: EvaluationSchema, id: string, section: string, tier: string) {
+export function getSectionTierPrompt(
+	schema: EvaluationSchema,
+	id: string,
+	section: string,
+	tier: string
+) {
 	const matchingItem = schema.items.find(
 		(item) => item.id === id && item.section === section && item.tier === tier
 	);
@@ -113,7 +114,9 @@ export function mungeChecklistSectionTier(
 	const matchingSchema = findEvaluationSchemaByVersion(evaluationSchemas, schemaVersion);
 
 	if (matchingSchema) {
-		const sectionTier = (tool[section as keyof Tool] as ChecklistSection)[tier as keyof ChecklistSection];
+		const sectionTier = (tool[section as keyof Tool] as ChecklistSection)[
+			tier as keyof ChecklistSection
+		];
 		for (const [itemId, itemValue] of Object.entries(sectionTier)) {
 			const prompt = getSectionTierPrompt(matchingSchema, itemId, section, tier);
 
@@ -132,19 +135,18 @@ export function mungeChecklistSectionTier(
 }
 
 export function getOverallCompletionRatio(tool: Tool): number {
-	const allItems = checklistSections.flatMap(section =>
-		checklistTiers.flatMap(tier =>
-			Object.values(tool[section]?.[tier] ?? {})
-		)
+	const allItems = checklistSections.flatMap((section) =>
+		checklistTiers.flatMap((tier) => Object.values(tool[section]?.[tier] ?? {}))
 	);
 
 	const completed = allItems.filter(Boolean).length;
-	return allItems.length ? completed / allItems.length : 0;''
+	return allItems.length ? completed / allItems.length : 0;
+	('');
 }
 
 export function getComplianceColor(ratio: number): string {
 	if (ratio === 0) {
-		return complianceColors.grey; 
+		return complianceColors.grey;
 	} else if (ratio <= 0.25) {
 		return complianceColors.red;
 	} else if (ratio <= 0.5) {
@@ -156,29 +158,27 @@ export function getComplianceColor(ratio: number): string {
 	}
 }
 
-
 export function tooltip(node: HTMLElement, params: Partial<Props>) {
-const content = params.content || node.title || node.getAttribute('aria-label') || '';
+	const content = params.content || node.title || node.getAttribute('aria-label') || '';
 
-// Ensure accessibility
-if (!node.getAttribute('aria-label')) {
-	node.setAttribute('aria-label', content as string);
-}
-
-// Prevent native title tooltip
-node.removeAttribute('title');
-
-// Initialize Tippy
-const instance = tippy(node, { ...params, content });
-
-return {
-	update(newParams: Props) {
-		const newContent =
-			newParams.content || node.getAttribute('aria-label') || content;
-		instance.setProps({ ...newParams, content: newContent });
-	},
-	destroy() {
-		instance.destroy();
+	// Ensure accessibility
+	if (!node.getAttribute('aria-label')) {
+		node.setAttribute('aria-label', content as string);
 	}
-};
+
+	// Prevent native title tooltip
+	node.removeAttribute('title');
+
+	// Initialize Tippy
+	const instance = tippy(node, { ...params, content });
+
+	return {
+		update(newParams: Props) {
+			const newContent = newParams.content || node.getAttribute('aria-label') || content;
+			instance.setProps({ ...newParams, content: newContent });
+		},
+		destroy() {
+			instance.destroy();
+		}
+	};
 }

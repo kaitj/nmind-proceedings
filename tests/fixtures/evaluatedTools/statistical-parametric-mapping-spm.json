@@ -1,115 +1,87 @@
 {
 	"name": "Statistical parametric mapping (SPM)",
-	"description": "Statistical Parametric Mapping (SPM) is a software package designed for the analysis of brain imaging data sequences. The SPM software is a suite of MATLAB functions and subroutines with some externally compiled C routines. SPM was written to organize and interpret our functional neuroimaging data.",
+	"date": "2022-02-14",
 	"urls": [
 		{
-			"text": "Documentation",
-			"href": "statistical_parametric_mapping.com"
+			"url_type": "Documentation",
+			"url": "statistical_parametric_mapping.com"
 		},
 		{
-			"text": "Source Code",
-			"href": "uflorida.edu/statistical_parametric_mapping"
+			"url_type": "Source Code",
+			"url": "uflorida.edu/statistical_parametric_mapping"
 		}
 	],
-	"maintainers": [
-		{
-			"name": "Elsie Hagenes",
-			"email": "elsiehagenes@foomail.mock",
-			"affiliation": "Columbia University"
-		},
-		{
-			"name": "Mrs. Doris Champlin I",
-			"email": "mrsdorischamplini@foomail.mock",
-			"affiliation": "University of California, Merced"
-		},
-		{
-			"name": "Janis Kautzer",
-			"email": "janiskautzer@foomail.mock",
-			"affiliation": "Princeton University"
-		},
-		{
-			"name": "Casey Conroy",
-			"email": "caseyconroy@foomail.mock",
-			"affiliation": "University of Chicago"
-		}
-	],
-	"evaluations": [
-		{
-			"checklistVersion": "1.1",
-			"toolVersion": "8.6.9",
-			"date": "2022-02-14",
-			"evaluatorEmail": "cmarkiewicz@nmind.mock",
-			"checklist": {
-				"testing": {
-					"bronze": {
-						"bronze_tst_1": true,
-						"bronze_tst_2": false
-					},
-					"silver": {
-						"silver_tst_1": true,
-						"silver_tst_2": false
-					},
-					"gold": {
-						"gold_tst_1": false,
-						"gold_tst_2": false
-					}
-				},
-				"infrastructure": {
-					"bronze": {
-						"bronze_inf_1": true,
-						"bronze_inf_2": false,
-						"bronze_inf_3": false,
-						"bronze_inf_4": false,
-						"bronze_inf_5": true,
-						"bronze_inf_6": true,
-						"bronze_inf_7": true
-					},
-					"silver": {
-						"silver_inf_1": true,
-						"silver_inf_2": true,
-						"silver_inf_3": false
-					},
-					"gold": {
-						"gold_inf_1": true,
-						"gold_inf_2": false,
-						"gold_inf_3": true,
-						"gold_inf_4": true,
-						"gold_inf_5": false
-					}
-				},
-				"documentation": {
-					"bronze": {
-						"bronze_doc_1": true,
-						"bronze_doc_2": false,
-						"bronze_doc_3": false,
-						"bronze_doc_4": true,
-						"bronze_doc_5": false,
-						"bronze_doc_6": true,
-						"bronze_doc_7": true,
-						"bronze_doc_8": false,
-						"bronze_doc_9": false
-					},
-					"silver": {
-						"silver_doc_1": true,
-						"silver_doc_2": false,
-						"silver_doc_3": false,
-						"silver_doc_4": false,
-						"silver_doc_5": false,
-						"silver_doc_6": true
-					},
-					"gold": {
-						"gold_doc_1": false,
-						"gold_doc_2": false,
-						"gold_doc_3": false,
-						"gold_doc_4": false,
-						"gold_doc_5": true,
-						"gold_doc_6": true
-					}
-				}
-			}
-		}
-	],
-	"slug": "statistical-parametric-mapping-spm",
 	"image": "brain_9_svgrepo_com--SteelBlue.png",
-	"tags": ["opencv", "topological-data-analysis"]
+	"checklistVersion": "1.1",
+	"evaluators": [
+		{
+			"name": "NMIND"
+		}
+	],
+	"testing": {
+		"bronze": {
+			"1": true,
+			"2": false
+		},
+		"silver": {
+			"1": true,
+			"2": false
+		},
+		"gold": {
+			"1": false,
+			"2": false
+		}
+	},
+	"infrastructure": {
+		"bronze": {
+			"1": true,
+			"2": false,
+			"3": false,
+			"4": false,
+			"5": true,
+			"6": true,
+			"7": true
+		},
+		"silver": {
+			"1": true,
+			"2": true,
+			"3": false
+		},
+		"gold": {
+			"1": true,
+			"2": false,
+			"3": true,
+			"4": true,
+			"5": false
+		}
+	},
+	"documentation": {
+		"bronze": {
+			"1": true,
+			"2": false,
+			"3": false,
+			"4": true,
+			"5": false,
+			"6": true,
+			"7": true,
+			"8": false,
+			"9": false
+		},
+		"silver": {
+			"1": true,
+			"2": false,
+			"3": false,
+			"4": false,
+			"5": false,
+			"6": true
+		},
+		"gold": {
+			"1": false,
+			"2": false,
+			"3": false,
+			"4": false,
+			"5": true,
+			"6": true
+		}
+	}
 }

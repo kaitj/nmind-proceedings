@@ -1,124 +1,91 @@
 {
 	"name": "glmsingle",
-	"description": "Glmsingle, a tool implemented in both Matlab and Python, was developed at the University of Cambridge. It focuses on the estimation of single-trial responses and has been particularly useful in cognitive neuroscience research.",
+	"date": "2023-03-15",
 	"urls": [
 		{
-			"text": "Documentation",
-			"href": "upenn.edu/glmsingle"
+			"url_type": "Documentation",
+			"url": "upenn.edu/glmsingle"
 		},
 		{
-			"text": "Source Code",
-			"href": "glmsingle.com"
+			"url_type": "Source Code",
+			"url": "glmsingle.com"
 		},
 		{
-			"text": "Home Page",
-			"href": "github.com/glmsingle"
+			"url_type": "Home Page",
+			"url": "github.com/glmsingle"
 		}
 	],
-	"maintainers": [
-		{
-			"name": "Doyle Cassin IV",
-			"email": "doylecassiniv@foomail.mock",
-			"affiliation": "University of Hertfordshire"
-		},
-		{
-			"name": "Dr. Adam Upton",
-			"email": "dradamupton@foomail.mock",
-			"affiliation": "Massachusetts Institute of Technology"
-		},
-		{
-			"name": "Regina Corkery",
-			"email": "reginacorkery@foomail.mock",
-			"affiliation": "University of California, Santa Cruz"
-		},
-		{
-			"name": "Dr. Jennifer Huels",
-			"email": "drjenniferhuels@foomail.mock",
-			"affiliation": "University of Bristol"
-		},
-		{
-			"name": "Miguel Bruen",
-			"email": "miguelbruen@foomail.mock",
-			"affiliation": "University of Glasgow"
-		}
-	],
-	"evaluations": [
-		{
-			"checklistVersion": "1.1",
-			"toolVersion": "4.8.8",
-			"date": "2023-03-15",
-			"evaluatorEmail": "mgoncalves@nmind.mock",
-			"checklist": {
-				"testing": {
-					"bronze": {
-						"bronze_tst_1": true,
-						"bronze_tst_2": true
-					},
-					"silver": {
-						"silver_tst_1": false,
-						"silver_tst_2": true
-					},
-					"gold": {
-						"gold_tst_1": false,
-						"gold_tst_2": true
-					}
-				},
-				"infrastructure": {
-					"bronze": {
-						"bronze_inf_1": false,
-						"bronze_inf_2": false,
-						"bronze_inf_3": true,
-						"bronze_inf_4": false,
-						"bronze_inf_5": false,
-						"bronze_inf_6": true,
-						"bronze_inf_7": false
-					},
-					"silver": {
-						"silver_inf_1": false,
-						"silver_inf_2": false,
-						"silver_inf_3": false
-					},
-					"gold": {
-						"gold_inf_1": true,
-						"gold_inf_2": false,
-						"gold_inf_3": true,
-						"gold_inf_4": false,
-						"gold_inf_5": false
-					}
-				},
-				"documentation": {
-					"bronze": {
-						"bronze_doc_1": true,
-						"bronze_doc_2": true,
-						"bronze_doc_3": true,
-						"bronze_doc_4": false,
-						"bronze_doc_5": false,
-						"bronze_doc_6": true,
-						"bronze_doc_7": true,
-						"bronze_doc_8": true,
-						"bronze_doc_9": false
-					},
-					"silver": {
-						"silver_doc_1": true,
-						"silver_doc_2": false,
-						"silver_doc_3": true,
-						"silver_doc_4": true,
-						"silver_doc_5": false,
-						"silver_doc_6": false
-					},
-					"gold": {
-						"gold_doc_1": true,
-						"gold_doc_2": true,
-						"gold_doc_3": true,
-						"gold_doc_4": true,
-						"gold_doc_5": true,
-						"gold_doc_6": false
-					}
-				}
-			}
-		}
-	],
-	"slug": "glmsingle",
 	"image": "brain_9_svgrepo_com--SteelBlue.png",
-	"tags": ["fmri", "eeg", "big-data", "image-registration", "spm", "mri", "numpy"]
+	"checklistVersion": "1.1",
+	"evaluators": [
+		{
+			"name": "NMIND"
+		}
+	],
+	"testing": {
+		"bronze": {
+			"1": true,
+			"2": true
+		},
+		"silver": {
+			"1": false,
+			"2": true
+		},
+		"gold": {
+			"1": false,
+			"2": true
+		}
+	},
+	"infrastructure": {
+		"bronze": {
+			"1": false,
+			"2": false,
+			"3": true,
+			"4": false,
+			"5": false,
+			"6": true,
+			"7": false
+		},
+		"silver": {
+			"1": false,
+			"2": false,
+			"3": false
+		},
+		"gold": {
+			"1": true,
+			"2": false,
+			"3": true,
+			"4": false,
+			"5": false
+		}
+	},
+	"documentation": {
+		"bronze": {
+			"1": true,
+			"2": true,
+			"3": true,
+			"4": false,
+			"5": false,
+			"6": true,
+			"7": true,
+			"8": true,
+			"9": false
+		},
+		"silver": {
+			"1": true,
+			"2": false,
+			"3": true,
+			"4": true,
+			"5": false,
+			"6": false
+		},
+		"gold": {
+			"1": true,
+			"2": true,
+			"3": true,
+			"4": true,
+			"5": true,
+			"6": false
+		}
+	}
 }

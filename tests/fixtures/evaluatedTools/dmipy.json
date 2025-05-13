@@ -1,106 +1,84 @@
 {
 	"name": "DMIPY",
-	"description": "Building upon DIPY, DMIPY is a specialized tool for modeling the microstructure of brain white matter tissue. It was developed under a government grant at the Max Planck Institute for Human Cognitive and Brain Sciences.",
+	"date": "2023-03-31",
 	"urls": [
 		{
-			"text": "Home Page",
-			"href": "harvard.edu/dmipy"
+			"url_type": "Home Page",
+			"url": "harvard.edu/dmipy"
 		}
 	],
-	"maintainers": [
-		{
-			"name": "Myrtle Hills",
-			"email": "myrtlehills@foomail.mock",
-			"affiliation": "University of Durham"
-		},
-		{
-			"name": "Jeremy Hartmann",
-			"email": "jeremyhartmann@foomail.mock",
-			"affiliation": "University of Sussex"
-		},
-		{
-			"name": "Byron Cremin",
-			"email": "byroncremin@foomail.mock",
-			"affiliation": "University of Oxford"
-		}
-	],
-	"evaluations": [
-		{
-			"checklistVersion": "1.1",
-			"toolVersion": "4.9.7",
-			"date": "2023-03-31",
-			"evaluatorEmail": "gkiar@nmind.mock",
-			"checklist": {
-				"testing": {
-					"bronze": {
-						"bronze_tst_1": false,
-						"bronze_tst_2": true
-					},
-					"silver": {
-						"silver_tst_1": true,
-						"silver_tst_2": true
-					},
-					"gold": {
-						"gold_tst_1": false,
-						"gold_tst_2": true
-					}
-				},
-				"infrastructure": {
-					"bronze": {
-						"bronze_inf_1": true,
-						"bronze_inf_2": true,
-						"bronze_inf_3": false,
-						"bronze_inf_4": false,
-						"bronze_inf_5": false,
-						"bronze_inf_6": true,
-						"bronze_inf_7": true
-					},
-					"silver": {
-						"silver_inf_1": false,
-						"silver_inf_2": true,
-						"silver_inf_3": false
-					},
-					"gold": {
-						"gold_inf_1": false,
-						"gold_inf_2": true,
-						"gold_inf_3": true,
-						"gold_inf_4": false,
-						"gold_inf_5": false
-					}
-				},
-				"documentation": {
-					"bronze": {
-						"bronze_doc_1": false,
-						"bronze_doc_2": false,
-						"bronze_doc_3": true,
-						"bronze_doc_4": false,
-						"bronze_doc_5": true,
-						"bronze_doc_6": true,
-						"bronze_doc_7": true,
-						"bronze_doc_8": true,
-						"bronze_doc_9": true
-					},
-					"silver": {
-						"silver_doc_1": false,
-						"silver_doc_2": false,
-						"silver_doc_3": false,
-						"silver_doc_4": true,
-						"silver_doc_5": false,
-						"silver_doc_6": false
-					},
-					"gold": {
-						"gold_doc_1": true,
-						"gold_doc_2": true,
-						"gold_doc_3": true,
-						"gold_doc_4": false,
-						"gold_doc_5": true,
-						"gold_doc_6": true
-					}
-				}
-			}
-		}
-	],
-	"slug": "dmipy",
 	"image": "brain_9_svgrepo_com--CadetBlue.png",
-	"tags": ["scikit-learn", "png"]
+	"checklistVersion": "1.1",
+	"evaluators": [
+		{
+			"name": "NMIND",
+			"contact": "https://github.com/nmind"
+		}
+	],
+	"testing": {
+		"bronze": {
+			"1": false,
+			"2": true
+		},
+		"silver": {
+			"1": true,
+			"2": true
+		},
+		"gold": {
+			"1": false,
+			"2": true
+		}
+	},
+	"infrastructure": {
+		"bronze": {
+			"1": true,
+			"2": true,
+			"3": false,
+			"4": false,
+			"5": false,
+			"6": true,
+			"7": true
+		},
+		"silver": {
+			"1": false,
+			"2": true,
+			"3": false
+		},
+		"gold": {
+			"1": false,
+			"2": true,
+			"3": true,
+			"4": false,
+			"5": false
+		}
+	},
+	"documentation": {
+		"bronze": {
+			"1": false,
+			"2": false,
+			"3": true,
+			"4": false,
+			"5": true,
+			"6": true,
+			"7": true,
+			"8": true,
+			"9": true
+		},
+		"silver": {
+			"1": false,
+			"2": false,
+			"3": false,
+			"4": true,
+			"5": false,
+			"6": false
+		},
+		"gold": {
+			"1": true,
+			"2": true,
+			"3": true,
+			"4": false,
+			"5": true,
+			"6": true
+		}
+	}
 }

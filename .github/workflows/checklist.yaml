@@ -10,7 +10,7 @@ jobs:
       contents: write
       issues: write
     env:
-      checklistVersion: "1.1"
+      checklistVersion: '1.1'
 
     steps:
       - name: Check labels
@@ -22,7 +22,7 @@ jobs:
             const hasApproved = labels.includes('approved');
             const hasChecklist = labels.includes('checklist');
             return hasApproved && hasChecklist;
-      
+
       - name: Early exit
         if: steps.check_labels.outputs.result == 'false'
         run: echo "Not an approved checklist issue - exiting"
@@ -81,7 +81,7 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-        
+
       - name: Commit files
         if: steps.check_labels.outputs.result == 'true'
         run: |

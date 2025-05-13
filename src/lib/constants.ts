@@ -16,7 +16,7 @@ export const complianceColors = {
 	orange: '#FFA500',
 	yellow: '#FFFF00',
 	green: '#00ff00'
-}
+};
 
-export const checklistSections = ["testing", "infrastructure", "documentation"] as const;
-export const checklistTiers = ["bronze", "silver", "gold"] as const;
+export const checklistSections = ['testing', 'infrastructure', 'documentation'] as const;
+export const checklistTiers = ['bronze', 'silver', 'gold'] as const;

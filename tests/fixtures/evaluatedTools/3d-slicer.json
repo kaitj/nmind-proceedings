@@ -1,193 +1,91 @@
 {
 	"name": "3D Slicer",
-	"description": "3D Slicer is a free, open-source software package developed by the Surgical Planning Laboratory at the Harvard Medical School. It is primarily used for 3D visualization and analysis of medical images, making it particularly useful in neuroimaging studies. It supports a wide array of functionalities including image segmentation, registration, and 3D visualization.",
+	"date": "2023-07-13",
 	"urls": [
 		{
-			"text": "Home Page",
-			"href": "github.com/3d_slicer"
+			"url_type": "Home Page",
+			"url": "github.com/3d_slicer"
 		},
 		{
-			"text": "Documentation",
-			"href": "3d_slicer.com"
+			"url_type": "Documentation",
+			"url": "3d_slicer.com"
 		},
 		{
-			"text": "Source Code",
-			"href": "uclondon.edu/3d_slicer"
+			"url_type": "Source Code",
+			"url": "uclondon.edu/3d_slicer"
 		}
 	],
-	"maintainers": [
-		{
-			"name": "Elsie Hagenes",
-			"email": "elsiehagenes@foomail.mock",
-			"affiliation": "Yale University"
-		},
-		{
-			"name": "Irvin Prohaska",
-			"email": "irvinprohaska@foomail.mock",
-			"affiliation": "University of Sheffield"
-		},
-		{
-			"name": "Dr. Adam Upton",
-			"email": "dradamupton@foomail.mock",
-			"affiliation": "Johns Hopkins University"
-		},
-		{
-			"name": "Dominick Roob",
-			"email": "dominickroob@foomail.mock",
-			"affiliation": "Massachusetts Institute of Technology"
-		}
-	],
-	"evaluations": [
-		{
-			"checklistVersion": "1.1",
-			"toolVersion": "7.8.9",
-			"date": "2023-03-18",
-			"evaluatorEmail": "jclucas@nmind.mock",
-			"checklist": {
-				"testing": {
-					"bronze": {
-						"bronze_tst_1": true,
-						"bronze_tst_2": true
-					},
-					"silver": {
-						"silver_tst_1": false,
-						"silver_tst_2": true
-					},
-					"gold": {
-						"gold_tst_1": false,
-						"gold_tst_2": false
-					}
-				},
-				"infrastructure": {
-					"bronze": {
-						"bronze_inf_1": true,
-						"bronze_inf_2": true,
-						"bronze_inf_3": true,
-						"bronze_inf_4": true,
-						"bronze_inf_5": false,
-						"bronze_inf_6": true,
-						"bronze_inf_7": false
-					},
-					"silver": {
-						"silver_inf_1": false,
-						"silver_inf_2": true,
-						"silver_inf_3": true
-					},
-					"gold": {
-						"gold_inf_1": true,
-						"gold_inf_2": false,
-						"gold_inf_3": true,
-						"gold_inf_4": true,
-						"gold_inf_5": true
-					}
-				},
-				"documentation": {
-					"bronze": {
-						"bronze_doc_1": false,
-						"bronze_doc_2": true,
-						"bronze_doc_3": true,
-						"bronze_doc_4": false,
-						"bronze_doc_5": false,
-						"bronze_doc_6": false,
-						"bronze_doc_7": true,
-						"bronze_doc_8": true,
-						"bronze_doc_9": true
-					},
-					"silver": {
-						"silver_doc_1": true,
-						"silver_doc_2": true,
-						"silver_doc_3": true,
-						"silver_doc_4": false,
-						"silver_doc_5": true,
-						"silver_doc_6": true
-					},
-					"gold": {
-						"gold_doc_1": true,
-						"gold_doc_2": true,
-						"gold_doc_3": false,
-						"gold_doc_4": false,
-						"gold_doc_5": true,
-						"gold_doc_6": true
-					}
-				}
-			}
-		},
-		{
-			"checklistVersion": "1.1",
-			"toolVersion": "8.10.15",
-			"date": "2023-07-13",
-			"evaluatorEmail": "gkiar@nmind.mock",
-			"checklist": {
-				"testing": {
-					"bronze": {
-						"bronze_tst_1": false,
-						"bronze_tst_2": false
-					},
-					"silver": {
-						"silver_tst_1": false,
-						"silver_tst_2": false
-					},
-					"gold": {
-						"gold_tst_1": true,
-						"gold_tst_2": false
-					}
-				},
-				"infrastructure": {
-					"bronze": {
-						"bronze_inf_1": true,
-						"bronze_inf_2": true,
-						"bronze_inf_3": false,
-						"bronze_inf_4": false,
-						"bronze_inf_5": true,
-						"bronze_inf_6": true,
-						"bronze_inf_7": false
-					},
-					"silver": {
-						"silver_inf_1": false,
-						"silver_inf_2": false,
-						"silver_inf_3": true
-					},
-					"gold": {
-						"gold_inf_1": false,
-						"gold_inf_2": true,
-						"gold_inf_3": true,
-						"gold_inf_4": true,
-						"gold_inf_5": false
-					}
-				},
-				"documentation": {
-					"bronze": {
-						"bronze_doc_1": false,
-						"bronze_doc_2": false,
-						"bronze_doc_3": false,
-						"bronze_doc_4": false,
-						"bronze_doc_5": true,
-						"bronze_doc_6": false,
-						"bronze_doc_7": true,
-						"bronze_doc_8": true,
-						"bronze_doc_9": false
-					},
-					"silver": {
-						"silver_doc_1": false,
-						"silver_doc_2": false,
-						"silver_doc_3": true,
-						"silver_doc_4": true,
-						"silver_doc_5": false,
-						"silver_doc_6": true
-					},
-					"gold": {
-						"gold_doc_1": true,
-						"gold_doc_2": false,
-						"gold_doc_3": false,
-						"gold_doc_4": true,
-						"gold_doc_5": false,
-						"gold_doc_6": false
-					}
-				}
-			}
-		}
-	],
-	"slug": "3d-slicer",
 	"image": "brain_9_svgrepo_com--CadetBlue.png",
-	"tags": []
+	"checklistVersion": "1.1",
+	"evaluators": [
+		{
+			"name": "NMIND"
+		}
+	],
+	"testing": {
+		"bronze": {
+			"1": false,
+			"2": false
+		},
+		"silver": {
+			"1": false,
+			"2": false
+		},
+		"gold": {
+			"1": true,
+			"2": false
+		}
+	},
+	"infrastructure": {
+		"bronze": {
+			"1": true,
+			"2": true,
+			"3": false,
+			"4": false,
+			"5": true,
+			"6": true,
+			"7": false
+		},
+		"silver": {
+			"1": false,
+			"2": false,
+			"3": true
+		},
+		"gold": {
+			"1": false,
+			"2": true,
+			"3": true,
+			"4": true,
+			"5": false
+		}
+	},
+	"documentation": {
+		"bronze": {
+			"1": false,
+			"2": false,
+			"3": false,
+			"4": false,
+			"5": true,
+			"6": false,
+			"7": true,
+			"8": true,
+			"9": false
+		},
+		"silver": {
+			"1": false,
+			"2": false,
+			"3": true,
+			"4": true,
+			"5": false,
+			"6": true
+		},
+		"gold": {
+			"1": true,
+			"2": false,
+			"3": false,
+			"4": true,
+			"5": false,
+			"6": false
+		}
+	}
 }

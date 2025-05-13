@@ -1,121 +1,84 @@
 {
 	"name": "Analysis of Functional NeuroImages (AFNI)",
-	"description": "AFNI is a software suite developed by the National Institute of Mental Health (NIMH) to analyze and visualize functional MRI data. It is particularly suitable for cognitive neuroscience research.",
+	"date": "2022-08-28",
 	"urls": [
 		{
-			"text": "Source Code",
-			"href": "princeton.edu/analysis_of_functional_neuroimages"
+			"url_type": "Source Code",
+			"url": "princeton.edu/analysis_of_functional_neuroimages"
 		}
 	],
-	"maintainers": [
-		{
-			"name": "Phillip Schuster",
-			"email": "phillipschuster@foomail.mock",
-			"affiliation": "University of California, Santa Barbara"
-		},
-		{
-			"name": "Ms. Sophia Tillman",
-			"email": "mssophiatillman@foomail.mock",
-			"affiliation": "University of California, Santa Barbara"
-		},
-		{
-			"name": "Mitchell Bode-Purdy",
-			"email": "mitchellbodepurdy@foomail.mock",
-			"affiliation": "University of Southampton"
-		},
-		{
-			"name": "Theodore Wisozk PhD",
-			"email": "theodorewisozkphd@foomail.mock",
-			"affiliation": "University of California, Riverside"
-		},
-		{
-			"name": "Byron Cremin",
-			"email": "byroncremin@foomail.mock",
-			"affiliation": "University of Sussex"
-		},
-		{
-			"name": "Patti Pagac",
-			"email": "pattipagac@foomail.mock",
-			"affiliation": "University of Wolverhampton"
-		}
-	],
-	"evaluations": [
-		{
-			"checklistVersion": "1.1",
-			"toolVersion": "3.6.3",
-			"date": "2022-08-28",
-			"evaluatorEmail": "jclucas@nmind.mock",
-			"checklist": {
-				"testing": {
-					"bronze": {
-						"bronze_tst_1": true,
-						"bronze_tst_2": false
-					},
-					"silver": {
-						"silver_tst_1": true,
-						"silver_tst_2": true
-					},
-					"gold": {
-						"gold_tst_1": true,
-						"gold_tst_2": true
-					}
-				},
-				"infrastructure": {
-					"bronze": {
-						"bronze_inf_1": true,
-						"bronze_inf_2": false,
-						"bronze_inf_3": false,
-						"bronze_inf_4": false,
-						"bronze_inf_5": true,
-						"bronze_inf_6": false,
-						"bronze_inf_7": false
-					},
-					"silver": {
-						"silver_inf_1": false,
-						"silver_inf_2": true,
-						"silver_inf_3": false
-					},
-					"gold": {
-						"gold_inf_1": false,
-						"gold_inf_2": true,
-						"gold_inf_3": false,
-						"gold_inf_4": true,
-						"gold_inf_5": false
-					}
-				},
-				"documentation": {
-					"bronze": {
-						"bronze_doc_1": false,
-						"bronze_doc_2": false,
-						"bronze_doc_3": true,
-						"bronze_doc_4": false,
-						"bronze_doc_5": true,
-						"bronze_doc_6": true,
-						"bronze_doc_7": false,
-						"bronze_doc_8": true,
-						"bronze_doc_9": true
-					},
-					"silver": {
-						"silver_doc_1": false,
-						"silver_doc_2": false,
-						"silver_doc_3": true,
-						"silver_doc_4": false,
-						"silver_doc_5": false,
-						"silver_doc_6": false
-					},
-					"gold": {
-						"gold_doc_1": false,
-						"gold_doc_2": true,
-						"gold_doc_3": false,
-						"gold_doc_4": true,
-						"gold_doc_5": false,
-						"gold_doc_6": false
-					}
-				}
-			}
-		}
-	],
-	"slug": "analysis-of-functional-neuroimages-afni",
 	"image": "brain_9_svgrepo_com--Crimson.png",
-	"tags": ["fsl", "image-registration", "converter"]
+	"checklistVersion": "1.1",
+	"evaluators": [
+		{
+			"name": "NMIND",
+			"contact": "https://github.com/nmind"
+		}
+	],
+	"testing": {
+		"bronze": {
+			"1": true,
+			"2": false
+		},
+		"silver": {
+			"1": true,
+			"2": true
+		},
+		"gold": {
+			"1": true,
+			"2": true
+		}
+	},
+	"infrastructure": {
+		"bronze": {
+			"1": true,
+			"2": false,
+			"3": false,
+			"4": false,
+			"5": true,
+			"6": false,
+			"7": false
+		},
+		"silver": {
+			"1": false,
+			"2": true,
+			"3": false
+		},
+		"gold": {
+			"1": false,
+			"2": true,
+			"3": false,
+			"4": true,
+			"5": false
+		}
+	},
+	"documentation": {
+		"bronze": {
+			"1": false,
+			"2": false,
+			"3": true,
+			"4": false,
+			"5": true,
+			"6": true,
+			"7": false,
+			"8": true,
+			"9": true
+		},
+		"silver": {
+			"1": false,
+			"2": false,
+			"3": true,
+			"4": false,
+			"5": false,
+			"6": false
+		},
+		"gold": {
+			"1": false,
+			"2": true,
+			"3": false,
+			"4": true,
+			"5": false,
+			"6": false
+		}
+	}
 }
