@@ -28,6 +28,7 @@
 
 	$: filterToolData(tools, textQuery, sectionTierQuery).then((response) => {
 		filteredTools = response;
+		currentPage = 1;
 	});
 	$: sortedTools = sortFilteredData(filteredTools, sortingQuery);
 	$: paginateSortedData(sortedTools, currentPage);
