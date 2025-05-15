@@ -1,23 +1,27 @@
 import type { checklistSections, checklistTiers } from '$lib/constants';
 
-// types.ts
-export interface Tool {
-	checklistVersion: string;
-	date: string;
-	evaluators: Evaluator[];
-	history: string | null;
+export interface Entry {
+	checklistVersion?: string;
+	date?: string;
+	evaluators?: Evaluator[];
+	history?: string;
 	name: string;
-	image: string;
-	urls: Url[];
+	image?: string;
+	urls?: Url[];
 	documentation: ChecklistSection;
 	infrastructure: ChecklistSection;
 	testing: ChecklistSection;
+}
+
+export interface Tool extends Entry {
+	date: string;
+	image: string;
 	slug: string; // for web app, generated from name in checklist
 }
 
 export interface Evaluator {
 	name: string;
-	contact: string | null;
+	contact?: string;
 }
 
 export interface Url {

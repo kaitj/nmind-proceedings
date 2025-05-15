@@ -1,8 +1,31 @@
 import { checklistSections, checklistTiers, complianceColors, sortingKeys } from '$lib/constants';
-import type { ChecklistSection, EvaluationSchema, Tool, Url } from '$lib/types';
+import type { ChecklistSection, Entry, EvaluationSchema, Evaluator, Tool, Url } from '$lib/types';
 import tippy, { type Props } from 'tippy.js';
 
-function generateSlug(name: string): string {
+const ENTRY_DEFAULTS = {
+	checklistVersion: '1.1',
+	evaluators: [{ name: 'NMIND' }] satisfies Evaluator[],
+	date: new Date().toISOString().split('T')[0],
+	image: 'brain_9_svgrepo_com--CadetBlue.png'
+};
+
+export function migrateEntry(entry: Entry): Tool {
+	return {
+		checklistVersion: entry.checklistVersion ?? ENTRY_DEFAULTS.checklistVersion,
+		date: entry.date ?? ENTRY_DEFAULTS.date,
+		evaluators: entry.evaluators ?? ENTRY_DEFAULTS.evaluators,
+		history: entry.history ?? undefined,
+		name: entry.name,
+		image: ENTRY_DEFAULTS.image,
+		urls: entry.urls ?? [],
+		documentation: entry.documentation,
+		infrastructure: entry.infrastructure,
+		testing: entry.testing,
+		slug: makeUrlSafe(entry.name)
+	};
+}
+
+export function makeUrlSafe(name: string): string {
 	return name
 		.toLowerCase()
 		.replace(/[^\w\s]/gi, '')
@@ -10,14 +33,12 @@ function generateSlug(name: string): string {
 }
 
 export async function loadTools(): Promise<Tool[]> {
-	const checklists = import.meta.glob('$lib/data/evaluatedTools/*.json', { eager: true });
+	const checklists = import.meta.glob('$lib/data/entries/*.json', { eager: true });
 
 	return Object.values(checklists).map((module: any) => {
-		const tool = module.default as Tool;
-		return {
-			...tool,
-			slug: generateSlug(tool.name)
-		};
+		const rawEntry = module.default as Entry;
+		const tool = migrateEntry(rawEntry);
+		return { ...tool };
 	});
 }
 
