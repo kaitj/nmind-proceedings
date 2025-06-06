@@ -9,6 +9,8 @@ jobs:
     permissions:
       contents: write
       issues: write
+    env:
+      checklistVersion: '1.1'
 
     steps:
       - name: Check labels
@@ -20,7 +22,7 @@ jobs:
             const hasApproved = labels.includes('approved');
             const hasChecklist = labels.includes('checklist');
             return hasApproved && hasChecklist;
-      
+
       - name: Early exit
         if: steps.check_labels.outputs.result == 'false'
         run: echo "Not an approved checklist issue - exiting"
@@ -32,10 +34,30 @@ jobs:
       - name: Extract checklist data
         if: steps.check_labels.outputs.result == 'true'
         run: |
+          # Extract checklist
           issue_body='${{ github.event.issue.body }}'
-          checklist=$(echo "$issue_body" | sed -n '/```json/I,/```/p' | sed '1d;$d')
-          name=$(echo "$checklist" | jq -r '.name' | sed -e 's/ /_/g' -e 's/-/_/g')
-          echo "checklist=$(echo $checklist)" >> $GITHUB_ENV
+          checklist_json=$(echo "$issue_body" | sed -n '/```json/I,/```/p' | sed '1d;$d')
+          name=$(echo "$checklist_json" | jq -r '.name' | sed -e 's/ /_/g' -e 's/-/_/g')
+
+          # Add date, evaluators, history
+          date_str=$(date +%F)
+          issue_json='${{ toJson(github.event.issue) }}'
+          evaluators=$(jq -r '[.assignees[] | {name: .login, contact: .html_url}]' <<< "$issue_json")
+          history="https://github.com/nmind/proceedings/commits/development/src/lib/data/entries/checklist_${name}.json"
+          image="brain_9_svgrepo_com--CadetBlue.png"
+
+          # Add additional checklist items
+          checklist_json=$(echo "$checklist_json" | jq \
+            --arg checklistVersion "$checklistVersion" \
+            --arg date "$date_str" \
+            --argjson evaluators "$evaluators" \
+            --arg history "$history" \
+            --arg image "$image" \
+            '. + {checklistVersion: $checklistVersion, date: $date, evaluators: $evaluators, history: $history, image: $image}')
+          echo $checklist_json
+
+          # Export variables to environment
+          echo "checklist=$(echo $checklist_json)" >> $GITHUB_ENV
           echo "name=$(echo $name)" >> $GITHUB_ENV
 
       - name: Create file
@@ -59,7 +81,7 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-        
+
       - name: Commit files
         if: steps.check_labels.outputs.result == 'true'
         run: |
@@ -79,6 +101,16 @@ jobs:
         run: |
           badge_url=$(python .github/scripts/create_badge.py "${{ env.file_name }}")
           echo "badge=$(echo $badge_url)" >> $GITHUB_ENV
+
+      # Generate url-safe, expected string
+      - name: Generate URL-safe tool string
+        if: steps.check_labels.outputs.result == 'true'
+        run: |
+          tool_url=$(echo "${{ env.name }} " \
+            | tr '[:upper:]' '[:lower:]' \
+            | tr -d '-' \
+            | sed 's/ /-/g')
+          echo "safe_url=$(echo $tool_url)" >> $GITHUB_ENV
       
       - name: Comment on issue
         if: steps.check_labels.outputs.result == 'true'
@@ -96,6 +128,6 @@ jobs:
 
             📄 **To embed this badge in a `README.md`, use the following Markdown:**
             ```md
-            [![${{ env.name }}](${{ env.badge }})](https://nmind.org/proceedings/${{ env.name }})
+            [![${{ env.name }}](${{ env.badge }})](https://nmind.org/proceedings/${{ env.safe_url }})
             ```
             
