@@ -29,6 +29,8 @@ jobs:
           echo "Generating screenshot for $raw_name from $issue_number"
       
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -43,14 +45,15 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
 
-      - name: Generate screenshot
+      - name: Generate and commit screenshot
         run: |
-          git checkout gh-screenshots
           python .github/scripts/card_screenshot.py ${{ env.raw_name }}
-          mv ${{ env.raw_name }}.png screenshots/${{ env.raw_name }}.png
 
-      - name: Commit files
-        run: |
+          git fetch origin gh-screenshots
+          git checkout gh-screenshots
+
+          mv ${{ env.raw_name }}.png screenshots/${{ env.raw_name }}.png
+          
           git add screenshots/${{ env.raw_name }}.png
           git commit -m 'Add / update ${{ env.raw_name }} screenshot'
           git push
