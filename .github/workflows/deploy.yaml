@@ -8,6 +8,9 @@ on:
     workflows: ["Add checklist"]
     types:
       - completed
+concurrency:
+  group: checklist-workflow
+  cancel-in-progress: false
 
 jobs:
   build:

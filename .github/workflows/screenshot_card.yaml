@@ -4,6 +4,9 @@ on:
     workflows: ["pages-build-deployment"]
     types:
       - completed
+concurrency:
+  group: checklist-workflow
+  cancel-in-progress: false
 
 jobs:
   screenshot:
