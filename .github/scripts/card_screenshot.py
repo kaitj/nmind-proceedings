@@ -40,7 +40,7 @@ def headless_browser() -> Generator[webdriver.Chrome, None, None]:
 
 def screenshot(tool: str, timeout: int = 30) -> None:
     with headless_browser() as driver:
-        driver.get("https://nmind.org/proceedings")
+        driver.get("https://jasonkai.com/nmind-proceedings")
         wait = WebDriverWait(driver, timeout)
 
         # Filter for tool so it displays on page
