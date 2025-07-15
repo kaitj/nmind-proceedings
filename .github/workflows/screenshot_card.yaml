@@ -1,0 +1,70 @@
+name: Tool card screenshot
+on:
+  workflow_run:
+    workflows: ["Deploy"]
+    types:
+      - completed
+
+jobs:
+  screenshot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download context
+        id: download_context
+        continue-on-error: true
+        uses: actions/download-artifact@v4
+        with:
+          name: context
+
+      - name: Exit on missing context
+        if: steps.download_context.outcome == 'failure'
+        run: |
+          echo "⚠️ Context artifact not found. Skipping downstream steps."
+          exit 0
+      
+      - name: Load context
+        run: |
+          cat context.env >> $GITHUB_ENV
+          echo "Generating screenshot for $raw_name from $issue_number"
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          cache: 'pip'
+      
+      - name: Install Python dependencies
+        run: pip install 'selenium>=4.34'
+
+      - name: Configure git
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+
+      - name: Generate screenshot
+        run: |
+          git checkout screenshots
+          python .github/scripts/card_screenshot.py ${{ env.raw_name }}
+          mv ${{ env.raw_name }}.png screenshots/${{ env.raw_name }}.png
+
+      - name: Commit files
+        run: |
+          git add screenshots/${{ env.raw_name }}.png
+          git commit -m 'Add / update ${{ env.raw_name }} screenshot'
+          git push
+          
+          echo "screenshot_url=https://raw.githubusercontent.com/${{ github.repository }}/screenshots/screenshots/${{ env.raw_name }}.png" >> $GITHUB_ENV
+      
+      - name: Comment on issue
+        uses: peter-evans/create-or-update-comment@v4
+        with:
+          issue-number: ${{ env.issue_number }}
+          body: |
+            🖼️ **Screenshot of tool card for **${{ env.raw_name }}**:
+            ![${{ env.raw_name }} screenshot](${{ env.screenshot_url }})
+
+            🔗 **Screenshot URL**:
+            ```
+            ${{ env.screenshot_url }}
+            ```
+          
