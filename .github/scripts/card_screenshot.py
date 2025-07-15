@@ -55,7 +55,7 @@ def screenshot(tool: str, timeout: int = 30) -> None:
 
         # Wait for result to load
         time.sleep(1)
-        tool_xpath = f"//a[contains(@href, '/proceedings/{tool}')]/ancestor::div[1]"
+        tool_xpath = "//a[starts-with(@href, '/nmind-proceedings/')]/ancestor::div[1]"
         element = wait.until(
             EC.visibility_of_element_located((By.XPATH, tool_xpath))
         )
