@@ -29,6 +29,8 @@ jobs:
           echo "Generating screenshot for $raw_name from $issue_number"
       
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -45,6 +47,7 @@ jobs:
 
       - name: Generate screenshot
         run: |
+          git fetch origin gh-screenshots
           git checkout gh-screenshots
           python .github/scripts/card_screenshot.py ${{ env.raw_name }}
           mv ${{ env.raw_name }}.png screenshots/${{ env.raw_name }}.png
