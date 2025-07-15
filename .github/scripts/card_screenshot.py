@@ -40,7 +40,8 @@ def headless_browser() -> Generator[webdriver.Chrome, None, None]:
 
 def screenshot(tool: str, timeout: int = 30) -> None:
     with headless_browser() as driver:
-        driver.get("https://nmind.org/proceedings")
+        driver.get("https://jasonkai.com/nmind-proceedings")
+        # driver.get("https://nmind.org/proceedings")
         wait = WebDriverWait(driver, timeout)
 
         # Filter for tool so it displays on page
@@ -55,7 +56,7 @@ def screenshot(tool: str, timeout: int = 30) -> None:
 
         # Wait for result to load
         time.sleep(1)
-        tool_xpath = "//a[starts-with(@href, '/proceedings/')]/ancestor::div[1]"
+        tool_xpath = "//a[starts-with(@href, '/nmind-proceedings/')]/ancestor::div[1]"
         element = wait.until(
             EC.visibility_of_element_located((By.XPATH, tool_xpath))
         )
