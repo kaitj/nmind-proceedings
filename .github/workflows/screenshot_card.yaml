@@ -1,7 +1,7 @@
 name: Tool card screenshot
 on:
   workflow_run:
-    workflows: ["Deploy"]
+    workflows: ["Deploy to GitHub Pages"]
     types:
       - completed
 
