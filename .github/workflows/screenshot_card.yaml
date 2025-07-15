@@ -12,12 +12,13 @@ jobs:
       - name: Download context
         id: download_context
         continue-on-error: true
-        uses: actions/download-artifact@v4
+        uses: dawidd6/action-download-artifact@v11
         with:
+          workflow: checklist.yaml
           name: context
 
       - name: Exit on missing context
-        if: steps.download_context.outcome == 'failure'
+        if: success()
         run: |
           echo "⚠️ Context artifact not found. Skipping downstream steps."
           exit 0

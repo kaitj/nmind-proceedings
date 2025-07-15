@@ -114,3 +114,4 @@ jobs:
         with:
           name: context
           path: context.env
+          retention-days: 7
