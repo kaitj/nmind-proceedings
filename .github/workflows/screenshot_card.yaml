@@ -1,7 +1,7 @@
 name: Tool card screenshot
 on:
   workflow_run:
-    workflows: ["Deploy to GitHub Pages"]
+    workflows: ["pages-build-deployment"]
     types:
       - completed
 
@@ -18,7 +18,7 @@ jobs:
           name: context
 
       - name: Exit on missing context
-        if: success()
+        if: failure()
         run: |
           echo "⚠️ Context artifact not found. Skipping downstream steps."
           exit 0
@@ -44,7 +44,7 @@ jobs:
 
       - name: Generate screenshot
         run: |
-          git checkout screenshots
+          git checkout gh-screenshots
           python .github/scripts/card_screenshot.py ${{ env.raw_name }}
           mv ${{ env.raw_name }}.png screenshots/${{ env.raw_name }}.png
 
@@ -54,7 +54,7 @@ jobs:
           git commit -m 'Add / update ${{ env.raw_name }} screenshot'
           git push
           
-          echo "screenshot_url=https://raw.githubusercontent.com/${{ github.repository }}/screenshots/screenshots/${{ env.raw_name }}.png" >> $GITHUB_ENV
+          echo "screenshot_url=https://raw.githubusercontent.com/${{ github.repository }}/gh-screenshots/screenshots/${{ env.raw_name }}.png" >> $GITHUB_ENV
       
       - name: Comment on issue
         uses: peter-evans/create-or-update-comment@v4
